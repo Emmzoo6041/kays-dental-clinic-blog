@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Kays Dental Clinic — Dr. Esther's Blog, Podcast & Videos</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gd:#1E5C2E;--gm:#2E7D42;--gs:#4CAF6B;--gl:#D4EDD9;--gp:#EDF7EF;
+  --yd:#B8860B;--ym:#E6B800;--ys:#FFD740;--yl:#FFF3B0;--yp:#FFFBE6;
+  --pod:#6C3FC5;--podl:#EDE9FE;--podb:#C4B5FD;
+  --vid:#B91C1C;--vidl:#FEE2E2;--vidb:#FCA5A5;
+  --wh:#fff;--cr:#F6F9F3;--ow:#FAFCF8;
+  --td:#1A2E1E;--tm:#3D5444;--mu:#7A9480;--bo:#C8DFCC;
+  --fd:'Playfair Display',Georgia,serif;--fb:'Nunito',sans-serif;
+  --s1:0 4px 24px rgba(30,92,46,.10);--s2:0 12px 48px rgba(30,92,46,.16);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--cr);color:var(--td);line-height:1.7;font-size:16px;overflow-x:hidden}
+img{display:block;max-width:100%}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom:2px solid var(--gl);height:72px;padding:0 5vw;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.logo-img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2.5px solid var(--gs);flex-shrink:0}
+.logo-text strong{display:block;font-size:1rem;font-weight:800;color:var(--gd);line-height:1.1}
+.logo-text span{font-size:.68rem;color:var(--mu)}
+.nav-links{display:flex;gap:.15rem;list-style:none;align-items:center}
+.nav-links a{text-decoration:none;font-size:.82rem;font-weight:600;color:var(--tm);padding:.4rem .85rem;border-radius:8px;transition:all .2s;display:block;white-space:nowrap}
+.nav-links a:hover{color:var(--gm);background:var(--gp)}
+.nav-cta{background:var(--ym)!important;color:var(--gd)!important;border-radius:2rem!important;font-weight:800!important;padding:.45rem 1.2rem!important;box-shadow:0 2px 10px rgba(230,184,0,.3)!important;transition:all .2s!important}
+.nav-cta:hover{background:var(--ys)!important;transform:translateY(-1px)!important}
+
+/* HERO */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;min-height:90vh;overflow:hidden}
+.hero-left{background:var(--gp);padding:5.5rem 4vw 4rem 5vw;display:flex;flex-direction:column;justify-content:center;position:relative}
+.hero-left::after{content:'';position:absolute;bottom:0;right:0;width:60px;height:100%;background:linear-gradient(to right,transparent,var(--cr));z-index:2;pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:.4rem;background:var(--yl);border:1.5px solid var(--ym);color:var(--yd);font-size:.74rem;font-weight:700;padding:.34rem 1rem;border-radius:2rem;margin-bottom:1.3rem;width:fit-content}
+.hero h1{font-family:var(--fd);font-size:clamp(2.2rem,4vw,3.6rem);line-height:1.12;font-weight:700;color:var(--gd);margin-bottom:.9rem}
+.hero h1 em{font-style:italic;color:var(--gm)}
+.hero-desc{font-size:1.02rem;color:var(--tm);line-height:1.82;max-width:460px;margin-bottom:1.6rem}
+.hero-pills{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.8rem}
+.ct-pill{display:inline-flex;align-items:center;gap:.35rem;padding:.38rem .95rem;border-radius:2rem;font-size:.78rem;font-weight:700;border:2px solid}
+.ct-pill.art{background:var(--gp);border-color:var(--gs);color:var(--gd)}
+.ct-pill.pod{background:var(--podl);border-color:var(--podb);color:var(--pod)}
+.ct-pill.vid{background:var(--vidl);border-color:var(--vidb);color:var(--vid)}
+.hero-actions{display:flex;gap:.9rem;flex-wrap:wrap;margin-bottom:2.2rem}
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:.4rem;text-decoration:none;border-radius:2rem;font-weight:700;font-size:.88rem;transition:all .22s;padding:.76rem 1.9rem;cursor:pointer;border:none;font-family:var(--fb);white-space:nowrap;justify-content:center}
+.btn-green{background:var(--gm);color:#fff;box-shadow:0 4px 16px rgba(46,125,66,.28)}
+.btn-green:hover{background:var(--gd);transform:translateY(-2px)}
+.btn-outline{border:2.5px solid var(--gm);color:var(--gm);background:transparent}
+.btn-outline:hover{background:var(--gp)}
+.btn-outline-w{border:2px solid rgba(255,255,255,.35);color:#fff;background:rgba(255,255,255,.08)}
+.btn-outline-w:hover{background:rgba(255,255,255,.18)}
+.btn-wa{background:#25D366;color:#fff;box-shadow:0 4px 16px rgba(37,211,102,.28)}
+.btn-wa:hover{background:#1ebe5d;transform:translateY(-2px)}
+.btn-yellow{background:var(--ym);color:var(--gd);box-shadow:0 4px 16px rgba(230,184,0,.28)}
+.btn-yellow:hover{background:var(--ys);transform:translateY(-2px)}
+.btn-pod{background:var(--pod);color:#fff;box-shadow:0 4px 16px rgba(108,63,197,.28)}
+.btn-pod:hover{background:#5b2fa8;transform:translateY(-2px)}
+.btn-vid{background:var(--vid);color:#fff;box-shadow:0 4px 16px rgba(185,28,28,.28)}
+.btn-vid:hover{background:#991b1b;transform:translateY(-2px)}
+.btn-sm{padding:.5rem 1.15rem;font-size:.78rem}
+/* Doctor card */
+.dr-card{display:flex;align-items:center;gap:1rem;background:var(--wh);border:2px solid var(--bo);border-radius:18px;padding:.95rem 1.3rem;max-width:420px;box-shadow:var(--s1)}
+.dr-card-img{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:top;border:3px solid var(--gs);flex-shrink:0}
+.dr-info strong{display:block;font-size:.93rem;font-weight:800;color:var(--gd)}
+.dr-info span{font-size:.74rem;color:var(--mu)}
+.dr-stats{display:flex;gap:1.3rem;margin-top:.45rem}
+.dr-stat strong{display:block;font-family:var(--fd);font-size:1.18rem;color:var(--gd);line-height:1}
+.dr-stat span{font-size:.63rem;color:var(--mu)}
+/* Hero right */
+.hero-right{position:relative;overflow:hidden}
+.hero-right>img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,var(--gp) 0%,transparent 22%,transparent 78%,rgba(0,0,0,.12) 100%)}
+.hero-float{position:absolute;bottom:2.5rem;right:2.5rem;background:rgba(255,255,255,.96);border-radius:16px;padding:.95rem 1.25rem;box-shadow:var(--s2);border:1.5px solid var(--bo);display:flex;flex-direction:column;align-items:center;gap:.15rem}
+.hero-float strong{font-family:var(--fd);font-size:1.7rem;color:var(--gd);line-height:1}
+.hero-float span{font-size:.66rem;color:var(--mu);font-weight:600;text-align:center}
+
+/* TRUST BAR */
+.trust-bar{background:var(--gd);padding:1.1rem 5vw;display:flex;align-items:center;justify-content:space-around;flex-wrap:wrap;gap:.8rem}
+.trust-item{display:flex;align-items:center;gap:.45rem;color:rgba(255,255,255,.88);font-size:.79rem;font-weight:700}
+
+/* SECTION SHARED */
+section{padding:5rem 5vw}
+.s-tag{display:inline-block;background:var(--yl);color:var(--yd);font-size:.69rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.28rem .88rem;border-radius:2rem;border:1.5px solid var(--ym);margin-bottom:.85rem}
+.s-tag.pod-tag{background:var(--podl);color:var(--pod);border-color:var(--podb)}
+.s-tag.vid-tag{background:var(--vidl);color:var(--vid);border-color:var(--vidb)}
+.s-title{font-family:var(--fd);font-size:clamp(1.85rem,3vw,2.65rem);font-weight:700;line-height:1.15;color:var(--gd);margin-bottom:.45rem}
+.s-sub{font-size:.96rem;color:var(--tm);max-width:540px;line-height:1.82;margin-bottom:1.8rem}
+.sec-hdr{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:2.2rem}
+
+/* PUBLISH BANNER */
+.pub-banner{background:linear-gradient(135deg,var(--gd) 0%,#0f3d1a 100%);padding:2rem 5vw;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;position:relative;overflow:hidden}
+.pub-banner::before{content:'';position:absolute;right:-50px;top:-50px;width:240px;height:240px;background:radial-gradient(circle,rgba(255,215,64,.1) 0%,transparent 70%);border-radius:50%;pointer-events:none}
+.pub-banner-text h3{font-family:var(--fd);font-size:1.25rem;color:#fff;margin-bottom:.3rem}
+.pub-banner-text p{font-size:.83rem;color:rgba(255,255,255,.62);max-width:520px;line-height:1.6}
+.pub-banner-pills{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.65rem}
+.pub-pill{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.85);font-size:.71rem;font-weight:700;padding:.2rem .72rem;border-radius:2rem}
+.pub-banner-btns{display:flex;gap:.65rem;flex-wrap:wrap;position:relative;z-index:1}
+
+/* PUBLISH FORMS */
+.pub-forms-wrap{background:var(--wh);padding:0 5vw}
+.pub-form{display:none;background:var(--wh);border:2px solid var(--bo);border-radius:20px;padding:2rem;margin-bottom:0;box-shadow:var(--s1)}
+.pub-form.open{display:block}
+.pub-form-title{font-family:var(--fd);font-size:1.22rem;margin-bottom:1.25rem;display:flex;align-items:center;gap:.5rem}
+.pub-form-title.art{color:var(--gd)}
+.pub-form-title.pod{color:var(--pod)}
+.pub-form-title.vid{color:var(--vid)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.fg{display:flex;flex-direction:column;gap:.36rem}
+.fg.full{grid-column:1 / -1}
+.fg label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--mu)}
+.fg input,.fg select,.fg textarea{padding:.68rem 1rem;border:2px solid var(--bo);border-radius:12px;font-size:.88rem;font-family:var(--fb);color:var(--td);background:var(--cr);outline:none;transition:border-color .2s;width:100%}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gm);background:#fff}
+.fg textarea{resize:vertical;min-height:110px}
+.form-hint{font-size:.7rem;color:var(--mu);margin-top:.25rem;line-height:1.5}
+.form-actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.1rem}
+.img-prev{width:100%;height:130px;object-fit:cover;border-radius:10px;margin-top:.45rem;display:none;border:2px solid var(--bo)}
+
+/* FILTER TABS */
+.filter-row{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2.2rem}
+.tag-btn{padding:.38rem 1.05rem;border-radius:2rem;border:2px solid var(--bo);background:transparent;color:var(--mu);font-size:.78rem;font-weight:700;font-family:var(--fb);cursor:pointer;transition:all .18s}
+.tag-btn.active,.tag-btn:hover{background:var(--gm);color:#fff;border-color:var(--gm)}
+
+/* ARTICLES */
+#articles{background:var(--wh)}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fill,minmax(305px,1fr));gap:1.8rem}
+.article-card{background:var(--cr);border:2px solid var(--bo);border-radius:22px;overflow:hidden;cursor:pointer;transition:all .24s}
+.article-card:hover{transform:translateY(-6px);box-shadow:var(--s2);border-color:var(--gs)}
+.card-thumb{height:210px;overflow:hidden;position:relative}
+.card-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.article-card:hover .card-thumb img{transform:scale(1.06)}
+.cat-badge{position:absolute;top:12px;left:12px;background:var(--gm);color:#fff;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:.25rem .78rem;border-radius:2rem}
+.card-body{padding:1.3rem 1.45rem 1.7rem}
+.card-title{font-family:var(--fd);font-size:1.16rem;font-weight:600;line-height:1.3;color:var(--gd);margin-bottom:.5rem}
+.card-exc{font-size:.86rem;color:var(--tm);line-height:1.7;margin-bottom:.95rem}
+.card-meta{display:flex;align-items:center;gap:.4rem;font-size:.73rem;color:var(--mu);font-weight:600}
+.card-meta .dot{width:3px;height:3px;border-radius:50%;background:var(--mu);flex-shrink:0}
+.card-meta .read{margin-left:auto;color:var(--gm);font-weight:700}
+.no-content{grid-column:1 / -1;text-align:center;padding:3rem;color:var(--mu);font-size:.92rem;background:var(--cr);border-radius:16px;border:2px dashed var(--bo);line-height:1.7}
+
+/* PODCASTS */
+#podcasts{background:linear-gradient(180deg,var(--cr) 0%,#f3f0ff 100%)}
+.pod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1.8rem}
+.pod-card{background:var(--wh);border:2px solid var(--podb);border-radius:22px;overflow:hidden;transition:all .24s}
+.pod-card:hover{transform:translateY(-5px);box-shadow:0 12px 40px rgba(108,63,197,.15);border-color:var(--pod)}
+.pod-cover{height:175px;overflow:hidden;position:relative;background:linear-gradient(135deg,var(--pod) 0%,#4c1d95 100%);display:flex;align-items:center;justify-content:center}
+.pod-cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.32}
+.pod-cover-icon{position:relative;z-index:1;width:66px;height:66px;border-radius:50%;background:rgba(255,255,255,.15);border:2.5px solid rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center;font-size:1.85rem}
+.pod-ep{position:absolute;top:11px;left:11px;background:var(--pod);color:#fff;font-size:.63rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:.23rem .72rem;border-radius:2rem;z-index:1}
+.pod-spotify-badge{position:absolute;top:11px;right:11px;background:rgba(255,255,255,.93);border-radius:2rem;font-size:.61rem;font-weight:700;color:#1DB954;padding:.2rem .62rem;z-index:1}
+.pod-body{padding:1.25rem 1.4rem 1.55rem}
+.pod-title{font-family:var(--fd);font-size:1.1rem;font-weight:600;color:var(--td);margin-bottom:.38rem;line-height:1.3}
+.pod-desc{font-size:.83rem;color:var(--tm);line-height:1.65;margin-bottom:.85rem}
+.pod-player{margin-bottom:.8rem}
+.pod-player audio{width:100%;height:42px;border-radius:8px;accent-color:var(--pod);display:block}
+.pod-no-audio{background:var(--podl);border-radius:10px;padding:.85rem 1rem;text-align:center;font-size:.82rem;color:var(--pod);font-weight:700;line-height:1.5}
+.pod-meta{display:flex;align-items:center;gap:.4rem;font-size:.72rem;color:var(--mu);font-weight:600}
+.pod-meta .dot{width:3px;height:3px;border-radius:50%;background:var(--mu);flex-shrink:0}
+.pod-share{margin-left:auto;background:none;border:none;font-size:.73rem;font-weight:700;color:var(--pod);cursor:pointer;font-family:var(--fb);transition:color .2s;padding:0}
+.pod-share:hover{color:#4c1d95}
+
+/* VIDEOS */
+#videos{background:var(--wh)}
+.vid-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(305px,1fr));gap:1.8rem}
+.vid-card{background:var(--cr);border:2px solid var(--vidb);border-radius:22px;overflow:hidden;cursor:pointer;transition:all .24s}
+.vid-card:hover{transform:translateY(-5px);box-shadow:0 12px 40px rgba(185,28,28,.14);border-color:var(--vid)}
+.vid-thumb{height:200px;overflow:hidden;position:relative;background:#1a0000}
+.vid-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s,opacity .3s;opacity:.88;display:block}
+.vid-card:hover .vid-thumb img{transform:scale(1.05);opacity:.95}
+.vid-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2}
+.vid-play-btn{width:62px;height:62px;border-radius:50%;background:rgba(239,68,68,.9);display:flex;align-items:center;justify-content:center;transition:all .2s;box-shadow:0 4px 20px rgba(185,28,28,.5)}
+.vid-card:hover .vid-play-btn{transform:scale(1.12);background:var(--vid)}
+.vid-arrow{width:0;height:0;border-top:10px solid transparent;border-bottom:10px solid transparent;border-left:17px solid #fff;margin-left:4px}
+.vid-dur{position:absolute;bottom:9px;right:9px;background:rgba(0,0,0,.75);color:#fff;font-size:.67rem;font-weight:700;padding:.18rem .5rem;border-radius:6px;z-index:2}
+.vid-type-badge{position:absolute;top:9px;left:9px;background:var(--vid);color:#fff;font-size:.61rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:.2rem .62rem;border-radius:2rem;z-index:2}
+.vid-body{padding:1.15rem 1.35rem 1.55rem}
+.vid-title{font-family:var(--fd);font-size:1.08rem;font-weight:600;color:var(--td);margin-bottom:.38rem;line-height:1.3}
+.vid-desc{font-size:.83rem;color:var(--tm);line-height:1.65;margin-bottom:.82rem}
+.vid-meta{display:flex;align-items:center;gap:.4rem;font-size:.72rem;color:var(--mu);font-weight:600}
+.vid-meta .dot{width:3px;height:3px;border-radius:50%;background:var(--mu);flex-shrink:0}
+
+/* ABOUT */
+#about{background:var(--yp)}
+.about-grid{display:grid;grid-template-columns:1fr 1.65fr;gap:5rem;align-items:center}
+.about-img-col{position:relative}
+.about-photo{width:100%;max-width:320px;height:430px;border-radius:30px 30px 90px 30px;object-fit:cover;object-position:top;border:4px solid var(--gl);box-shadow:var(--s2);display:block}
+.about-badge{position:absolute;bottom:-12px;right:10px;background:var(--ym);border-radius:50%;width:86px;height:86px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--fd);font-size:1.36rem;font-weight:700;color:var(--gd);line-height:1.05;box-shadow:0 6px 22px rgba(230,184,0,.42)}
+.about-badge small{font-size:.43rem;font-family:var(--fb);text-transform:uppercase;letter-spacing:.1em}
+.about-creds{display:flex;flex-direction:column;gap:.58rem;margin-top:1.55rem;max-width:320px}
+.cred{background:var(--wh);border-left:4px solid var(--gs);border-radius:0 12px 12px 0;padding:.52rem .95rem;font-size:.79rem;color:var(--tm);font-weight:700;box-shadow:0 2px 8px rgba(20,82,32,.07)}
+.about-text p{font-size:.94rem;color:var(--tm);line-height:1.88;margin-bottom:.95rem}
+.quote-block{border-left:4px solid var(--ym);background:var(--yl);border-radius:0 14px 14px 0;padding:.88rem 1.28rem;margin:1.45rem 0}
+.quote-block p{font-family:var(--fd);font-size:1.08rem;font-style:italic;color:var(--gd);margin:0}
+.about-btns{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.45rem}
+
+/* TESTIMONIALS */
+#testimonials{background:var(--gp)}
+.t-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.45rem}
+.t-card{background:var(--wh);border:2px solid var(--gl);border-radius:20px;padding:1.75rem;transition:all .22s}
+.t-card:hover{transform:translateY(-4px);box-shadow:var(--s2)}
+.t-q{font-size:2.7rem;color:var(--gl);font-family:Georgia;line-height:.9;margin-bottom:.28rem}
+.stars{color:var(--ym);font-size:.9rem;letter-spacing:.12em;margin-bottom:.82rem}
+.t-text{font-family:var(--fd);font-style:italic;font-size:.98rem;color:var(--td);line-height:1.72;margin-bottom:1.15rem}
+.t-author{display:flex;align-items:center;gap:.78rem}
+.t-ava{width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:top;border:2.5px solid var(--gl);flex-shrink:0}
+.t-name{font-size:.86rem;font-weight:700;color:var(--gd)}
+.t-role{font-size:.71rem;color:var(--mu)}
+
+/* CONTACT */
+#contact{background:linear-gradient(135deg,var(--gd) 0%,#0f3d1a 100%);text-align:center;padding:5.5rem 5vw;position:relative;overflow:hidden}
+#contact::before{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(255,215,64,.07) 0%,transparent 70%);border-radius:50%;pointer-events:none}
+.s-tag-w{display:inline-block;background:rgba(255,243,176,.12);color:var(--ys);font-size:.69rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.28rem .88rem;border-radius:2rem;border:1.5px solid rgba(230,184,0,.3);margin-bottom:.85rem}
+.contact-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.15rem;max-width:800px;margin:0 auto 2.2rem;position:relative;z-index:1}
+.cc{background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.13);border-radius:18px;padding:1.65rem;text-align:center;transition:all .2s}
+.cc:hover{background:rgba(255,255,255,.12);transform:translateY(-3px)}
+.cc-icon{font-size:1.65rem;margin-bottom:.65rem}
+.cc h4{font-size:.88rem;font-weight:700;color:#fff;margin-bottom:.28rem}
+.cc p{font-size:.77rem;color:rgba(255,255,255,.5);margin-bottom:.95rem;line-height:1.5}
+.contact-form-box{max-width:510px;margin:0 auto;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.13);border-radius:22px;padding:1.9rem;position:relative;z-index:1;text-align:left}
+.contact-form-box h3{font-family:var(--fd);font-size:1.18rem;color:#fff;margin-bottom:1.05rem;text-align:center}
+.cf-col{display:flex;flex-direction:column;gap:.75rem}
+.cf-in{width:100%;padding:.76rem 1.05rem;border-radius:12px;border:1.5px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:#fff;font-size:.87rem;font-family:var(--fb);outline:none;transition:border-color .2s}
+.cf-in::placeholder{color:rgba(255,255,255,.35)}
+.cf-in:focus{border-color:var(--ys)}
+.cf-ta{resize:vertical;min-height:88px}
+.cf-btns{display:flex;gap:.65rem;flex-wrap:wrap}
+.cf-btns .btn{flex:1;min-width:140px}
+#cfmsg{color:var(--ys);font-size:.81rem;font-weight:700;margin-top:.45rem;display:none;text-align:center}
+
+/* MAP */
+.map-wrap{height:300px;overflow:hidden;border-top:3px solid var(--gl);position:relative}
+.map-wrap iframe{width:100%;height:100%;border:none;display:block}
+.map-btn{position:absolute;bottom:1.4rem;right:1.4rem;background:var(--wh);border-radius:12px;padding:.62rem 1.05rem;box-shadow:var(--s2);text-decoration:none;display:flex;align-items:center;gap:.4rem;font-size:.78rem;font-weight:700;color:var(--td);border:1.5px solid var(--bo);transition:all .2s;white-space:nowrap}
+.map-btn:hover{background:var(--gp);border-color:var(--gs)}
+
+/* FOOTER */
+footer{background:#0a1a0b;color:rgba(255,255,255,.55);padding:3.5rem 5vw 1.5rem}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem}
+.footer-brand{display:flex;flex-direction:column;gap:.9rem}
+.footer-logo-row{display:flex;align-items:center;gap:.8rem}
+.footer-logo-mark{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--gd),var(--gm));display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:1.28rem;font-weight:700;color:#fff;flex-shrink:0}
+.footer-logo-text h3{font-family:var(--fd);font-size:1.18rem;color:var(--ys)}
+.footer-brand p{font-size:.82rem;line-height:1.8;max-width:280px}
+address{font-style:normal;font-size:.79rem;color:rgba(255,255,255,.35);line-height:2}
+address a{color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s}
+address a:hover{color:var(--ys)}
+footer h4{font-size:.67rem;text-transform:uppercase;letter-spacing:.18em;color:var(--ym);font-weight:700;margin-bottom:.95rem}
+footer ul{list-style:none;display:flex;flex-direction:column;gap:.48rem}
+footer ul li a{color:rgba(255,255,255,.45);text-decoration:none;font-size:.83rem;font-weight:600;transition:color .2s}
+footer ul li a:hover{color:var(--ys)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:1.2rem;text-align:center;font-size:.72rem;color:rgba(255,255,255,.22)}
+
+/* MODAL */
+.overlay{display:none;position:fixed;inset:0;z-index:999;background:rgba(5,20,8,.85);backdrop-filter:blur(5px);align-items:center;justify-content:center;padding:2rem}
+.overlay.open{display:flex}
+.modal{background:var(--wh);border-radius:26px;max-width:700px;width:100%;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 28px 90px rgba(0,0,0,.45)}
+.modal-hero{height:250px;overflow:hidden;border-radius:26px 26px 0 0;position:relative}
+.modal-hero img{width:100%;height:100%;object-fit:cover;display:block}
+.modal-hero-pod{height:250px;border-radius:26px 26px 0 0;background:linear-gradient(135deg,var(--pod) 0%,#4c1d95 100%);display:flex;align-items:center;justify-content:center;font-size:5rem}
+.modal-hero-vid{height:250px;border-radius:26px 26px 0 0;background:#1a0000;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.modal-hero-vid img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.38;display:block}
+.modal-hero-vid span{position:relative;z-index:1;font-size:4.5rem}
+.modal-close{position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,.93);border:none;width:38px;height:38px;border-radius:50%;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;box-shadow:0 2px 10px rgba(0,0,0,.18);font-family:sans-serif;transition:background .2s;flex-shrink:0}
+.modal-close:hover{background:#fff}
+.modal-inner{padding:2.1rem 2.4rem 2.6rem}
+.modal-cat{font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.16em;margin-bottom:.48rem}
+.modal-cat.art{color:var(--gm)}
+.modal-cat.pod{color:var(--pod)}
+.modal-cat.vid{color:var(--vid)}
+.modal h2{font-family:var(--fd);font-size:1.82rem;font-weight:700;color:var(--gd);line-height:1.18;margin-bottom:.65rem}
+.modal-meta{font-size:.75rem;color:var(--mu);font-weight:600;margin-bottom:1.55rem;padding-bottom:1rem;border-bottom:2px dashed var(--gl)}
+.modal-body p{font-size:.93rem;color:var(--tm);line-height:1.9;margin-bottom:.95rem}
+.modal-body h3{font-family:var(--fd);font-size:1.16rem;color:var(--gd);margin:1.45rem 0 .42rem}
+.modal-body ul{padding-left:1.2rem;font-size:.88rem;color:var(--tm)}
+.modal-body ul li{margin-bottom:.4rem}
+.modal-body strong{color:var(--gd);font-weight:700}
+.modal-actions{display:flex;gap:.65rem;flex-wrap:wrap;margin-top:1.7rem;padding-top:.95rem;border-top:2px dashed var(--gl)}
+/* Video embed */
+.vid-embed{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;margin-bottom:1.1rem}
+.vid-embed iframe,.vid-embed video{position:absolute;top:0;left:0;width:100%;height:100%;border:none;border-radius:12px}
+
+/* RESPONSIVE */
+@media(max-width:820px){
+  .hero{grid-template-columns:1fr}
+  .hero-right{height:280px;order:-1}
+  .hero-left{padding:2.5rem 1.5rem 2rem;order:0}
+  .hero-left::after{display:none}
+  .about-grid{grid-template-columns:1fr;gap:2rem}
+  .about-img-col{display:none}
+  .footer-grid{grid-template-columns:1fr;gap:2rem}
+  nav{padding:0 1.5rem}
+  .nav-links li:not(:last-child):not(:nth-last-child(2)){display:none}
+  .form-grid{grid-template-columns:1fr}
+  .modal-inner{padding:1.5rem 1.5rem 2rem}
+  .modal h2{font-size:1.45rem}
+  .cf-btns .btn{flex:none;width:100%}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    <img class="logo-img" src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=88&h=88&fit=crop" alt="Kays Dental"/>
+    <div class="logo-text">
+      <strong>Kays Dental Clinic</strong>
+      <span>Dr. Esther · Plot 52, Kanjokya, Kampala</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#articles">📝 Articles</a></li>
+    <li><a href="#podcasts">🎙️ Podcasts</a></li>
+    <li><a href="#videos">🎬 Videos</a></li>
+    <li><a href="#about">Dr. Esther</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact" class="nav-cta">Book Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-badge">🌿 Kays Dental Clinic — Plot 52, Kanjokya, Kampala</div>
+    <h1>Healthy Smiles,<br><em>Happy Lives</em></h1>
+    <p class="hero-desc">Dr. Esther shares expert dental articles, audio podcasts, and short video tips every week — completely free for every Ugandan family.</p>
+    <div class="hero-pills">
+      <span class="ct-pill art">📝 Articles</span>
+      <span class="ct-pill pod">🎙️ Audio Podcasts</span>
+      <span class="ct-pill vid">🎬 Video Shorts</span>
+    </div>
+    <div class="hero-actions">
+      <a href="https://wa.me/256772465051?text=Hello%20Dr.%20Esther!%20I%20would%20like%20to%20book%20an%20appointment%20at%20Kays%20Dental%20Clinic." target="_blank" class="btn btn-wa">💬 WhatsApp Dr. Esther</a>
+      <a href="#articles" class="btn btn-outline">Read Articles</a>
+    </div>
+    <div class="dr-card">
+      <img class="dr-card-img" src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=132&h=132&fit=crop&crop=face" alt="Dr. Esther"/>
+      <div class="dr-info">
+        <strong>Dr. Esther Lukwago</strong>
+        <span>Lead Dentist · Kays Dental Clinic</span>
+        <div class="dr-stats">
+          <div class="dr-stat"><strong>10+</strong><span>Yrs Exp.</span></div>
+          <div class="dr-stat"><strong>2,500+</strong><span>Patients</span></div>
+          <div class="dr-stat"><strong>⭐ 5.0</strong><span>Rating</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=960&h=1080&fit=crop" alt="Dr. Esther with patient"/>
+    <div class="hero-overlay"></div>
+    <div class="hero-float">
+      <strong>98%</strong>
+      <span>Patient<br>Satisfaction</span>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item">🏅 Uganda Dental Association Certified</div>
+  <div class="trust-item">🦷 Painless Procedures</div>
+  <div class="trust-item">👶 Family &amp; Child Friendly</div>
+  <div class="trust-item">🎙️ Weekly Podcast</div>
+  <div class="trust-item">🎬 Video Tips Weekly</div>
+  <div class="trust-item">📍 Plot 52 Kanjokya, Kampala</div>
+</div>
+
+<!-- PUBLISH BANNER -->
+<div class="pub-banner">
+  <div class="pub-banner-text">
+    <h3>📤 Dr. Esther's Publishing Studio</h3>
+    <p>Publish a new article, upload a podcast episode, or add a video short — all in minutes, right here, no technical skills needed.</p>
+    <div class="pub-banner-pills">
+      <span class="pub-pill">📅 Weekly articles</span>
+      <span class="pub-pill">🎙️ Audio podcasts</span>
+      <span class="pub-pill">🎬 Video shorts</span>
+      <span class="pub-pill">🌿 Seasonal tips</span>
+    </div>
+  </div>
+  <div class="pub-banner-btns">
+    <button class="btn btn-yellow" onclick="openForm('art')">✏️ New Article</button>
+    <button class="btn btn-pod" onclick="openForm('pod')">🎙️ New Podcast</button>
+    <button class="btn btn-vid" onclick="openForm('vid')">🎬 New Video</button>
+    <button class="btn btn-wa" onclick="shareAll()">💬 Share Blog</button>
+  </div>
+</div>
+
+<!-- PUBLISH FORMS WRAPPER -->
+<div class="pub-forms-wrap">
+
+  <!-- ARTICLE FORM -->
+  <div class="pub-form" id="form-art">
+    <div class="pub-form-title art">✏️ Publish a New Article</div>
+    <div class="form-grid">
+      <div class="fg"><label>Article Title</label><input type="text" id="a-title" placeholder="e.g. Why Your Gums Bleed When You Floss"/></div>
+      <div class="fg"><label>Category</label>
+        <select id="a-cat">
+          <option value="hygiene">Hygiene</option>
+          <option value="cosmetic">Cosmetic</option>
+          <option value="children">Children</option>
+          <option value="nutrition">Nutrition</option>
+          <option value="holistic">Holistic</option>
+          <option value="general">General</option>
+        </select>
+      </div>
+      <div class="fg full"><label>Short Summary (shown on card)</label><input type="text" id="a-exc" placeholder="One engaging sentence about this article..."/></div>
+      <div class="fg full"><label>Full Article Content</label><textarea id="a-body" placeholder="Write the full article here. Use blank lines to separate paragraphs."></textarea></div>
+      <div class="fg">
+        <label>Cover Image URL</label>
+        <input type="url" id="a-img" placeholder="Paste an image URL..." oninput="prevImg('a-img','a-prev')"/>
+        <div class="form-hint">Paste any image link from Unsplash, your phone, or Google Drive</div>
+        <img id="a-prev" class="img-prev" alt="Preview"/>
+      </div>
+      <div class="fg"><label>Read Time</label><input type="text" id="a-time" placeholder="e.g. 5 min read"/></div>
+    </div>
+    <div class="form-actions">
+      <button class="btn btn-green" onclick="publishItem('art')">🚀 Publish Article</button>
+      <button class="btn btn-outline" onclick="closeForm('art')">Cancel</button>
+    </div>
+  </div>
+
+  <!-- PODCAST FORM -->
+  <div class="pub-form" id="form-pod">
+    <div class="pub-form-title pod">🎙️ Publish a New Podcast Episode</div>
+    <div class="form-grid">
+      <div class="fg"><label>Episode Title</label><input type="text" id="p-title" placeholder="e.g. Let's Talk About Bleeding Gums"/></div>
+      <div class="fg"><label>Episode Number</label><input type="text" id="p-ep" placeholder="e.g. Episode 4"/></div>
+      <div class="fg full"><label>Episode Description</label><textarea id="p-desc" placeholder="What will listeners learn in this episode?"></textarea></div>
+      <div class="fg">
+        <label>Audio URL (MP3 or Podcast Link)</label>
+        <input type="url" id="p-url" placeholder="Paste direct MP3 or Anchor.fm link..."/>
+        <div class="form-hint">✅ Direct MP3 link &nbsp;·&nbsp; ✅ Anchor.fm episode URL &nbsp;·&nbsp; ✅ Any podcast audio URL</div>
+      </div>
+      <div class="fg">
+        <label>Spotify Embed URL (optional)</label>
+        <input type="url" id="p-spotify" placeholder="Paste Spotify embed src URL..."/>
+        <div class="form-hint">On Spotify: Share episode → Embed → copy the src="..." URL</div>
+      </div>
+      <div class="fg">
+        <label>Cover Art Image URL</label>
+        <input type="url" id="p-img" placeholder="Paste cover image URL..." oninput="prevImg('p-img','p-prev')"/>
+        <img id="p-prev" class="img-prev" alt="Preview"/>
+      </div>
+      <div class="fg"><label>Duration</label><input type="text" id="p-dur" placeholder="e.g. 22 mins"/></div>
+    </div>
+    <div class="form-actions">
+      <button class="btn btn-pod" onclick="publishItem('pod')">🎙️ Publish Episode</button>
+      <button class="btn btn-outline" onclick="closeForm('pod')">Cancel</button>
+    </div>
+  </div>
+
+  <!-- VIDEO FORM -->
+  <div class="pub-form" id="form-vid">
+    <div class="pub-form-title vid">🎬 Publish a New Video Short</div>
+    <div class="form-grid">
+      <div class="fg"><label>Video Title</label><input type="text" id="v-title" placeholder="e.g. The Right Way to Floss in 60 Seconds"/></div>
+      <div class="fg"><label>Video Type</label>
+        <select id="v-type">
+          <option value="YouTube Short">YouTube Short</option>
+          <option value="YouTube Video">YouTube Video</option>
+          <option value="TikTok">TikTok</option>
+          <option value="Instagram Reel">Instagram Reel</option>
+          <option value="Uploaded Video">Uploaded Video</option>
+        </select>
+      </div>
+      <div class="fg full"><label>Description</label><textarea id="v-desc" placeholder="What will viewers learn from this video?"></textarea></div>
+      <div class="fg full">
+        <label>Video URL</label>
+        <input type="url" id="v-url" placeholder="Paste YouTube, TikTok, or direct .mp4 URL..."/>
+        <div class="form-hint">✅ YouTube link (auto-converts to embed) &nbsp;·&nbsp; ✅ Direct .mp4 link &nbsp;·&nbsp; ✅ TikTok embed URL</div>
+      </div>
+      <div class="fg">
+        <label>Thumbnail Image URL</label>
+        <input type="url" id="v-img" placeholder="Paste thumbnail image URL..." oninput="prevImg('v-img','v-prev')"/>
+        <img id="v-prev" class="img-prev" alt="Preview"/>
+      </div>
+      <div class="fg"><label>Duration</label><input type="text" id="v-dur" placeholder="e.g. 1:02"/></div>
+    </div>
+    <div class="form-actions">
+      <button class="btn btn-vid" onclick="publishItem('vid')">🎬 Publish Video</button>
+      <button class="btn btn-outline" onclick="closeForm('vid')">Cancel</button>
+    </div>
+  </div>
+
+</div><!-- end pub-forms-wrap -->
+
+<!-- ARTICLES -->
+<section id="articles">
+  <div class="sec-hdr">
+    <div>
+      <div class="s-tag">📝 The Blog</div>
+      <h2 class="s-title">Dental Tips from Dr. Esther</h2>
+      <p class="s-sub" style="margin-bottom:0">Expert articles published weekly — friendly, practical, and always evidence-based.</p>
+    </div>
+    <button class="btn btn-green btn-sm" onclick="openForm('art')">✏️ Publish Article</button>
+  </div>
+  <div class="filter-row" id="art-filters">
+    <button class="tag-btn active" onclick="filterArt('all',this)">All Posts</button>
+    <button class="tag-btn" onclick="filterArt('hygiene',this)">Hygiene</button>
+    <button class="tag-btn" onclick="filterArt('cosmetic',this)">Cosmetic</button>
+    <button class="tag-btn" onclick="filterArt('children',this)">Children</button>
+    <button class="tag-btn" onclick="filterArt('nutrition',this)">Nutrition</button>
+    <button class="tag-btn" onclick="filterArt('holistic',this)">Holistic</button>
+  </div>
+  <div class="grid-3" id="artGrid"></div>
+</section>
+
+<!-- PODCASTS -->
+<section id="podcasts">
+  <div class="sec-hdr">
+    <div>
+      <div class="s-tag pod-tag">🎙️ Audio Podcast</div>
+      <h2 class="s-title">Dr. Esther's Dental Podcast</h2>
+      <p class="s-sub" style="margin-bottom:0">Listen while you commute, cook, or relax — dental wisdom in your ears every week.</p>
+    </div>
+    <button class="btn btn-pod btn-sm" onclick="openForm('pod')">🎙️ New Episode</button>
+  </div>
+  <div class="pod-grid" id="podGrid"></div>
+</section>
+
+<!-- VIDEOS -->
+<section id="videos">
+  <div class="sec-hdr">
+    <div>
+      <div class="s-tag vid-tag">🎬 Video Shorts</div>
+      <h2 class="s-title">Quick Dental Tips — Video Edition</h2>
+      <p class="s-sub" style="margin-bottom:0">Short, punchy videos you can watch and share in under 2 minutes.</p>
+    </div>
+    <button class="btn btn-vid btn-sm" onclick="openForm('vid')">🎬 New Video</button>
+  </div>
+  <div class="vid-grid" id="vidGrid"></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img-col">
+      <img class="about-photo" src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=640&h=860&fit=crop&crop=top" alt="Dr. Esther Lukwago"/>
+      <div class="about-badge">10+<small>Years</small></div>
+      <div class="about-creds">
+        <div class="cred">🎓 BDS — Bachelor of Dental Surgery</div>
+        <div class="cred">🏅 Uganda Dental Association Member</div>
+        <div class="cred">🌿 Holistic Dentistry Specialist</div>
+        <div class="cred">💛 Paediatric Dentistry Expert</div>
+        <div class="cred">🎙️ Podcast Host &amp; Educator</div>
+        <div class="cred">🎬 Video Creator &amp; Health Educator</div>
+      </div>
+    </div>
+    <div class="about-text">
+      <div class="s-tag">👩‍⚕️ About Dr. Esther</div>
+      <h2 class="s-title">The Heart Behind Kays Dental</h2>
+      <div class="quote-block">
+        <p>"I want every Ugandan family to have access to expert dental knowledge they can trust — whether they visit us or not."</p>
+      </div>
+      <p>Dr. Esther Lukwago is the founder and lead dentist at Kays Dental Clinic, Plot 52 Kanjokya Street, Kampala. With over 10 years of experience, she combines modern dentistry with a holistic, patient-centred approach that puts whole-body wellness at the centre of everything.</p>
+      <p>Beyond the clinic, Dr. Esther is deeply committed to education. She publishes weekly articles, hosts a growing audio podcast, and creates short video tips that make expert dental advice simple and accessible for every family in Uganda.</p>
+      <p>When she's not at the clinic, she volunteers with community dental outreach programmes, taking free care and education to schools across Kampala.</p>
+      <div class="about-btns">
+        <a href="https://wa.me/256772465051?text=Hello%20Dr.%20Esther!%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" class="btn btn-wa">💬 WhatsApp Dr. Esther</a>
+        <a href="tel:+256772465051" class="btn btn-green">📞 0772 465 051</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="s-tag">💬 Patient Reviews</div>
+  <h2 class="s-title">What Our Patients Say</h2>
+  <p class="s-sub">Real feedback from families and patients across Kampala who trust Dr. Esther every day.</p>
+  <div class="t-grid">
+    <div class="t-card">
+      <div class="t-q">"</div><div class="stars">★★★★★</div>
+      <p class="t-text">Dr. Esther's podcast has completely changed how my whole family thinks about dental health. We look forward to a new episode every single week!</p>
+      <div class="t-author"><img class="t-ava" src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=88&h=88&fit=crop&crop=face" alt="Ama"/><div><div class="t-name">Ama Koomson</div><div class="t-role">Podcast Listener &amp; Patient</div></div></div>
+    </div>
+    <div class="t-card">
+      <div class="t-q">"</div><div class="stars">★★★★★</div>
+      <p class="t-text">I watched one of Dr. Esther's video shorts on brushing and realised I had been doing it wrong for 30 years. Life-changing in under 60 seconds!</p>
+      <div class="t-author"><img class="t-ava" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=88&h=88&fit=crop&crop=face" alt="Kofi"/><div><div class="t-name">Kofi Mensah</div><div class="t-role">Video Subscriber</div></div></div>
+    </div>
+    <div class="t-card">
+      <div class="t-q">"</div><div class="stars">★★★★★</div>
+      <p class="t-text">The most practical dental articles I have ever read. And the clinic itself is absolutely world-class. Dr. Esther is truly exceptional at what she does.</p>
+      <div class="t-author"><img class="t-ava" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=88&h=88&fit=crop&crop=face" alt="Belinda"/><div><div class="t-name">Belinda Tetteh</div><div class="t-role">Blog Reader &amp; Patient</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="s-tag-w">📅 Get in Touch</div>
+  <h2 class="s-title" style="color:#fff;text-align:center;margin:0 auto .5rem">Book an Appointment</h2>
+  <p class="s-sub" style="color:rgba(255,255,255,.62);text-align:center;margin:0 auto 2.2rem;max-width:460px">Reach Dr. Esther directly — we respond within the hour during clinic hours.</p>
+  <div class="contact-cards">
+    <div class="cc">
+      <div class="cc-icon">💬</div>
+      <h4>WhatsApp</h4>
+      <p>Fastest way — reply in minutes</p>
+      <a href="https://wa.me/256772465051?text=Hello%20Dr.%20Esther!%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" class="btn btn-wa" style="width:100%">Chat on WhatsApp</a>
+    </div>
+    <div class="cc">
+      <div class="cc-icon">📞</div>
+      <h4>Call Us</h4>
+      <p>Speak directly with our team</p>
+      <a href="tel:+256772465051" class="btn btn-green" style="width:100%">0772 465 051</a>
+    </div>
+    <div class="cc">
+      <div class="cc-icon">📍</div>
+      <h4>Visit Us</h4>
+      <p>Plot 52, Kanjokya Street<br>Kampala, Uganda</p>
+      <a href="https://maps.google.com/?q=Plot+52+Kanjokya+Street+Kampala+Uganda" target="_blank" class="btn btn-outline-w" style="width:100%">Get Directions</a>
+    </div>
+  </div>
+  <div class="contact-form-box">
+    <h3>Send Dr. Esther a Message</h3>
+    <div class="cf-col">
+      <input class="cf-in" id="cf-name" type="text" placeholder="Your full name"/>
+      <input class="cf-in" id="cf-phone" type="tel" placeholder="Your WhatsApp number"/>
+      <textarea class="cf-in cf-ta" id="cf-msg" placeholder="How can Dr. Esther help you today?"></textarea>
+      <div class="cf-btns">
+        <button class="btn btn-wa" onclick="sendWA()">💬 Send via WhatsApp</button>
+        <button class="btn btn-green" onclick="sendEmail()">📧 Send via Email</button>
+      </div>
+      <p id="cfmsg"></p>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<div class="map-wrap">
+  <iframe src="https://maps.google.com/maps?q=Kanjokya+Street,+Kampala,+Uganda&z=15&output=embed" allowfullscreen loading="lazy"></iframe>
+  <a href="https://maps.google.com/?q=Plot+52+Kanjokya+Street+Kampala+Uganda" target="_blank" class="map-btn">🗺 Get Directions to Kays Dental</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo-row">
+        <div class="footer-logo-mark">K</div>
+        <div class="footer-logo-text"><h3>Kays Dental Clinic</h3></div>
+      </div>
+      <p>Your trusted dental home in Kampala. Expert articles, podcasts, video tips, and world-class dental care — all from Dr. Esther, all in one place.</p>
+      <address>
+        📍 Plot 52, Kanjokya Street, Kampala, Uganda<br>
+        📞 <a href="tel:+256772465051">0772 465 051</a><br>
+        💬 <a href="https://wa.me/256772465051" target="_blank">WhatsApp Dr. Esther</a><br>
+        📧 <a href="mailto:info@kaysdentalclinic.com">info@kaysdentalclinic.com</a>
+      </address>
+    </div>
+    <div>
+      <h4>Content</h4>
+      <ul>
+        <li><a href="#articles">📝 Articles</a></li>
+        <li><a href="#podcasts">🎙️ Podcasts</a></li>
+        <li><a href="#videos">🎬 Video Shorts</a></li>
+        <li><a href="#about">About Dr. Esther</a></li>
+        <li><a href="#testimonials">Patient Reviews</a></li>
+        <li><a href="#contact">Book Appointment</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Treatments</h4>
+      <ul>
+        <li><a href="#contact">Check-ups &amp; Cleaning</a></li>
+        <li><a href="#contact">Teeth Whitening</a></li>
+        <li><a href="#contact">Dental Implants</a></li>
+        <li><a href="#contact">Veneers &amp; Bonding</a></li>
+        <li><a href="#contact">Children's Dentistry</a></li>
+        <li><a href="#contact">Holistic Dentistry</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2025 Kays Dental Clinic · Dr. Esther Lukwago · Plot 52, Kanjokya Street, Kampala, Uganda · 0772 465 051 · All rights reserved</div>
+</footer>
+
+<!-- MODAL OVERLAY -->
+<div class="overlay" id="overlay" onclick="closeOverlay(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════
+// DATA STORES
+// ═══════════════════════════════════
+const ARTS = [
+  {
+    id:'brushing', cat:'hygiene',
+    title:'Are You Really Brushing Correctly?',
+    img:'https://images.unsplash.com/photo-1559591935-1e04cf42d1db?w=640&h=430&fit=crop',
+    exc:'Most of us learned brushing habits as kids and never updated them. Here\'s the technique that actually works.',
+    time:'5 min read', date:'March 2025',
+    body:'<p>Most of us learned to brush as children and never changed since. Poor technique is one of the most common causes of gum recession, enamel wear, and persistent plaque I see every week at Kays Dental.</p><h3>The Modified Bass Technique</h3><p>Place your brush at a 45-degree angle to the gum line. Use small, gentle circular strokes — think massage, not scrubbing. Clean two to three teeth at a time before moving on.</p><h3>How long should you brush?</h3><p>Two full minutes, twice daily. Electric toothbrushes with built-in timers remove significantly more plaque than manual brushes. Try 30 seconds per quadrant.</p><h3>Common mistakes to fix today</h3><ul><li>Brushing right after meals — wait 30 minutes after acidic food</li><li>Pressing too hard — erodes enamel and recedes gums over time</li><li>Forgetting the tongue — holds most odour-causing bacteria</li><li>Not replacing your brush — do it every 3 months</li></ul>'
+  },
+  {
+    id:'whitening', cat:'cosmetic',
+    title:'Teeth Whitening: What Really Works?',
+    img:'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=640&h=430&fit=crop',
+    exc:'From pharmacy strips to professional treatment — Dr. Esther gives her honest breakdown.',
+    time:'7 min read', date:'Feb 2025',
+    body:'<p>Whitening is one of the most requested treatments at Kays Dental. Let me cut through the confusion honestly.</p><h3>How whitening works</h3><p>All whitening products use hydrogen peroxide or carbamide peroxide to break apart stain molecules inside your enamel. Concentration determines speed and degree of whitening.</p><h3>Professional vs. over-the-counter</h3><p>Professional treatments use much higher concentrations than OTC products. The clinical difference in outcomes is substantial — and we screen you first to ensure whitening is safe for your specific teeth.</p><h3>Who should not whiten?</h3><ul><li>Patients with untreated cavities or gum disease — treat these first</li><li>Anyone with crowns or veneers — bleach does not affect these materials</li><li>Pregnant and breastfeeding women</li><li>Patients with significant tooth sensitivity</li></ul>'
+  },
+  {
+    id:'sugar', cat:'nutrition',
+    title:'10 Foods Quietly Damaging Your Teeth',
+    img:'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=640&h=430&fit=crop',
+    exc:'It\'s not just sweets. Many everyday healthy foods are top causes of enamel erosion.',
+    time:'6 min read', date:'Jan 2025',
+    body:'<p>The real culprits are often foods patients think are perfectly healthy. Here are the top ones to watch.</p><h3>The surprising offenders</h3><ul><li><strong>Citrus fruits</strong> — highly acidic, softens enamel with repeated exposure</li><li><strong>Sparkling water</strong> — carbonic acid makes it more erosive than still water</li><li><strong>Dried fruits</strong> — concentrated sugars stick to teeth for hours</li><li><strong>Sports drinks</strong> — acidic, sugary, and consumed frequently</li><li><strong>Coffee</strong> — staining, acidic, and reduces protective saliva</li></ul><h3>What you can do</h3><p>Rinse with water after eating, use a straw for acidic drinks, wait 30 minutes before brushing. Chew sugar-free gum after meals — your mouth\'s natural defence. Eat acidic foods as part of a meal, not as standalone snacks.</p>'
+  },
+  {
+    id:'kids', cat:'children',
+    title:'When Should My Child First See a Dentist?',
+    img:'https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?w=640&h=430&fit=crop',
+    exc:'The answer surprises most parents. Early visits build a lifetime of dental confidence.',
+    time:'4 min read', date:'Dec 2024',
+    body:'<p>Your child\'s first dental visit should happen when their first tooth appears — or by their first birthday, whichever comes first.</p><h3>Why so early?</h3><p>Early visits build a positive relationship with the dentist before any problem arises. Children who start early are far less likely to develop dental anxiety — confidence that lasts a lifetime.</p><h3>What to expect at Kays Dental</h3><p>The first appointment is gentle, short, and fun. Very young children sit on a parent\'s lap. We check gums and teeth, discuss feeding habits, and answer all your questions warmly.</p><h3>Great habits to start at home</h3><ul><li>Brush as soon as the first tooth appears — tiny smear of fluoride toothpaste</li><li>Avoid putting children to bed with a bottle of milk or juice</li><li>Make brushing fun — let them pick their own toothbrush!</li><li>Avoid sharing utensils — cavity bacteria can pass from parent to child</li></ul>'
+  },
+  {
+    id:'floss', cat:'hygiene',
+    title:'Flossing vs. Interdental Brushes',
+    img:'https://images.unsplash.com/photo-1574279606130-09958dc756f7?w=640&h=430&fit=crop',
+    exc:'Both clean between your teeth — but one may suit you far better. Here\'s the evidence.',
+    time:'4 min read', date:'Nov 2024',
+    body:'<p>A growing body of evidence suggests interdental brushes may be more effective for the majority of patients. Here is my honest breakdown.</p><h3>What the research shows</h3><p>Multiple clinical trials found that interdental brushes remove more plaque than floss when used correctly. They are also easier to use consistently — and consistency is the most important factor in interproximal hygiene.</p><h3>The right tool for the situation</h3><p>Floss is better for tight contact points between teeth. Interdental brushes work better for people with gaps, gum recession, braces, or implants.</p><h3>Sizing matters</h3><p>The brush should slide in with gentle resistance — not forced, not loose. At your next appointment I can recommend the perfect size for every gap you have.</p>'
+  },
+  {
+    id:'holistic', cat:'holistic',
+    title:'What Is Holistic Dentistry and Why Does It Matter?',
+    img:'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=640&h=430&fit=crop',
+    exc:'Your mouth is connected to your whole body. Holistic dentistry treats both.',
+    time:'6 min read', date:'Oct 2024',
+    body:'<p>Holistic dentistry treats the mouth as an integral part of the whole human body. At Kays Dental, it is the philosophy behind everything we do.</p><h3>What makes it different?</h3><p>Conventional dentistry focuses on treating symptoms. Holistic dentistry asks why those symptoms are occurring and addresses the root cause. We consider nutrition, stress, sleep, and systemic health in your treatment plan.</p><h3>What you will notice at Kays Dental</h3><ul><li>Mercury-free and biocompatible materials wherever possible</li><li>Diet and lifestyle discussed as part of treatment</li><li>Minimally invasive techniques to preserve natural tooth structure</li><li>Your bite, jaw, neck, and posture assessed together</li></ul><p>Holistic dentistry is not alternative — it is a more complete, more personalised form of care. Book a consultation to experience the difference.</p>'
+  }
+];
+
+const PODS = [
+  {
+    id:'p1', ep:'Episode 1',
+    title:'Why Your Gums Bleed — And What To Do About It',
+    desc:'Bleeding gums are extremely common but almost always preventable. Dr. Esther explains the real causes and gives a simple 5-step plan to fix it within 2 weeks.',
+    url:'', spotify:'', dur:'22 mins', date:'March 2025',
+    img:'https://images.unsplash.com/photo-1559591935-1e04cf42d1db?w=400&h=400&fit=crop'
+  },
+  {
+    id:'p2', ep:'Episode 2',
+    title:'Sugar, Sodas and Your Smile: The Ugandan Diet Deep Dive',
+    desc:'Uganda\'s love for sugary drinks is taking a real toll on our teeth. Dr. Esther breaks down the data and gives practical, realistic advice for protecting your family\'s smiles.',
+    url:'', spotify:'', dur:'28 mins', date:'Feb 2025',
+    img:'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=400&fit=crop'
+  },
+  {
+    id:'p3', ep:'Episode 3',
+    title:'Children\'s Teeth: A Complete Guide for Ugandan Parents',
+    desc:'From the first tooth to the teenage years — everything a Ugandan parent needs to know about their child\'s dental health, with practical tips from Dr. Esther\'s clinic.',
+    url:'', spotify:'', dur:'31 mins', date:'Jan 2025',
+    img:'https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?w=400&h=400&fit=crop'
+  }
+];
+
+const VIDS = [
+  {
+    id:'v1', type:'YouTube Short',
+    title:'Brush Like a Pro in 60 Seconds',
+    desc:'Dr. Esther demonstrates the correct brushing technique in real time. Watch this once and you will never brush the same way again.',
+    url:'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    img:'https://images.unsplash.com/photo-1559591935-1e04cf42d1db?w=640&h=360&fit=crop',
+    dur:'1:02', date:'March 2025'
+  },
+  {
+    id:'v2', type:'YouTube Short',
+    title:'What Your Tongue Tells You About Your Health',
+    desc:'A quick health check you can do in 10 seconds every morning. Dr. Esther explains what different tongue appearances mean for your overall health.',
+    url:'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    img:'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=640&h=360&fit=crop',
+    dur:'0:58', date:'Feb 2025'
+  },
+  {
+    id:'v3', type:'YouTube Short',
+    title:'The Right Way to Floss — Faster Than You Think',
+    desc:'Most people either skip flossing or do it wrong. This video shows the correct technique so you actually get the full benefit.',
+    url:'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    img:'https://images.unsplash.com/photo-1574279606130-09958dc756f7?w=640&h=360&fit=crop',
+    dur:'1:05', date:'Jan 2025'
+  }
+];
+
+// ═══════════════════════════════════
+// HELPERS
+// ═══════════════════════════════════
+function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+
+function toast(msg) {
+  const d = document.createElement('div');
+  d.textContent = msg;
+  Object.assign(d.style, {
+    position:'fixed', bottom:'2rem', left:'50%', transform:'translateX(-50%)',
+    background:'#1E5C2E', color:'#fff', padding:'.85rem 1.8rem', borderRadius:'2rem',
+    fontWeight:'700', fontSize:'.88rem', zIndex:'9999',
+    boxShadow:'0 8px 28px rgba(0,0,0,.3)', fontFamily:'Nunito,sans-serif',
+    whiteSpace:'nowrap', transition:'opacity .3s'
+  });
+  document.body.appendChild(d);
+  setTimeout(() => d.style.opacity = '0', 3000);
+  setTimeout(() => d.remove(), 3400);
+}
+
+// ═══════════════════════════════════
+// RENDER ARTICLES
+// ═══════════════════════════════════
+function renderArts(filter) {
+  filter = filter || 'all';
+  const g = document.getElementById('artGrid');
+  const list = (filter === 'all') ? ARTS : ARTS.filter(a => a.cat === filter);
+  if (!list.length) {
+    g.innerHTML = '<div class="no-content">No articles in this category yet — Dr. Esther will publish one soon! 😊</div>';
+    return;
+  }
+  g.innerHTML = list.map(function(a) {
+    return '<div class="article-card" onclick="openArt(\'' + a.id + '\')">' +
+      '<div class="card-thumb"><img src="' + a.img + '" alt="' + a.title + '" loading="lazy"/>' +
+      '<span class="cat-badge">' + cap(a.cat) + '</span></div>' +
+      '<div class="card-body">' +
+      '<h3 class="card-title">' + a.title + '</h3>' +
+      '<p class="card-exc">' + a.exc + '</p>' +
+      '<div class="card-meta"><span>' + a.time + '</span><span class="dot"></span><span>' + a.date + '</span><span class="read">Read \u2192</span></div>' +
+      '</div></div>';
+  }).join('');
+}
+
+// ═══════════════════════════════════
+// RENDER PODCASTS
+// ═══════════════════════════════════
+function renderPods() {
+  const g = document.getElementById('podGrid');
+  if (!PODS.length) {
+    g.innerHTML = '<div class="no-content" style="grid-column:1/-1">No episodes yet — Dr. Esther\'s first episode is coming soon! 🎙️</div>';
+    return;
+  }
+  g.innerHTML = PODS.map(function(p) {
+    var playerHtml;
+    if (p.spotify) {
+      playerHtml = '<iframe style="border-radius:8px;display:block" src="' + p.spotify + '" width="100%" height="80" frameborder="0" allow="autoplay;clipboard-write;encrypted-media;fullscreen" loading="lazy"></iframe>';
+    } else if (p.url) {
+      playerHtml = '<audio controls style="width:100%;height:42px;border-radius:8px;display:block"><source src="' + p.url + '"/></audio>';
+    } else {
+      playerHtml = '<div class="pod-no-audio">🎙️ Audio coming soon — check back shortly!</div>';
+    }
+    return '<div class="pod-card">' +
+      '<div class="pod-cover">' +
+      '<img src="' + p.img + '" alt="' + p.title + '" loading="lazy"/>' +
+      '<span class="pod-ep">' + p.ep + '</span>' +
+      '<div class="pod-cover-icon">🎙️</div>' +
+      (p.spotify ? '<div class="pod-spotify-badge">🎵 Spotify</div>' : '') +
+      '</div>' +
+      '<div class="pod-body">' +
+      '<div class="pod-title">' + p.title + '</div>' +
+      '<div class="pod-desc">' + p.desc + '</div>' +
+      '<div class="pod-player">' + playerHtml + '</div>' +
+      '<div class="pod-meta"><span>🕐 ' + p.dur + '</span><span class="dot"></span><span>' + p.date + '</span>' +
+      '<button class="pod-share" onclick="sharePod(\'' + p.id + '\')">Share \u2197</button></div>' +
+      '</div></div>';
+  }).join('');
+}
+
+// ═══════════════════════════════════
+// RENDER VIDEOS
+// ═══════════════════════════════════
+function renderVids() {
+  const g = document.getElementById('vidGrid');
+  if (!VIDS.length) {
+    g.innerHTML = '<div class="no-content" style="grid-column:1/-1">No videos yet — Dr. Esther\'s first video short is coming soon! 🎬</div>';
+    return;
+  }
+  g.innerHTML = VIDS.map(function(v) {
+    return '<div class="vid-card" onclick="openVid(\'' + v.id + '\')">' +
+      '<div class="vid-thumb">' +
+      '<img src="' + v.img + '" alt="' + v.title + '" loading="lazy"/>' +
+      '<div class="vid-play"><div class="vid-play-btn"><div class="vid-arrow"></div></div></div>' +
+      '<div class="vid-dur">' + v.dur + '</div>' +
+      '<div class="vid-type-badge">\u25B6 ' + v.type + '</div>' +
+      '</div>' +
+      '<div class="vid-body">' +
+      '<div class="vid-title">' + v.title + '</div>' +
+      '<div class="vid-desc">' + v.desc + '</div>' +
+      '<div class="vid-meta"><span>' + v.date + '</span><span class="dot"></span><span>' + v.type + '</span></div>' +
+      '</div></div>';
+  }).join('');
+}
+
+// Initial render
+renderArts('all');
+renderPods();
+renderVids();
+
+// ═══════════════════════════════════
+// FILTER ARTICLES
+// ═══════════════════════════════════
+function filterArt(cat, btn) {
+  document.querySelectorAll('#art-filters .tag-btn').forEach(function(t) { t.classList.remove('active'); });
+  btn.classList.add('active');
+  renderArts(cat);
+}
+
+// ═══════════════════════════════════
+// PUBLISH FORMS
+// ═══════════════════════════════════
+function openForm(type) {
+  ['art','pod','vid'].forEach(function(t) {
+    document.getElementById('form-' + t).classList.remove('open');
+  });
+  var f = document.getElementById('form-' + type);
+  f.classList.add('open');
+  setTimeout(function() { f.scrollIntoView({ behavior:'smooth', block:'start' }); }, 100);
+}
+
+function closeForm(type) {
+  document.getElementById('form-' + type).classList.remove('open');
+}
+
+function prevImg(inputId, previewId) {
+  var url = document.getElementById(inputId).value.trim();
+  var p = document.getElementById(previewId);
+  if (url) { p.src = url; p.style.display = 'block'; }
+  else { p.style.display = 'none'; }
+}
+
+function publishItem(type) {
+  var now = new Date();
+  var dateStr = now.toLocaleString('default', { month:'long', year:'numeric' });
+
+  if (type === 'art') {
+    var title = document.getElementById('a-title').value.trim();
+    var cat   = document.getElementById('a-cat').value;
+    var exc   = document.getElementById('a-exc').value.trim();
+    var body  = document.getElementById('a-body').value.trim();
+    var img   = document.getElementById('a-img').value.trim() || 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=640&h=430&fit=crop';
+    var time  = document.getElementById('a-time').value.trim() || '3 min read';
+    if (!title || !exc || !body) { alert('Please fill in the title, summary, and article content.'); return; }
+    var formatted = '<p>' + body.replace(/\n\n/g, '</p><p>').replace(/\n/g, '<br>') + '</p>';
+    ARTS.unshift({ id:'art_' + Date.now(), cat:cat, title:title, img:img, exc:exc, time:time, date:dateStr, body:formatted });
+    renderArts('all');
+    document.querySelectorAll('#art-filters .tag-btn').forEach(function(t) { t.classList.remove('active'); });
+    document.querySelector('#art-filters .tag-btn').classList.add('active');
+    closeForm('art');
+    ['a-title','a-exc','a-body','a-img','a-time'].forEach(function(id) { document.getElementById(id).value = ''; });
+    document.getElementById('a-prev').style.display = 'none';
+    toast('✅ Article published successfully!');
+    setTimeout(function() { document.getElementById('articles').scrollIntoView({ behavior:'smooth', block:'start' }); }, 500);
+  }
+
+  if (type === 'pod') {
+    var title   = document.getElementById('p-title').value.trim();
+    var ep      = document.getElementById('p-ep').value.trim() || ('Episode ' + (PODS.length + 1));
+    var desc    = document.getElementById('p-desc').value.trim();
+    var url     = document.getElementById('p-url').value.trim();
+    var spotify = document.getElementById('p-spotify').value.trim();
+    var img     = document.getElementById('p-img').value.trim() || 'https://images.unsplash.com/photo-1559591935-1e04cf42d1db?w=400&h=400&fit=crop';
+    var dur     = document.getElementById('p-dur').value.trim() || '~20 mins';
+    if (!title || !desc) { alert('Please fill in the episode title and description.'); return; }
+    PODS.unshift({ id:'pod_' + Date.now(), ep:ep, title:title, desc:desc, url:url, spotify:spotify, img:img, dur:dur, date:dateStr });
+    renderPods();
+    closeForm('pod');
+    ['p-title','p-ep','p-desc','p-url','p-spotify','p-img','p-dur'].forEach(function(id) { document.getElementById(id).value = ''; });
+    document.getElementById('p-prev').style.display = 'none';
+    toast('✅ Podcast episode published!');
+    setTimeout(function() { document.getElementById('podcasts').scrollIntoView({ behavior:'smooth', block:'start' }); }, 500);
+  }
+
+  if (type === 'vid') {
+    var title = document.getElementById('v-title').value.trim();
+    var vtype = document.getElementById('v-type').value;
+    var desc  = document.getElementById('v-desc').value.trim();
+    var url   = document.getElementById('v-url').value.trim();
+    var img   = document.getElementById('v-img').value.trim() || 'https://images.unsplash.com/photo-1574279606130-09958dc756f7?w=640&h=360&fit=crop';
+    var dur   = document.getElementById('v-dur').value.trim() || '< 2 mins';
+    if (!title || !desc) { alert('Please fill in the video title and description.'); return; }
+    // Auto-convert YouTube watch URL to embed URL
+    var ytMatch = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]+)/);
+    if (ytMatch) { url = 'https://www.youtube.com/embed/' + ytMatch[1]; }
+    VIDS.unshift({ id:'vid_' + Date.now(), type:vtype, title:title, desc:desc, url:url, img:img, dur:dur, date:dateStr });
+    renderVids();
+    closeForm('vid');
+    ['v-title','v-desc','v-url','v-img','v-dur'].forEach(function(id) { document.getElementById(id).value = ''; });
+    document.getElementById('v-prev').style.display = 'none';
+    toast('✅ Video short published!');
+    setTimeout(function() { document.getElementById('videos').scrollIntoView({ behavior:'smooth', block:'start' }); }, 500);
+  }
+}
+
+// ═══════════════════════════════════
+// MODAL — ARTICLE
+// ═══════════════════════════════════
+function openArt(id) {
+  var a = ARTS.filter(function(x) { return x.id === id; })[0];
+  if (!a) return;
+  var waLink = 'https://wa.me/256772465051?text=Hello%20Dr.%20Esther!%20I%20read%20%22' + encodeURIComponent(a.title) + '%22%20and%20have%20a%20question.';
+  document.getElementById('modalContent').innerHTML =
+    '<div class="modal-hero"><img src="' + a.img + '" alt="' + a.title + '"/></div>' +
+    '<div class="modal-inner">' +
+    '<div class="modal-cat art">' + cap(a.cat) + ' \u00B7 ' + a.time + '</div>' +
+    '<h2>' + a.title + '</h2>' +
+    '<div class="modal-meta">\u270D\uFE0F ' + a.date + ' \u00B7 Dr. Esther Lukwago \u00B7 Kays Dental Clinic, Kampala</div>' +
+    '<div class="modal-body">' + a.body + '</div>' +
+    '<div class="modal-actions">' +
+    '<a href="' + waLink + '" target="_blank" class="btn btn-wa btn-sm">\uD83D\uDCAC Ask Dr. Esther</a>' +
+    '<a href="#contact" class="btn btn-green btn-sm" onclick="closeModal()">\uD83D\uDCC5 Book Appointment</a>' +
+    '</div></div>';
+  openOverlay();
+}
+
+// ═══════════════════════════════════
+// MODAL — VIDEO
+// ═══════════════════════════════════
+function openVid(id) {
+  var v = VIDS.filter(function(x) { return x.id === id; })[0];
+  if (!v) return;
+  var isYT  = v.url && v.url.indexOf('youtube.com/embed') !== -1;
+  var isMp4 = v.url && v.url.indexOf('.mp4') !== -1;
+  var player = '';
+  if (isYT) {
+    player = '<div class="vid-embed"><iframe src="' + v.url + '?autoplay=1" allow="autoplay;fullscreen" allowfullscreen></iframe></div>';
+  } else if (isMp4) {
+    player = '<div class="vid-embed"><video controls autoplay><source src="' + v.url + '" type="video/mp4"/></video></div>';
+  } else if (v.url) {
+    player = '<div style="background:var(--vidl);border-radius:12px;padding:1.1rem;text-align:center;color:var(--vid);font-weight:700;margin-bottom:1rem">' +
+             '\u25B6 <a href="' + v.url + '" target="_blank" style="color:var(--vid)">Watch on ' + v.type + ' \u2192</a></div>';
+  }
+  var waLink = 'https://wa.me/256772465051?text=Hello%20Dr.%20Esther!%20I%20watched%20your%20video%20%22' + encodeURIComponent(v.title) + '%22%20and%20have%20a%20question.';
+  document.getElementById('modalContent').innerHTML =
+    '<div class="modal-hero-vid"><img src="' + v.img + '" alt="' + v.title + '"/><span>\uD83C\uDFAC</span></div>' +
+    '<div class="modal-inner">' +
+    '<div class="modal-cat vid">\u25B6 ' + v.type + ' \u00B7 ' + v.dur + '</div>' +
+    '<h2>' + v.title + '</h2>' +
+    '<div class="modal-meta">' + v.date + ' \u00B7 Dr. Esther Lukwago \u00B7 Kays Dental Clinic</div>' +
+    player +
+    '<p>' + v.desc + '</p>' +
+    '<div class="modal-actions">' +
+    '<a href="' + waLink + '" target="_blank" class="btn btn-wa btn-sm">\uD83D\uDCAC Ask Dr. Esther</a>' +
+    '<a href="#contact" class="btn btn-green btn-sm" onclick="closeModal()">\uD83D\uDCC5 Book Appointment</a>' +
+    '</div></div>';
+  openOverlay();
+}
+
+// ═══════════════════════════════════
+// OVERLAY HELPERS
+// ═══════════════════════════════════
+function openOverlay() {
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeOverlay(e) {
+  if (e.target === document.getElementById('overlay')) closeModal();
+}
+
+// ═══════════════════════════════════
+// PODCAST SHARE
+// ═══════════════════════════════════
+function sharePod(id) {
+  var p = PODS.filter(function(x) { return x.id === id; })[0];
+  if (!p) return;
+  var msg = '\uD83C\uDF99\uFE0F Listen to Dr. Esther\'s podcast: "' + p.title + '" \u2014 ' + p.dur + ' of expert dental advice. Kays Dental Clinic, Kampala \uD83D\uDCDE 0772 465 051';
+  window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank');
+}
+
+// ═══════════════════════════════════
+// SHARE BLOG
+// ═══════════════════════════════════
+function shareAll() {
+  var msg = '\uD83E\uDDB7 Check out Dr. Esther\'s dental blog at Kays Dental Clinic, Kampala!\n\n\uD83D\uDCDD Articles \u00B7 \uD83C\uDF99\uFE0F Podcasts \u00B7 \uD83C\uDFAC Video Tips \u2014 published every week, completely free.\n\n\uD83D\uDCCD Plot 52, Kanjokya Street, Kampala\n\uD83D\uDCDE 0772 465 051';
+  window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank');
+}
+
+// ═══════════════════════════════════
+// CONTACT FORM
+// ═══════════════════════════════════
+function sendWA() {
+  var n = document.getElementById('cf-name').value.trim();
+  var p = document.getElementById('cf-phone').value.trim();
+  var m = document.getElementById('cf-msg').value.trim();
+  if (!n) { alert('Please enter your name.'); return; }
+  var txt = 'Hello Dr. Esther! My name is *' + n + '*' + (p ? ', WhatsApp: ' + p : '') + '.\n\n' + (m || 'I would like to book an appointment.') + '\n\nThank you!';
+  var el = document.getElementById('cfmsg');
+  el.style.display = 'block';
+  el.textContent = '\u2705 Opening WhatsApp...';
+  window.open('https://wa.me/256772465051?text=' + encodeURIComponent(txt), '_blank');
+}
+
+function sendEmail() {
+  var n = document.getElementById('cf-name').value.trim();
+  var p = document.getElementById('cf-phone').value.trim();
+  var m = document.getElementById('cf-msg').value.trim();
+  if (!n) { alert('Please enter your name.'); return; }
+  var body = 'Dear Dr. Esther,\n\nMy name is ' + n + (p ? ', my number is ' + p : '') + '.\n\n' + (m || 'I would like to book an appointment.') + '\n\nThank you.';
+  var el = document.getElementById('cfmsg');
+  el.style.display = 'block';
+  el.textContent = '\u2705 Opening email...';
+  window.location.href = 'mailto:info@kaysdentalclinic.com?subject=Appointment Request \u2013 Kays Dental&body=' + encodeURIComponent(body);
+}
+</script>
+</body>
+</html>
