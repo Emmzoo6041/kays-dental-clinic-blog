@@ -307,7 +307,7 @@ footer ul li a:hover{color:var(--ys)}
 <!-- NAV -->
 <nav>
   <a href="#" class="logo">
-    <img class="logo-img" src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=88&h=88&fit=crop" alt="Kays Dental"/>
+    <img class="logo-img" src="https://kaysdentalclinic.com/wp-content/uploads/2025/02/kays-denttal-logo-2.jpg" alt="Kays Dental"/>
     <div class="logo-text">
       <strong>Kays Dental Clinic</strong>
       <span>Dr. Esther · Plot 52, Kanjokya, Kampala</span>
@@ -339,7 +339,7 @@ footer ul li a:hover{color:var(--ys)}
       <a href="#articles" class="btn btn-outline">Read Articles</a>
     </div>
     <div class="dr-card">
-      <img class="dr-card-img" src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=132&h=132&fit=crop&crop=face" alt="Dr. Esther"/>
+      <img class="dr-card-img" src="https://kaysdentalclinic.com/wp-content/uploads/2025/10/Dr-Esther-N-J-Lukwago-team.jpg" alt="Dr. Esther Lukwago"/>
       <div class="dr-info">
         <strong>Dr. Esther Lukwago</strong>
         <span>Lead Dentist · Kays Dental Clinic</span>
@@ -352,7 +352,7 @@ footer ul li a:hover{color:var(--ys)}
     </div>
   </div>
   <div class="hero-right">
-    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=960&h=1080&fit=crop" alt="Dr. Esther with patient"/>
+    <img src="https://kaysdentalclinic.com/wp-content/uploads/2025/02/kays-dental-bg-2.jpg" alt="Kays Dental Clinic Kampala"/>
     <div class="hero-overlay"></div>
     <div class="hero-float">
       <strong>98%</strong>
@@ -541,7 +541,7 @@ footer ul li a:hover{color:var(--ys)}
 <section id="about">
   <div class="about-grid">
     <div class="about-img-col">
-      <img class="about-photo" src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=640&h=860&fit=crop&crop=top" alt="Dr. Esther Lukwago"/>
+      <img class="about-photo" src="https://kaysdentalclinic.com/wp-content/uploads/2025/09/Dr-Esther-N-J-Lukwago-welcome.png" alt="Dr. Esther Lukwago"/>
       <div class="about-badge">10+<small>Years</small></div>
       <div class="about-creds">
         <div class="cred">🎓 BDS — Bachelor of Dental Surgery</div>
@@ -578,17 +578,17 @@ footer ul li a:hover{color:var(--ys)}
     <div class="t-card">
       <div class="t-q">"</div><div class="stars">★★★★★</div>
       <p class="t-text">Dr. Esther's podcast has completely changed how my whole family thinks about dental health. We look forward to a new episode every single week!</p>
-      <div class="t-author"><img class="t-ava" src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=88&h=88&fit=crop&crop=face" alt="Ama"/><div><div class="t-name">Ama Koomson</div><div class="t-role">Podcast Listener &amp; Patient</div></div></div>
+      <div class="t-author"><img class="t-ava" src="https://kaysdentalclinic.com/wp-content/uploads/2025/10/meet-the-team.jpg" alt="Ama"/><div><div class="t-name">Ama Koomson</div><div class="t-role">Podcast Listener &amp; Patient</div></div></div>
     </div>
     <div class="t-card">
       <div class="t-q">"</div><div class="stars">★★★★★</div>
       <p class="t-text">I watched one of Dr. Esther's video shorts on brushing and realised I had been doing it wrong for 30 years. Life-changing in under 60 seconds!</p>
-      <div class="t-author"><img class="t-ava" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=88&h=88&fit=crop&crop=face" alt="Kofi"/><div><div class="t-name">Kofi Mensah</div><div class="t-role">Video Subscriber</div></div></div>
+      <div class="t-author"><img class="t-ava" src="https://kaysdentalclinic.com/wp-content/uploads/2025/10/Dr-Esther-N-J-Lukwago-team.jpg" alt="Kofi"/><div><div class="t-name">Kofi Mensah</div><div class="t-role">Video Subscriber</div></div></div>
     </div>
     <div class="t-card">
       <div class="t-q">"</div><div class="stars">★★★★★</div>
       <p class="t-text">The most practical dental articles I have ever read. And the clinic itself is absolutely world-class. Dr. Esther is truly exceptional at what she does.</p>
-      <div class="t-author"><img class="t-ava" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=88&h=88&fit=crop&crop=face" alt="Belinda"/><div><div class="t-name">Belinda Tetteh</div><div class="t-role">Blog Reader &amp; Patient</div></div></div>
+      <div class="t-author"><img class="t-ava" src="https://kaysdentalclinic.com/wp-content/uploads/2025/10/meet-the-team.jpg" alt="Belinda"/><div><div class="t-name">Belinda Tetteh</div><div class="t-role">Blog Reader &amp; Patient</div></div></div>
     </div>
   </div>
 </section>
@@ -690,14 +690,53 @@ footer ul li a:hover{color:var(--ys)}
 </div>
 
 <script>
-// ═══════════════════════════════════
-// DATA STORES
-// ═══════════════════════════════════
-const ARTS = [
+
+// ═══════════════════════════════════════════════════════
+// FIREBASE SETUP
+// ═══════════════════════════════════════════════════════
+var firebaseConfig = {
+  apiKey: "AIzaSyDmcaixjM3JgHVtnlsDsMUW2WQmvCF-wow",
+  authDomain: "kays-dental-clinic-blog.firebaseapp.com",
+  projectId: "kays-dental-clinic-blog",
+  storageBucket: "kays-dental-clinic-blog.firebasestorage.app",
+  messagingSenderId: "3161367665",
+  appId: "1:3161367665:web:b981e580c309c2513067d0"
+};
+
+// Load Firebase from CDN
+var fbLoaded = false;
+function loadFirebase(callback) {
+  if (fbLoaded) { callback(); return; }
+  var s1 = document.createElement('script');
+  s1.src = 'https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js';
+  s1.onload = function() {
+    var s2 = document.createElement('script');
+    s2.src = 'https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js';
+    s2.onload = function() {
+      firebase.initializeApp(firebaseConfig);
+      fbLoaded = true;
+      callback();
+    };
+    document.head.appendChild(s2);
+  };
+  document.head.appendChild(s1);
+}
+
+// Get Firestore DB
+function getDB(callback) {
+  loadFirebase(function() {
+    callback(firebase.firestore());
+  });
+}
+
+// ═══════════════════════════════════════════════════════
+// DATA — Default seed content (shown before Firebase loads)
+// ═══════════════════════════════════════════════════════
+var ARTS = [
   {
     id:'brushing', cat:'hygiene',
     title:'Are You Really Brushing Correctly?',
-    img:'https://images.unsplash.com/photo-1559591935-1e04cf42d1db?w=640&h=430&fit=crop',
+    img:'https://kaysdentalclinic.com/wp-content/uploads/2025/02/kays-dental-bg-1.jpg',
     exc:'Most of us learned brushing habits as kids and never updated them. Here\'s the technique that actually works.',
     time:'5 min read', date:'March 2025',
     body:'<p>Most of us learned to brush as children and never changed since. Poor technique is one of the most common causes of gum recession, enamel wear, and persistent plaque I see every week at Kays Dental.</p><h3>The Modified Bass Technique</h3><p>Place your brush at a 45-degree angle to the gum line. Use small, gentle circular strokes — think massage, not scrubbing. Clean two to three teeth at a time before moving on.</p><h3>How long should you brush?</h3><p>Two full minutes, twice daily. Electric toothbrushes with built-in timers remove significantly more plaque than manual brushes. Try 30 seconds per quadrant.</p><h3>Common mistakes to fix today</h3><ul><li>Brushing right after meals — wait 30 minutes after acidic food</li><li>Pressing too hard — erodes enamel and recedes gums over time</li><li>Forgetting the tongue — holds most odour-causing bacteria</li><li>Not replacing your brush — do it every 3 months</li></ul>'
@@ -705,7 +744,7 @@ const ARTS = [
   {
     id:'whitening', cat:'cosmetic',
     title:'Teeth Whitening: What Really Works?',
-    img:'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=640&h=430&fit=crop',
+    img:'https://kaysdentalclinic.com/wp-content/uploads/2025/02/kays-dental-bg-2.jpg',
     exc:'From pharmacy strips to professional treatment — Dr. Esther gives her honest breakdown.',
     time:'7 min read', date:'Feb 2025',
     body:'<p>Whitening is one of the most requested treatments at Kays Dental. Let me cut through the confusion honestly.</p><h3>How whitening works</h3><p>All whitening products use hydrogen peroxide or carbamide peroxide to break apart stain molecules inside your enamel. Concentration determines speed and degree of whitening.</p><h3>Professional vs. over-the-counter</h3><p>Professional treatments use much higher concentrations than OTC products. The clinical difference in outcomes is substantial — and we screen you first to ensure whitening is safe for your specific teeth.</p><h3>Who should not whiten?</h3><ul><li>Patients with untreated cavities or gum disease — treat these first</li><li>Anyone with crowns or veneers — bleach does not affect these materials</li><li>Pregnant and breastfeeding women</li><li>Patients with significant tooth sensitivity</li></ul>'
@@ -713,15 +752,15 @@ const ARTS = [
   {
     id:'sugar', cat:'nutrition',
     title:'10 Foods Quietly Damaging Your Teeth',
-    img:'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=640&h=430&fit=crop',
+    img:'https://kaysdentalclinic.com/wp-content/uploads/2025/05/Kays-dental-for-patients.jpg',
     exc:'It\'s not just sweets. Many everyday healthy foods are top causes of enamel erosion.',
     time:'6 min read', date:'Jan 2025',
-    body:'<p>The real culprits are often foods patients think are perfectly healthy. Here are the top ones to watch.</p><h3>The surprising offenders</h3><ul><li><strong>Citrus fruits</strong> — highly acidic, softens enamel with repeated exposure</li><li><strong>Sparkling water</strong> — carbonic acid makes it more erosive than still water</li><li><strong>Dried fruits</strong> — concentrated sugars stick to teeth for hours</li><li><strong>Sports drinks</strong> — acidic, sugary, and consumed frequently</li><li><strong>Coffee</strong> — staining, acidic, and reduces protective saliva</li></ul><h3>What you can do</h3><p>Rinse with water after eating, use a straw for acidic drinks, wait 30 minutes before brushing. Chew sugar-free gum after meals — your mouth\'s natural defence. Eat acidic foods as part of a meal, not as standalone snacks.</p>'
+    body:'<p>The real culprits are often foods patients think are perfectly healthy. Here are the top ones to watch.</p><h3>The surprising offenders</h3><ul><li><strong>Citrus fruits</strong> — highly acidic, softens enamel with repeated exposure</li><li><strong>Sparkling water</strong> — carbonic acid makes it more erosive than still water</li><li><strong>Dried fruits</strong> — concentrated sugars stick to teeth for hours</li><li><strong>Sports drinks</strong> — acidic, sugary, and consumed frequently</li><li><strong>Coffee</strong> — staining, acidic, and reduces protective saliva</li></ul><h3>What you can do</h3><p>Rinse with water after eating, use a straw for acidic drinks, wait 30 minutes before brushing. Chew sugar-free gum after meals. Eat acidic foods as part of a meal, not as standalone snacks.</p>'
   },
   {
     id:'kids', cat:'children',
     title:'When Should My Child First See a Dentist?',
-    img:'https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?w=640&h=430&fit=crop',
+    img:'https://kaysdentalclinic.com/wp-content/uploads/2025/02/kays-dental-bg-congact.jpg',
     exc:'The answer surprises most parents. Early visits build a lifetime of dental confidence.',
     time:'4 min read', date:'Dec 2024',
     body:'<p>Your child\'s first dental visit should happen when their first tooth appears — or by their first birthday, whichever comes first.</p><h3>Why so early?</h3><p>Early visits build a positive relationship with the dentist before any problem arises. Children who start early are far less likely to develop dental anxiety — confidence that lasts a lifetime.</p><h3>What to expect at Kays Dental</h3><p>The first appointment is gentle, short, and fun. Very young children sit on a parent\'s lap. We check gums and teeth, discuss feeding habits, and answer all your questions warmly.</p><h3>Great habits to start at home</h3><ul><li>Brush as soon as the first tooth appears — tiny smear of fluoride toothpaste</li><li>Avoid putting children to bed with a bottle of milk or juice</li><li>Make brushing fun — let them pick their own toothbrush!</li><li>Avoid sharing utensils — cavity bacteria can pass from parent to child</li></ul>'
@@ -729,7 +768,7 @@ const ARTS = [
   {
     id:'floss', cat:'hygiene',
     title:'Flossing vs. Interdental Brushes',
-    img:'https://images.unsplash.com/photo-1574279606130-09958dc756f7?w=640&h=430&fit=crop',
+    img:'https://kaysdentalclinic.com/wp-content/uploads/2025/02/kays-dental-bg-1.jpg',
     exc:'Both clean between your teeth — but one may suit you far better. Here\'s the evidence.',
     time:'4 min read', date:'Nov 2024',
     body:'<p>A growing body of evidence suggests interdental brushes may be more effective for the majority of patients. Here is my honest breakdown.</p><h3>What the research shows</h3><p>Multiple clinical trials found that interdental brushes remove more plaque than floss when used correctly. They are also easier to use consistently — and consistency is the most important factor in interproximal hygiene.</p><h3>The right tool for the situation</h3><p>Floss is better for tight contact points between teeth. Interdental brushes work better for people with gaps, gum recession, braces, or implants.</p><h3>Sizing matters</h3><p>The brush should slide in with gentle resistance — not forced, not loose. At your next appointment I can recommend the perfect size for every gap you have.</p>'
@@ -737,44 +776,44 @@ const ARTS = [
   {
     id:'holistic', cat:'holistic',
     title:'What Is Holistic Dentistry and Why Does It Matter?',
-    img:'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=640&h=430&fit=crop',
+    img:'https://kaysdentalclinic.com/wp-content/uploads/2025/06/Holistic-Dentistry.jpg',
     exc:'Your mouth is connected to your whole body. Holistic dentistry treats both.',
     time:'6 min read', date:'Oct 2024',
     body:'<p>Holistic dentistry treats the mouth as an integral part of the whole human body. At Kays Dental, it is the philosophy behind everything we do.</p><h3>What makes it different?</h3><p>Conventional dentistry focuses on treating symptoms. Holistic dentistry asks why those symptoms are occurring and addresses the root cause. We consider nutrition, stress, sleep, and systemic health in your treatment plan.</p><h3>What you will notice at Kays Dental</h3><ul><li>Mercury-free and biocompatible materials wherever possible</li><li>Diet and lifestyle discussed as part of treatment</li><li>Minimally invasive techniques to preserve natural tooth structure</li><li>Your bite, jaw, neck, and posture assessed together</li></ul><p>Holistic dentistry is not alternative — it is a more complete, more personalised form of care. Book a consultation to experience the difference.</p>'
   }
 ];
 
-const PODS = [
+var PODS = [
   {
     id:'p1', ep:'Episode 1',
     title:'Why Your Gums Bleed — And What To Do About It',
     desc:'Bleeding gums are extremely common but almost always preventable. Dr. Esther explains the real causes and gives a simple 5-step plan to fix it within 2 weeks.',
     url:'', spotify:'', dur:'22 mins', date:'March 2025',
-    img:'https://images.unsplash.com/photo-1559591935-1e04cf42d1db?w=400&h=400&fit=crop'
+    img:'https://kaysdentalclinic.com/wp-content/uploads/2025/02/kays-dental-bg-2.jpg'
   },
   {
     id:'p2', ep:'Episode 2',
     title:'Sugar, Sodas and Your Smile: The Ugandan Diet Deep Dive',
-    desc:'Uganda\'s love for sugary drinks is taking a real toll on our teeth. Dr. Esther breaks down the data and gives practical, realistic advice for protecting your family\'s smiles.',
+    desc:'Uganda\'s love for sugary drinks is taking a real toll on our teeth. Dr. Esther breaks down the data and gives practical advice for protecting your family\'s smiles.',
     url:'', spotify:'', dur:'28 mins', date:'Feb 2025',
-    img:'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=400&fit=crop'
+    img:'https://kaysdentalclinic.com/wp-content/uploads/2025/05/Kays-dental-for-patients.jpg'
   },
   {
     id:'p3', ep:'Episode 3',
     title:'Children\'s Teeth: A Complete Guide for Ugandan Parents',
     desc:'From the first tooth to the teenage years — everything a Ugandan parent needs to know about their child\'s dental health, with practical tips from Dr. Esther\'s clinic.',
     url:'', spotify:'', dur:'31 mins', date:'Jan 2025',
-    img:'https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?w=400&h=400&fit=crop'
+    img:'https://kaysdentalclinic.com/wp-content/uploads/2025/02/kays-dental-bg-congact.jpg'
   }
 ];
 
-const VIDS = [
+var VIDS = [
   {
     id:'v1', type:'YouTube Short',
     title:'Brush Like a Pro in 60 Seconds',
     desc:'Dr. Esther demonstrates the correct brushing technique in real time. Watch this once and you will never brush the same way again.',
     url:'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    img:'https://images.unsplash.com/photo-1559591935-1e04cf42d1db?w=640&h=360&fit=crop',
+    img:'https://kaysdentalclinic.com/wp-content/uploads/2025/09/Dr-Esther-N-J-Lukwago-welcome.png',
     dur:'1:02', date:'March 2025'
   },
   {
@@ -782,7 +821,7 @@ const VIDS = [
     title:'What Your Tongue Tells You About Your Health',
     desc:'A quick health check you can do in 10 seconds every morning. Dr. Esther explains what different tongue appearances mean for your overall health.',
     url:'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    img:'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=640&h=360&fit=crop',
+    img:'https://kaysdentalclinic.com/wp-content/uploads/2025/06/Holistic-Dentistry.jpg',
     dur:'0:58', date:'Feb 2025'
   },
   {
@@ -790,40 +829,103 @@ const VIDS = [
     title:'The Right Way to Floss — Faster Than You Think',
     desc:'Most people either skip flossing or do it wrong. This video shows the correct technique so you actually get the full benefit.',
     url:'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    img:'https://images.unsplash.com/photo-1574279606130-09958dc756f7?w=640&h=360&fit=crop',
+    img:'https://kaysdentalclinic.com/wp-content/uploads/2025/02/kays-dental-bg-1.jpg',
     dur:'1:05', date:'Jan 2025'
   }
 ];
 
-// ═══════════════════════════════════
+// ═══════════════════════════════════════════════════════
+// FIREBASE — LOAD ALL CONTENT FROM DATABASE
+// ═══════════════════════════════════════════════════════
+function loadFromFirebase() {
+  getDB(function(db) {
+
+    // Load articles
+    db.collection('articles').orderBy('createdAt', 'desc').get().then(function(snap) {
+      if (!snap.empty) {
+        snap.forEach(function(doc) {
+          var data = doc.data();
+          data.id = doc.id;
+          // Only add if not already in default list
+          var exists = ARTS.filter(function(a) { return a.id === doc.id; })[0];
+          if (!exists) ARTS.unshift(data);
+        });
+        renderArts('all');
+        document.querySelectorAll('#art-filters .tag-btn').forEach(function(t) { t.classList.remove('active'); });
+        document.querySelector('#art-filters .tag-btn').classList.add('active');
+      }
+    }).catch(function(e) { console.log('Articles load:', e); });
+
+    // Load podcasts
+    db.collection('podcasts').orderBy('createdAt', 'desc').get().then(function(snap) {
+      if (!snap.empty) {
+        snap.forEach(function(doc) {
+          var data = doc.data();
+          data.id = doc.id;
+          var exists = PODS.filter(function(p) { return p.id === doc.id; })[0];
+          if (!exists) PODS.unshift(data);
+        });
+        renderPods();
+      }
+    }).catch(function(e) { console.log('Podcasts load:', e); });
+
+    // Load videos
+    db.collection('videos').orderBy('createdAt', 'desc').get().then(function(snap) {
+      if (!snap.empty) {
+        snap.forEach(function(doc) {
+          var data = doc.data();
+          data.id = doc.id;
+          var exists = VIDS.filter(function(v) { return v.id === doc.id; })[0];
+          if (!exists) VIDS.unshift(data);
+        });
+        renderVids();
+      }
+    }).catch(function(e) { console.log('Videos load:', e); });
+
+  });
+}
+
+// ═══════════════════════════════════════════════════════
+// FIREBASE — SAVE TO DATABASE
+// ═══════════════════════════════════════════════════════
+function saveToFirebase(collection, data, callback) {
+  getDB(function(db) {
+    data.createdAt = firebase.firestore.FieldValue.serverTimestamp();
+    db.collection(collection).doc(data.id).set(data)
+      .then(function() { callback(true); })
+      .catch(function(e) { console.log('Save error:', e); callback(false); });
+  });
+}
+
+// ═══════════════════════════════════════════════════════
 // HELPERS
-// ═══════════════════════════════════
+// ═══════════════════════════════════════════════════════
 function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
 
-function toast(msg) {
-  const d = document.createElement('div');
+function toast(msg, color) {
+  var d = document.createElement('div');
   d.textContent = msg;
   Object.assign(d.style, {
     position:'fixed', bottom:'2rem', left:'50%', transform:'translateX(-50%)',
-    background:'#1E5C2E', color:'#fff', padding:'.85rem 1.8rem', borderRadius:'2rem',
-    fontWeight:'700', fontSize:'.88rem', zIndex:'9999',
+    background: color || '#1E5C2E', color:'#fff', padding:'.85rem 1.8rem',
+    borderRadius:'2rem', fontWeight:'700', fontSize:'.88rem', zIndex:'9999',
     boxShadow:'0 8px 28px rgba(0,0,0,.3)', fontFamily:'Nunito,sans-serif',
-    whiteSpace:'nowrap', transition:'opacity .3s'
+    whiteSpace:'nowrap'
   });
   document.body.appendChild(d);
-  setTimeout(() => d.style.opacity = '0', 3000);
-  setTimeout(() => d.remove(), 3400);
+  setTimeout(function() { d.style.opacity='0'; d.style.transition='opacity .3s'; }, 3000);
+  setTimeout(function() { d.remove(); }, 3400);
 }
 
-// ═══════════════════════════════════
+// ═══════════════════════════════════════════════════════
 // RENDER ARTICLES
-// ═══════════════════════════════════
+// ═══════════════════════════════════════════════════════
 function renderArts(filter) {
   filter = filter || 'all';
-  const g = document.getElementById('artGrid');
-  const list = (filter === 'all') ? ARTS : ARTS.filter(a => a.cat === filter);
+  var g = document.getElementById('artGrid');
+  var list = (filter === 'all') ? ARTS : ARTS.filter(function(a) { return a.cat === filter; });
   if (!list.length) {
-    g.innerHTML = '<div class="no-content">No articles in this category yet — Dr. Esther will publish one soon! 😊</div>';
+    g.innerHTML = '<div class="no-content">No articles in this category yet — Dr. Esther will publish one soon! \uD83D\uDE0A</div>';
     return;
   }
   g.innerHTML = list.map(function(a) {
@@ -833,18 +935,19 @@ function renderArts(filter) {
       '<div class="card-body">' +
       '<h3 class="card-title">' + a.title + '</h3>' +
       '<p class="card-exc">' + a.exc + '</p>' +
-      '<div class="card-meta"><span>' + a.time + '</span><span class="dot"></span><span>' + a.date + '</span><span class="read">Read \u2192</span></div>' +
+      '<div class="card-meta"><span>' + a.time + '</span><span class="dot"></span><span>' + a.date + '</span>' +
+      '<span class="read">Read \u2192</span></div>' +
       '</div></div>';
   }).join('');
 }
 
-// ═══════════════════════════════════
+// ═══════════════════════════════════════════════════════
 // RENDER PODCASTS
-// ═══════════════════════════════════
+// ═══════════════════════════════════════════════════════
 function renderPods() {
-  const g = document.getElementById('podGrid');
+  var g = document.getElementById('podGrid');
   if (!PODS.length) {
-    g.innerHTML = '<div class="no-content" style="grid-column:1/-1">No episodes yet — Dr. Esther\'s first episode is coming soon! 🎙️</div>';
+    g.innerHTML = '<div class="no-content" style="grid-column:1/-1">No episodes yet — Dr. Esther\'s first episode is coming soon! \uD83C\uDF99\uFE0F</div>';
     return;
   }
   g.innerHTML = PODS.map(function(p) {
@@ -854,32 +957,32 @@ function renderPods() {
     } else if (p.url) {
       playerHtml = '<audio controls style="width:100%;height:42px;border-radius:8px;display:block"><source src="' + p.url + '"/></audio>';
     } else {
-      playerHtml = '<div class="pod-no-audio">🎙️ Audio coming soon — check back shortly!</div>';
+      playerHtml = '<div class="pod-no-audio">\uD83C\uDF99\uFE0F Audio coming soon — check back shortly!</div>';
     }
     return '<div class="pod-card">' +
       '<div class="pod-cover">' +
       '<img src="' + p.img + '" alt="' + p.title + '" loading="lazy"/>' +
       '<span class="pod-ep">' + p.ep + '</span>' +
-      '<div class="pod-cover-icon">🎙️</div>' +
-      (p.spotify ? '<div class="pod-spotify-badge">🎵 Spotify</div>' : '') +
+      '<div class="pod-cover-icon">\uD83C\uDF99\uFE0F</div>' +
+      (p.spotify ? '<div class="pod-spotify-badge">\uD83C\uDFB5 Spotify</div>' : '') +
       '</div>' +
       '<div class="pod-body">' +
       '<div class="pod-title">' + p.title + '</div>' +
       '<div class="pod-desc">' + p.desc + '</div>' +
       '<div class="pod-player">' + playerHtml + '</div>' +
-      '<div class="pod-meta"><span>🕐 ' + p.dur + '</span><span class="dot"></span><span>' + p.date + '</span>' +
+      '<div class="pod-meta"><span>\uD83D\uDD50 ' + p.dur + '</span><span class="dot"></span><span>' + p.date + '</span>' +
       '<button class="pod-share" onclick="sharePod(\'' + p.id + '\')">Share \u2197</button></div>' +
       '</div></div>';
   }).join('');
 }
 
-// ═══════════════════════════════════
+// ═══════════════════════════════════════════════════════
 // RENDER VIDEOS
-// ═══════════════════════════════════
+// ═══════════════════════════════════════════════════════
 function renderVids() {
-  const g = document.getElementById('vidGrid');
+  var g = document.getElementById('vidGrid');
   if (!VIDS.length) {
-    g.innerHTML = '<div class="no-content" style="grid-column:1/-1">No videos yet — Dr. Esther\'s first video short is coming soon! 🎬</div>';
+    g.innerHTML = '<div class="no-content" style="grid-column:1/-1">No videos yet — Dr. Esther\'s first video short is coming soon! \uD83C\uDFAC</div>';
     return;
   }
   g.innerHTML = VIDS.map(function(v) {
@@ -898,23 +1001,26 @@ function renderVids() {
   }).join('');
 }
 
-// Initial render
+// Initial render with seed data
 renderArts('all');
 renderPods();
 renderVids();
 
-// ═══════════════════════════════════
-// FILTER ARTICLES
-// ═══════════════════════════════════
+// Then load saved content from Firebase on top
+loadFromFirebase();
+
+// ═══════════════════════════════════════════════════════
+// FILTER
+// ═══════════════════════════════════════════════════════
 function filterArt(cat, btn) {
   document.querySelectorAll('#art-filters .tag-btn').forEach(function(t) { t.classList.remove('active'); });
   btn.classList.add('active');
   renderArts(cat);
 }
 
-// ═══════════════════════════════════
+// ═══════════════════════════════════════════════════════
 // PUBLISH FORMS
-// ═══════════════════════════════════
+// ═══════════════════════════════════════════════════════
 function openForm(type) {
   ['art','pod','vid'].forEach(function(t) {
     document.getElementById('form-' + t).classList.remove('open');
@@ -944,19 +1050,25 @@ function publishItem(type) {
     var cat   = document.getElementById('a-cat').value;
     var exc   = document.getElementById('a-exc').value.trim();
     var body  = document.getElementById('a-body').value.trim();
-    var img   = document.getElementById('a-img').value.trim() || 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=640&h=430&fit=crop';
+    var img   = document.getElementById('a-img').value.trim() || 'https://kaysdentalclinic.com/wp-content/uploads/2025/02/kays-dental-bg-2.jpg';
     var time  = document.getElementById('a-time').value.trim() || '3 min read';
     if (!title || !exc || !body) { alert('Please fill in the title, summary, and article content.'); return; }
     var formatted = '<p>' + body.replace(/\n\n/g, '</p><p>').replace(/\n/g, '<br>') + '</p>';
-    ARTS.unshift({ id:'art_' + Date.now(), cat:cat, title:title, img:img, exc:exc, time:time, date:dateStr, body:formatted });
-    renderArts('all');
-    document.querySelectorAll('#art-filters .tag-btn').forEach(function(t) { t.classList.remove('active'); });
-    document.querySelector('#art-filters .tag-btn').classList.add('active');
-    closeForm('art');
-    ['a-title','a-exc','a-body','a-img','a-time'].forEach(function(id) { document.getElementById(id).value = ''; });
-    document.getElementById('a-prev').style.display = 'none';
-    toast('✅ Article published successfully!');
-    setTimeout(function() { document.getElementById('articles').scrollIntoView({ behavior:'smooth', block:'start' }); }, 500);
+    var newArt = { id:'art_' + Date.now(), cat:cat, title:title, img:img, exc:exc, time:time, date:dateStr, body:formatted };
+
+    toast('\uD83D\uDCBE Saving to database...', '#6C3FC5');
+
+    saveToFirebase('articles', newArt, function(success) {
+      ARTS.unshift(newArt);
+      renderArts('all');
+      document.querySelectorAll('#art-filters .tag-btn').forEach(function(t) { t.classList.remove('active'); });
+      document.querySelector('#art-filters .tag-btn').classList.add('active');
+      closeForm('art');
+      ['a-title','a-exc','a-body','a-img','a-time'].forEach(function(id) { document.getElementById(id).value = ''; });
+      document.getElementById('a-prev').style.display = 'none';
+      toast(success ? '\u2705 Article published & saved permanently!' : '\u2705 Article published! (saved locally)', success ? '#1E5C2E' : '#E6B800');
+      setTimeout(function() { document.getElementById('articles').scrollIntoView({ behavior:'smooth', block:'start' }); }, 500);
+    });
   }
 
   if (type === 'pod') {
@@ -965,16 +1077,22 @@ function publishItem(type) {
     var desc    = document.getElementById('p-desc').value.trim();
     var url     = document.getElementById('p-url').value.trim();
     var spotify = document.getElementById('p-spotify').value.trim();
-    var img     = document.getElementById('p-img').value.trim() || 'https://images.unsplash.com/photo-1559591935-1e04cf42d1db?w=400&h=400&fit=crop';
+    var img     = document.getElementById('p-img').value.trim() || 'https://kaysdentalclinic.com/wp-content/uploads/2025/09/Dr-Esther-N-J-Lukwago-welcome.png';
     var dur     = document.getElementById('p-dur').value.trim() || '~20 mins';
     if (!title || !desc) { alert('Please fill in the episode title and description.'); return; }
-    PODS.unshift({ id:'pod_' + Date.now(), ep:ep, title:title, desc:desc, url:url, spotify:spotify, img:img, dur:dur, date:dateStr });
-    renderPods();
-    closeForm('pod');
-    ['p-title','p-ep','p-desc','p-url','p-spotify','p-img','p-dur'].forEach(function(id) { document.getElementById(id).value = ''; });
-    document.getElementById('p-prev').style.display = 'none';
-    toast('✅ Podcast episode published!');
-    setTimeout(function() { document.getElementById('podcasts').scrollIntoView({ behavior:'smooth', block:'start' }); }, 500);
+    var newPod = { id:'pod_' + Date.now(), ep:ep, title:title, desc:desc, url:url, spotify:spotify, img:img, dur:dur, date:dateStr };
+
+    toast('\uD83D\uDCBE Saving to database...', '#6C3FC5');
+
+    saveToFirebase('podcasts', newPod, function(success) {
+      PODS.unshift(newPod);
+      renderPods();
+      closeForm('pod');
+      ['p-title','p-ep','p-desc','p-url','p-spotify','p-img','p-dur'].forEach(function(id) { document.getElementById(id).value = ''; });
+      document.getElementById('p-prev').style.display = 'none';
+      toast(success ? '\u2705 Podcast episode saved permanently!' : '\u2705 Episode published! (saved locally)', success ? '#6C3FC5' : '#E6B800');
+      setTimeout(function() { document.getElementById('podcasts').scrollIntoView({ behavior:'smooth', block:'start' }); }, 500);
+    });
   }
 
   if (type === 'vid') {
@@ -982,25 +1100,30 @@ function publishItem(type) {
     var vtype = document.getElementById('v-type').value;
     var desc  = document.getElementById('v-desc').value.trim();
     var url   = document.getElementById('v-url').value.trim();
-    var img   = document.getElementById('v-img').value.trim() || 'https://images.unsplash.com/photo-1574279606130-09958dc756f7?w=640&h=360&fit=crop';
+    var img   = document.getElementById('v-img').value.trim() || 'https://kaysdentalclinic.com/wp-content/uploads/2025/06/Holistic-Dentistry.jpg';
     var dur   = document.getElementById('v-dur').value.trim() || '< 2 mins';
     if (!title || !desc) { alert('Please fill in the video title and description.'); return; }
-    // Auto-convert YouTube watch URL to embed URL
     var ytMatch = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]+)/);
     if (ytMatch) { url = 'https://www.youtube.com/embed/' + ytMatch[1]; }
-    VIDS.unshift({ id:'vid_' + Date.now(), type:vtype, title:title, desc:desc, url:url, img:img, dur:dur, date:dateStr });
-    renderVids();
-    closeForm('vid');
-    ['v-title','v-desc','v-url','v-img','v-dur'].forEach(function(id) { document.getElementById(id).value = ''; });
-    document.getElementById('v-prev').style.display = 'none';
-    toast('✅ Video short published!');
-    setTimeout(function() { document.getElementById('videos').scrollIntoView({ behavior:'smooth', block:'start' }); }, 500);
+    var newVid = { id:'vid_' + Date.now(), type:vtype, title:title, desc:desc, url:url, img:img, dur:dur, date:dateStr };
+
+    toast('\uD83D\uDCBE Saving to database...', '#6C3FC5');
+
+    saveToFirebase('videos', newVid, function(success) {
+      VIDS.unshift(newVid);
+      renderVids();
+      closeForm('vid');
+      ['v-title','v-desc','v-url','v-img','v-dur'].forEach(function(id) { document.getElementById(id).value = ''; });
+      document.getElementById('v-prev').style.display = 'none';
+      toast(success ? '\u2705 Video saved permanently!' : '\u2705 Video published! (saved locally)', success ? '#B91C1C' : '#E6B800');
+      setTimeout(function() { document.getElementById('videos').scrollIntoView({ behavior:'smooth', block:'start' }); }, 500);
+    });
   }
 }
 
-// ═══════════════════════════════════
+// ═══════════════════════════════════════════════════════
 // MODAL — ARTICLE
-// ═══════════════════════════════════
+// ═══════════════════════════════════════════════════════
 function openArt(id) {
   var a = ARTS.filter(function(x) { return x.id === id; })[0];
   if (!a) return;
@@ -1019,9 +1142,9 @@ function openArt(id) {
   openOverlay();
 }
 
-// ═══════════════════════════════════
+// ═══════════════════════════════════════════════════════
 // MODAL — VIDEO
-// ═══════════════════════════════════
+// ═══════════════════════════════════════════════════════
 function openVid(id) {
   var v = VIDS.filter(function(x) { return x.id === id; })[0];
   if (!v) return;
@@ -1043,8 +1166,7 @@ function openVid(id) {
     '<div class="modal-cat vid">\u25B6 ' + v.type + ' \u00B7 ' + v.dur + '</div>' +
     '<h2>' + v.title + '</h2>' +
     '<div class="modal-meta">' + v.date + ' \u00B7 Dr. Esther Lukwago \u00B7 Kays Dental Clinic</div>' +
-    player +
-    '<p>' + v.desc + '</p>' +
+    player + '<p>' + v.desc + '</p>' +
     '<div class="modal-actions">' +
     '<a href="' + waLink + '" target="_blank" class="btn btn-wa btn-sm">\uD83D\uDCAC Ask Dr. Esther</a>' +
     '<a href="#contact" class="btn btn-green btn-sm" onclick="closeModal()">\uD83D\uDCC5 Book Appointment</a>' +
@@ -1052,9 +1174,9 @@ function openVid(id) {
   openOverlay();
 }
 
-// ═══════════════════════════════════
+// ═══════════════════════════════════════════════════════
 // OVERLAY HELPERS
-// ═══════════════════════════════════
+// ═══════════════════════════════════════════════════════
 function openOverlay() {
   document.getElementById('overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -1067,9 +1189,9 @@ function closeOverlay(e) {
   if (e.target === document.getElementById('overlay')) closeModal();
 }
 
-// ═══════════════════════════════════
+// ═══════════════════════════════════════════════════════
 // PODCAST SHARE
-// ═══════════════════════════════════
+// ═══════════════════════════════════════════════════════
 function sharePod(id) {
   var p = PODS.filter(function(x) { return x.id === id; })[0];
   if (!p) return;
@@ -1077,17 +1199,17 @@ function sharePod(id) {
   window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank');
 }
 
-// ═══════════════════════════════════
+// ═══════════════════════════════════════════════════════
 // SHARE BLOG
-// ═══════════════════════════════════
+// ═══════════════════════════════════════════════════════
 function shareAll() {
   var msg = '\uD83E\uDDB7 Check out Dr. Esther\'s dental blog at Kays Dental Clinic, Kampala!\n\n\uD83D\uDCDD Articles \u00B7 \uD83C\uDF99\uFE0F Podcasts \u00B7 \uD83C\uDFAC Video Tips \u2014 published every week, completely free.\n\n\uD83D\uDCCD Plot 52, Kanjokya Street, Kampala\n\uD83D\uDCDE 0772 465 051';
   window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank');
 }
 
-// ═══════════════════════════════════
+// ═══════════════════════════════════════════════════════
 // CONTACT FORM
-// ═══════════════════════════════════
+// ═══════════════════════════════════════════════════════
 function sendWA() {
   var n = document.getElementById('cf-name').value.trim();
   var p = document.getElementById('cf-phone').value.trim();
