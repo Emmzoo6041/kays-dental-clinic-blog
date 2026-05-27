@@ -47,7 +47,7 @@ export function RichTextEditor({
   // Sync external value changes (e.g. when editing an existing post loads its content)
   useEffect(() => {
     if (editor && value && editor.getHTML() !== value) {
-      editor.commands.setContent(value, { emitUpdate: false });
+      editor.commands.setContent(value, false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [editor, value]);
