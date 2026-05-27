@@ -1,0 +1,15 @@
+{
+  "name": "Conversations with a Dentist",
+  "short_name": "Dr. Esther",
+  "description": "Expert dental articles, podcasts & video tips from Dr. Esther Lukwago at Kays Dental Clinic, Kampala.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#EDF7EF",
+  "theme_color": "#2E7D42",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "/dr-esther-small.jpg", "sizes": "192x192", "type": "image/jpeg", "purpose": "any" },
+    { "src": "/dr-esther-small.jpg", "sizes": "512x512", "type": "image/jpeg", "purpose": "any" }
+  ],
+  "categories": ["health", "education", "lifestyle"]
+}
