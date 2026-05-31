@@ -45,7 +45,7 @@ export function TableOfContents({ targetId = "article-body" }: { targetId?: stri
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5, delay: 0.3 }}
-      className="hidden xl:block sticky top-28 self-start max-w-[220px]"
+      className="hidden xl:block max-w-[220px]"
     >
       <p className="text-[0.65rem] uppercase tracking-[0.18em] text-[#7A9480] dark:text-[#8FA89A] font-bold mb-3">On this page</p>
       <ul className="space-y-2 border-l-2 border-[#D4EDD9] dark:border-white/15 pl-4">
