@@ -178,9 +178,11 @@ export default async function PostPage({ params }: { params: { slug: string } })
           </div>
         </article>
 
-        <aside className="space-y-6">
-          {post.type === "article" && <TableOfContents targetId="article-body" />}
-          <TrendingWidget />
+        <aside className="hidden xl:block">
+          <div className="sticky top-28 space-y-6 self-start">
+            {post.type === "article" && <TableOfContents targetId="article-body" />}
+            <TrendingWidget />
+          </div>
         </aside>
       </div>
     </>
