@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { createServerSupabase, isAdmin } from "@/lib/supabase-server";
 import { CLINIC } from "@/lib/clinic";
 import { SignOutButton } from "./SignOutButton";
@@ -13,7 +12,7 @@ export async function Header() {
   return (
     <HeaderClient
       logoUrl={CLINIC.logoUrl}
-      clinicName={CLINIC.name}
+      clinicName={CLINIC.blogName}
       address={CLINIC.address1}
       isAdmin={admin}
       userEmail={user?.email ?? null}
