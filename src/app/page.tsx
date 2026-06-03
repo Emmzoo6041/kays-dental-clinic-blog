@@ -71,7 +71,7 @@ export default async function HomePage() {
               <MagneticButton href="#articles" className="btn btn-outline">Explore Content</MagneticButton>
             </div>
           </Reveal>
-          <Reveal direction="up" delay={0.32}>
+         <Reveal direction="up" delay={0.32}>
             <div className="flex items-center gap-4 glass rounded-[18px] px-5 py-4 max-w-md">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={CLINIC.doctorPhoto} alt={CLINIC.doctor} className="w-16 h-16 rounded-full object-cover object-top border-[3px] border-[#4CAF6B] flex-shrink-0" />
