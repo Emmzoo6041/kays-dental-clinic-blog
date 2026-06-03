@@ -52,7 +52,7 @@ export function HeaderClient({
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-[100] h-[72px] px-[5vw] flex items-center justify-between transition-all duration-300
+        className={fixed top-0 left-0 right-0 z-[100] h-[72px] px-4 sm:px-[5vw] flex items-center justify-between gap-2 transition-all duration-300
           ${scrolled
             ? "bg-white/85 dark:bg-[#0a1a0b]/85 backdrop-blur-xl border-b border-[#D4EDD9] dark:border-white/10 shadow-[0_4px_20px_rgba(30,92,46,0.08)]"
             : "bg-transparent border-b-2 border-transparent"
