@@ -42,8 +42,8 @@ export default async function HomePage() {
             </div>
           </Reveal>
           <Reveal direction="up" delay={0.05}>
-            <h1 className="font-display font-bold text-[#1E5C2E] dark:text-[#D4EDD9] leading-[1.12] mb-4" style={{ fontSize: "clamp(2.2rem, 4vw, 3.6rem)" }}>
-              Conversations with <br />
+            <h1 className="font-display font-bold text-[#1E5C2E] dark:text-[#D4EDD9] leading-[1.1] mb-4" style={{ fontSize: "clamp(1.85rem, 4.6vw, 3.6rem)" }}>
+              Conversations with{" "}
               <em className="italic bg-gradient-to-r from-[#2E7D42] via-[#4CAF6B] to-[#E6B800] bg-clip-text text-transparent">a Dentist</em>
             </h1>
           </Reveal>
