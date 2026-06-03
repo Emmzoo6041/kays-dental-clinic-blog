@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useEffect, useState, ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ThemeToggle } from "./ThemeToggle";
+import { MicIcon } from "./MicIcon";
 
 type NavItem = { href: string; label: string; emoji?: string };
 
