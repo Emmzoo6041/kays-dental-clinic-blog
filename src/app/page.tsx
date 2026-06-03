@@ -97,8 +97,55 @@ export default async function HomePage() {
               <span className="text-[0.66rem] text-[#7A9480] dark:text-[#A5B8AB] font-semibold text-center mt-1">Patient<br />Satisfaction</span>
             </div>
           </Reveal>
+       </div>
+      </section>
+
+      {/* HERO VIDEO PLACEHOLDER — Dr Esther's "conversation" intro */}
+      <section className="px-[5vw] py-12 lg:py-16 bg-gradient-to-b from-white to-[#F6F9F3] dark:from-[#0a1a0b] dark:to-[#0a1a0b]/60">
+        <div className="max-w-[1100px] mx-auto">
+          <Reveal direction="up">
+            <div className="text-center mb-7">
+              <span className="inline-block text-[0.7rem] tracking-[0.2em] uppercase text-[#7A9480] font-bold mb-2">Watch the welcome</span>
+              <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1E5C2E] dark:text-[#D4EDD9] leading-tight">
+                A 60-second conversation with Dr. Esther
+              </h2>
+              <p className="text-sm sm:text-base text-[#3D5444] dark:text-[#A5B8AB] mt-2 max-w-xl mx-auto">
+                What you can expect from this blog, in her own voice.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal direction="up" delay={0.1}>
+            <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-gradient-to-br from-[#1E5C2E] via-[#2E7D42] to-[#4CAF6B] shadow-[0_20px_60px_-20px_rgba(30,92,46,0.45)] border border-[#D4EDD9] dark:border-white/10 group cursor-pointer">
+              <div className="absolute -top-10 -left-10 w-40 h-40 rounded-full bg-[#E6B800]/30 blur-3xl" />
+              <div className="absolute -bottom-12 -right-12 w-52 h-52 rounded-full bg-[#4CAF6B]/40 blur-3xl" />
+              <div className="absolute inset-0 grid place-items-center">
+                <div className="flex flex-col items-center gap-4 text-center px-6">
+                  <div className="relative">
+                    <div className="absolute inset-0 rounded-full bg-white/30 animate-ping" />
+                    <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-white grid place-items-center shadow-2xl group-hover:scale-110 transition-transform">
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="#1E5C2E" className="ml-1.5">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div>
+                    <p className="text-white font-display text-lg sm:text-xl font-bold drop-shadow">Coming soon</p>
+                    <p className="text-white/80 text-xs sm:text-sm mt-1">Dr. Esther is recording her welcome message</p>
+                  </div>
+                </div>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 px-5 py-3 bg-gradient-to-t from-black/40 to-transparent flex items-center justify-between text-white text-xs">
+                <span className="inline-flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#FCA5A5] animate-pulse" />
+                  Welcome video · ~60 seconds
+                </span>
+                <span className="hidden sm:inline opacity-80">Conversations with a Dentist</span>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
+
 
       {/* TRUST BAR */}
       <div className="trust-bar">
