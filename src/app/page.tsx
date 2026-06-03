@@ -35,9 +35,10 @@ export default async function HomePage() {
       <section className="relative grid lg:grid-cols-[1.1fr,1fr] min-h-[92vh] overflow-hidden -mt-[72px] pt-[72px]">
         <FloatingOrbs intensity="normal" />
         <div className="relative bg-[#EDF7EF]/85 dark:bg-[#0a1a0b]/40 backdrop-blur-sm px-[5vw] py-16 lg:py-20 flex flex-col justify-center z-10">
-          <Reveal direction="up" delay={0}>
-            <div className="inline-flex items-center gap-2 glass text-[#B8860B] dark:text-[#FFD740] text-[0.74rem] font-bold px-4 py-[0.34rem] rounded-full mb-5 w-fit">
-              🌿 {CLINIC.name} — {CLINIC.address1}
+         <Reveal direction="up" delay={0}>
+            <div className="inline-flex items-center gap-2 glass text-[#B8860B] dark:text-[#FFD740] text-[0.7rem] sm:text-[0.74rem] font-bold px-3 sm:px-4 py-[0.34rem] rounded-full mb-5 w-fit max-w-full">
+              <span className="hidden sm:inline">🌿 {CLINIC.name} — {CLINIC.address1}</span>
+              <span className="sm:hidden">🌿 {CLINIC.name} · Kampala</span>
             </div>
           </Reveal>
           <Reveal direction="up" delay={0.05}>
