@@ -58,13 +58,14 @@ export function HeaderClient({
             : "bg-transparent border-b-2 border-transparent"
           }`}
       >
-        <Link href="/" className="flex items-center gap-3 group">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={logoUrl} alt={clinicName}
-               className="w-11 h-11 rounded-full object-cover border-[2.5px] border-[#4CAF6B] flex-shrink-0 transition-transform group-hover:scale-105" />
-          <div className="leading-tight">
-            <strong className="block text-base font-extrabold text-[#1E5C2E] dark:text-[#D4EDD9]">{clinicName}</strong>
-            <span className="text-[0.68rem] text-[#7A9480] dark:text-[#8FA89A]">Dr. Esther · {address}</span>
+       <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group min-w-0 flex-1">
+          <MicIcon size={48} className="flex-shrink-0 transition-transform group-hover:scale-105" />
+          <div className="leading-tight min-w-0">
+            <strong className="block text-[0.92rem] sm:text-base font-extrabold text-[#1E5C2E] dark:text-[#D4EDD9] truncate">{clinicName}</strong>
+            <span className="block text-[0.62rem] sm:text-[0.68rem] text-[#7A9480] dark:text-[#8FA89A] truncate">
+              <span className="sm:hidden">Dr. Esther · Kampala</span>
+              <span className="hidden sm:inline">Dr. Esther · {address}</span>
+            </span>
           </div>
         </Link>
 
