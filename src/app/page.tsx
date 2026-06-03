@@ -8,6 +8,7 @@ import { Reveal } from "@/components/Reveal";
 import { FloatingOrbs } from "@/components/FloatingOrbs";
 import { MagneticButton } from "@/components/MagneticButton";
 import { NewsletterSection } from "@/components/NewsletterSection";
+import { MicIcon } from "@/components/MicIcon";
 
 export const revalidate = 60;
 
