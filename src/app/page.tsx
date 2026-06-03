@@ -53,10 +53,16 @@ export default async function HomePage() {
             </p>
           </Reveal>
           <Reveal direction="up" delay={0.18}>
-            <div className="flex flex-wrap gap-2 mb-7">
-              <span className="inline-flex items-center gap-1 px-4 py-[0.38rem] rounded-full text-[0.78rem] font-bold border-2 bg-[#EDF7EF] border-[#4CAF6B] text-[#1E5C2E] dark:bg-transparent dark:text-[#4CAF6B]">📝 Articles</span>
-              <span className="inline-flex items-center gap-1 px-4 py-[0.38rem] rounded-full text-[0.78rem] font-bold border-2 bg-[#EDE9FE] border-[#C4B5FD] text-[#6C3FC5] dark:bg-transparent dark:text-[#C4B5FD]">🎙️ Audio Podcasts</span>
-              <span className="inline-flex items-center gap-1 px-4 py-[0.38rem] rounded-full text-[0.78rem] font-bold border-2 bg-[#FEE2E2] border-[#FCA5A5] text-[#B91C1C] dark:bg-transparent dark:text-[#FCA5A5]">🎬 Video Shorts</span>
+            <div className="flex items-center gap-5 sm:gap-7 mb-7 border-b border-[#D4EDD9] dark:border-white/10 -mx-1 px-1 overflow-x-auto whitespace-nowrap scrollbar-hide">
+              <a href="#articles" className="group inline-flex items-center gap-1.5 pb-3 text-[0.86rem] font-semibold text-[#1E5C2E] dark:text-[#D4EDD9] border-b-2 border-transparent hover:border-[#2E7D42] transition-colors">
+                <span className="text-[#2E7D42]">📝</span> Articles
+              </a>
+              <a href="#podcasts" className="group inline-flex items-center gap-1.5 pb-3 text-[0.86rem] font-semibold text-[#3D5444] dark:text-[#C8DFCC] border-b-2 border-transparent hover:border-[#6C3FC5] hover:text-[#6C3FC5] dark:hover:text-[#C4B5FD] transition-colors">
+                <span className="text-[#6C3FC5]">🎙</span> Podcasts
+              </a>
+              <a href="#videos" className="group inline-flex items-center gap-1.5 pb-3 text-[0.86rem] font-semibold text-[#3D5444] dark:text-[#C8DFCC] border-b-2 border-transparent hover:border-[#B91C1C] hover:text-[#B91C1C] dark:hover:text-[#FCA5A5] transition-colors">
+                <span className="text-[#B91C1C]">🎬</span> Videos
+              </a>
             </div>
           </Reveal>
           <Reveal direction="up" delay={0.24}>
