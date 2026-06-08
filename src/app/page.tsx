@@ -119,16 +119,66 @@ export default async function Home() {
               </p>
             </div>
           </Reveal>
-         <Reveal direction="up" delay={0.1}>
-            <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-black shadow-[0_20px_60px_-20px_rgba(30,92,46,0.45)] border border-[#D4EDD9] dark:border-white/10">
-              <iframe
-                src="https://www.youtube-nocookie.com/embed/9YGNcVb57us?rel=0&modestbranding=1"
-                title="Conversations with a Dentist — Welcome"
-                className="absolute inset-0 w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                loading="lazy"
-              />
+       <Reveal direction="up" delay={0.1}>
+            <div className="relative aspect-video w-full rounded-2xl overflow-hidden border border-[#D4EDD9] dark:border-white/10 shadow-[0_20px_60px_-20px_rgba(30,92,46,0.45)]">
+              {/* Animated gradient background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#1E5C2E] via-[#2E7D42] to-[#4CAF6B]" />
+              <div className="absolute -top-16 -left-16 w-72 h-72 rounded-full bg-[#E6B800]/30 blur-3xl animate-pulse" />
+              <div className="absolute -bottom-20 -right-16 w-80 h-80 rounded-full bg-[#4CAF6B]/40 blur-3xl animate-pulse" style={{ animationDelay: "1.5s", animationDuration: "4s" }} />
+
+              {/* Center stage */}
+              <div className="absolute inset-0 grid place-items-center px-6">
+                <div className="flex flex-col items-center text-center gap-5 max-w-md">
+                  {/* Mic with pulsing rings */}
+                  <div className="relative w-28 h-28 sm:w-32 sm:h-32">
+                    <span className="absolute inset-0 rounded-full bg-white/15 animate-ping" style={{ animationDuration: "2.4s" }} />
+                    <span className="absolute inset-3 rounded-full bg-white/20 animate-ping" style={{ animationDuration: "2.4s", animationDelay: "0.6s" }} />
+                    <div className="absolute inset-5 rounded-full bg-white shadow-2xl grid place-items-center">
+                      <svg viewBox="0 0 64 64" className="w-14 h-14 sm:w-16 sm:h-16" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="22" y="10" width="20" height="30" rx="10" fill="#1E5C2E" />
+                        <rect x="25.5" y="13.5" width="3" height="23" rx="1.5" fill="#FFFFFF" opacity="0.25" />
+                        <path d="M16 30 a16 16 0 0 0 32 0" fill="none" stroke="#1E5C2E" strokeWidth="3" strokeLinecap="round" />
+                        <rect x="30.5" y="46" width="3" height="8" rx="1.5" fill="#1E5C2E" />
+                        <rect x="22" y="53" width="20" height="3.5" rx="1.75" fill="#1E5C2E" />
+                        <circle cx="32" cy="22" r="2.4" fill="#E6B800" />
+                      </svg>
+                    </div>
+                  </div>
+
+                  {/* Soundwave bars */}
+                  <div className="flex items-end gap-1.5 h-10">
+                    {[12, 24, 36, 28, 18, 32, 24, 14, 28, 20, 36, 16].map((h, i) => (
+                      <span
+                        key={i}
+                        className="w-1.5 sm:w-2 rounded-full bg-white/80"
+                        style={{
+                          height: `${h}px`,
+                          animation: "soundwave 1.2s ease-in-out infinite",
+                          animationDelay: `${i * 0.08}s`,
+                        }}
+                      />
+                    ))}
+                  </div>
+
+                  <div>
+                    <p className="text-white font-display text-xl sm:text-2xl font-bold drop-shadow">
+                      A conversation, every week
+                    </p>
+                    <p className="text-white/85 text-sm sm:text-base mt-1">
+                      Dr. Esther shares honest dental advice for every Ugandan family.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom caption */}
+              <div className="absolute bottom-0 left-0 right-0 px-5 py-3 bg-gradient-to-t from-black/40 to-transparent flex items-center justify-between text-white text-xs">
+                <span className="inline-flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#FFD740] animate-pulse" />
+                  Welcome · 60-second intro video coming soon
+                </span>
+                <span className="hidden sm:inline opacity-80">Conversations with a Dentist</span>
+              </div>
             </div>
           </Reveal>
         </div>
