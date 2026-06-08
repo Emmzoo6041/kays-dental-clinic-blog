@@ -182,3 +182,8 @@ html.dark ::selection { background: #4CAF6B; color: #0a1a0b; }
 /* Hide scrollbar on horizontally scrollable tabs */
 .scrollbar-hide { scrollbar-width: none; }
 .scrollbar-hide::-webkit-scrollbar { display: none; }
+
+@keyframes soundwave {
+  0%, 100% { transform: scaleY(0.45); opacity: 0.55; }
+  50%      { transform: scaleY(1.4);  opacity: 1; }
+}
