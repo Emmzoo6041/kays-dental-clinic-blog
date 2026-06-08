@@ -7,97 +7,102 @@ import { ArticleCard, PodcastCard, VideoCard, ReviewCard } from "@/components/Ca
 import { Reveal } from "@/components/Reveal";
 import { FloatingOrbs } from "@/components/FloatingOrbs";
 import { MagneticButton } from "@/components/MagneticButton";
-import { NewsletterSection } from "@/components/NewsletterSection";
 import { MicIcon } from "@/components/MicIcon";
+import { NewsletterSection } from "@/components/NewsletterSection";
 
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
-export default async function HomePage() {
+export default async function Home() {
   const supabase = createServerSupabase();
-  const nowIso = new Date().toISOString();
-  // Show post if published, OR scheduled in the past
-  const { data: all } = await supabase
+  const { data: posts } = await supabase
     .from("posts")
-    .select("id, slug, type, category, title, excerpt, cover_url, media_url, duration, episode, featured, created_at, scheduled_for, published")
-    .or(`published.eq.true,and(scheduled_for.lte.${nowIso})`)
-    .order("featured", { ascending: false })
+    .select("*")
+    .eq("published", true)
     .order("created_at", { ascending: false });
 
-  // Filter again client-side just in case (defensive)
-  const visible = (all || []).filter(p => p.published || (p.scheduled_for && new Date(p.scheduled_for) <= new Date()));
-  const articles = visible.filter(p => p.type === "article");
-  const podcasts = visible.filter(p => p.type === "podcast");
-  const videos   = visible.filter(p => p.type === "video");
+  const articles = (posts || []).filter((p) => p.type === "article");
+  const podcasts = (posts || []).filter((p) => p.type === "podcast");
+  const videos = (posts || []).filter((p) => p.type === "video");
 
   return (
     <>
       {/* HERO */}
-      <section className="relative grid lg:grid-cols-[1.1fr,1fr] min-h-[92vh] overflow-hidden -mt-[72px] pt-[72px]">
-        <FloatingOrbs intensity="normal" />
-        <div className="relative bg-[#EDF7EF]/85 dark:bg-[#0a1a0b]/40 backdrop-blur-sm px-[5vw] py-16 lg:py-20 flex flex-col justify-center z-10">
-         <Reveal direction="up" delay={0}>
-            <div className="inline-flex items-center gap-2 glass text-[#B8860B] dark:text-[#FFD740] text-[0.7rem] sm:text-[0.74rem] font-bold px-3 sm:px-4 py-[0.34rem] rounded-full mb-5 w-fit max-w-full">
-              <span className="hidden sm:inline">🌿 {CLINIC.name} — {CLINIC.address1}</span>
-              <span className="sm:hidden">🌿 {CLINIC.name} · Kampala</span>
-            </div>
-          </Reveal>
-          <Reveal direction="up" delay={0.05}>
-            <h1 className="font-display font-bold text-[#1E5C2E] dark:text-[#D4EDD9] leading-[1.1] mb-4" style={{ fontSize: "clamp(1.85rem, 4.6vw, 3.6rem)" }}>
-              Conversations with{" "}
-              <em className="italic bg-gradient-to-r from-[#2E7D42] via-[#4CAF6B] to-[#E6B800] bg-clip-text text-transparent">a Dentist</em>
-            </h1>
-          </Reveal>
-          <Reveal direction="up" delay={0.12}>
-            <p className="text-[1.02rem] text-[#3D5444] dark:text-[#A5B8AB] leading-[1.82] max-w-[460px] mb-6">
-              Dr. Esther shares expert dental articles, audio podcasts, and short video tips every week — completely free for every Ugandan family.
-            </p>
-          </Reveal>
-          <Reveal direction="up" delay={0.18}>
-            <div className="flex items-center gap-5 sm:gap-7 mb-7 border-b border-[#D4EDD9] dark:border-white/10 -mx-1 px-1 overflow-x-auto whitespace-nowrap scrollbar-hide">
-              <a href="#articles" className="group inline-flex items-center gap-1.5 pb-3 text-[0.86rem] font-semibold text-[#1E5C2E] dark:text-[#D4EDD9] border-b-2 border-transparent hover:border-[#2E7D42] transition-colors">
-                <span className="text-[#2E7D42]">📝</span> Articles
-              </a>
-              <a href="#podcasts" className="group inline-flex items-center gap-1.5 pb-3 text-[0.86rem] font-semibold text-[#3D5444] dark:text-[#C8DFCC] border-b-2 border-transparent hover:border-[#6C3FC5] hover:text-[#6C3FC5] dark:hover:text-[#C4B5FD] transition-colors">
-                <span className="text-[#6C3FC5]">🎙</span> Podcasts
-              </a>
-              <a href="#videos" className="group inline-flex items-center gap-1.5 pb-3 text-[0.86rem] font-semibold text-[#3D5444] dark:text-[#C8DFCC] border-b-2 border-transparent hover:border-[#B91C1C] hover:text-[#B91C1C] dark:hover:text-[#FCA5A5] transition-colors">
-                <span className="text-[#B91C1C]">🎬</span> Videos
-              </a>
-            </div>
-          </Reveal>
-          <Reveal direction="up" delay={0.24}>
-            <div className="flex flex-wrap gap-3 mb-9">
-              <MagneticButton href={waLink()} target="_blank" rel="noreferrer" className="btn btn-wa">💬 WhatsApp Dr. Esther</MagneticButton>
-              <MagneticButton href="#articles" className="btn btn-outline">Explore Content</MagneticButton>
-            </div>
-          </Reveal>
-         <Reveal direction="up" delay={0.32}>
-            <div className="flex items-center gap-4 glass rounded-[18px] px-5 py-4 max-w-md">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={CLINIC.doctorPhoto} alt={CLINIC.doctor} className="w-16 h-16 rounded-full object-cover object-top border-[3px] border-[#4CAF6B] flex-shrink-0" />
-              <div>
-                <strong className="block text-[0.93rem] font-extrabold text-[#1E5C2E] dark:text-[#D4EDD9]">{CLINIC.doctor}</strong>
-                <span className="text-[0.74rem] text-[#7A9480] dark:text-[#A5B8AB]">Lead Dentist · {CLINIC.name}</span>
-                <div className="flex gap-5 mt-2">
-                  <div><strong className="block font-display text-lg text-[#1E5C2E] dark:text-[#D4EDD9] leading-none">10+</strong><span className="text-[0.63rem] text-[#7A9480] dark:text-[#A5B8AB]">Yrs Exp.</span></div>
-                  <div><strong className="block font-display text-lg text-[#1E5C2E] dark:text-[#D4EDD9] leading-none">2,500+</strong><span className="text-[0.63rem] text-[#7A9480] dark:text-[#A5B8AB]">Patients</span></div>
-                  <div><strong className="block font-display text-lg text-[#1E5C2E] dark:text-[#D4EDD9] leading-none">⭐ 5.0</strong><span className="text-[0.63rem] text-[#7A9480] dark:text-[#A5B8AB]">Rating</span></div>
+      <section className="relative px-[5vw] pt-12 pb-16 lg:pt-16 lg:pb-20 overflow-hidden">
+        <FloatingOrbs />
+        <div className="relative grid lg:grid-cols-[1.05fr,1fr] gap-10 lg:gap-14 items-center max-w-[1280px] mx-auto">
+          <div className="relative z-10 flex flex-col">
+            <Reveal direction="up" delay={0}>
+              <div className="inline-flex items-center gap-2 glass text-[#B8860B] dark:text-[#FFD740] text-[0.7rem] sm:text-[0.74rem] font-bold px-3 sm:px-4 py-[0.34rem] rounded-full mb-5 w-fit max-w-full">
+                <span className="hidden sm:inline">🌿 {CLINIC.name} — {CLINIC.address1}</span>
+                <span className="sm:hidden">🌿 {CLINIC.name} · Kampala</span>
+              </div>
+            </Reveal>
+
+            <Reveal direction="up" delay={0.05}>
+              <h1 className="font-display font-bold text-[#1E5C2E] dark:text-[#D4EDD9] leading-[1.1] mb-4" style={{ fontSize: "clamp(1.85rem, 4.6vw, 3.6rem)" }}>
+                Conversations with{" "}
+                <em className="italic bg-gradient-to-r from-[#2E7D42] via-[#4CAF6B] to-[#E6B800] bg-clip-text text-transparent">a Dentist</em>
+              </h1>
+            </Reveal>
+
+            <Reveal direction="up" delay={0.12}>
+              <p className="text-[1.04rem] sm:text-[1.08rem] text-[#3D5444] dark:text-[#A5B8AB] max-w-xl mb-6 leading-[1.65]">
+                Dr. Esther shares expert dental articles, audio podcasts, and short video tips every week — completely free for every Ugandan family.
+              </p>
+            </Reveal>
+
+            <Reveal direction="up" delay={0.18}>
+              <div className="flex items-center gap-5 sm:gap-7 mb-7 border-b border-[#D4EDD9] dark:border-white/10 -mx-1 px-1 overflow-x-auto whitespace-nowrap scrollbar-hide">
+                <a href="#articles" className="group inline-flex items-center gap-1.5 pb-3 text-[0.86rem] font-semibold text-[#1E5C2E] dark:text-[#D4EDD9] border-b-2 border-transparent hover:border-[#2E7D42] transition-colors">
+                  <span className="text-[#2E7D42]">📝</span> Articles
+                </a>
+                <a href="#podcasts" className="group inline-flex items-center gap-1.5 pb-3 text-[0.86rem] font-semibold text-[#3D5444] dark:text-[#C8DFCC] border-b-2 border-transparent hover:border-[#6C3FC5] hover:text-[#6C3FC5] dark:hover:text-[#C4B5FD] transition-colors">
+                  <span className="text-[#6C3FC5]">🎙</span> Podcasts
+                </a>
+                <a href="#videos" className="group inline-flex items-center gap-1.5 pb-3 text-[0.86rem] font-semibold text-[#3D5444] dark:text-[#C8DFCC] border-b-2 border-transparent hover:border-[#B91C1C] hover:text-[#B91C1C] dark:hover:text-[#FCA5A5] transition-colors">
+                  <span className="text-[#B91C1C]">🎬</span> Videos
+                </a>
+              </div>
+            </Reveal>
+
+            <Reveal direction="up" delay={0.24}>
+              <div className="flex gap-3 flex-wrap mb-6">
+                <MagneticButton>
+                  <a href={waLink()} target="_blank" rel="noreferrer" className="btn-cta inline-flex items-center gap-2">
+                    💬 WhatsApp Dr. Esther
+                  </a>
+                </MagneticButton>
+                <a href="#articles" className="btn-outline-green">Explore Content</a>
+              </div>
+            </Reveal>
+
+            <Reveal direction="up" delay={0.32}>
+              <div className="flex items-center gap-4 glass rounded-[18px] px-5 py-4 max-w-md">
+                <div className="w-20 h-20 sm:w-[88px] sm:h-[88px] grid place-items-center rounded-2xl bg-gradient-to-br from-[#EDF7EF] to-[#D4EDD9] dark:from-white/5 dark:to-white/10 border border-[#D4EDD9] dark:border-white/10 flex-shrink-0">
+                  <MicIcon size={68} />
+                </div>
+                <div>
+                  <strong className="block text-[0.93rem] font-extrabold text-[#1E5C2E] dark:text-[#D4EDD9]">{CLINIC.doctor}</strong>
+                  <span className="text-[0.74rem] text-[#7A9480] dark:text-[#A5B8AB]">Lead Dentist · {CLINIC.name}</span>
+                  <div className="flex gap-5 mt-2">
+                    <div><strong className="block font-display text-lg text-[#1E5C2E] dark:text-[#D4EDD9] leading-none">10+</strong><span className="text-[0.63rem] text-[#7A9480] dark:text-[#A5B8AB]">Yrs Exp.</span></div>
+                    <div><strong className="block font-display text-lg text-[#1E5C2E] dark:text-[#D4EDD9] leading-none">2,500+</strong><span className="text-[0.63rem] text-[#7A9480] dark:text-[#A5B8AB]">Patients</span></div>
+                    <div><strong className="block font-display text-lg text-[#1E5C2E] dark:text-[#D4EDD9] leading-none">⭐ 5.0</strong><span className="text-[0.63rem] text-[#7A9480] dark:text-[#A5B8AB]">Rating</span></div>
+                  </div>
                 </div>
               </div>
+            </Reveal>
+          </div>
+
+          {/* HERO RIGHT IMAGE */}
+          <Reveal direction="up" delay={0.2}>
+            <div className="relative h-[420px] lg:h-[540px] rounded-[28px] overflow-hidden shadow-2xl">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={CLINIC.heroPhoto} alt="Kays Dental Clinic Kampala" className="w-full h-full object-cover object-top animate-float-slow" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1E5C2E]/40 to-transparent" />
             </div>
           </Reveal>
         </div>
-        <div className="relative overflow-hidden min-h-[400px] lg:min-h-full">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={CLINIC.heroPhoto} alt="Kays Dental Clinic Kampala" className="w-full h-full object-cover object-top animate-float-slow" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#EDF7EF] via-transparent to-black/10 dark:from-[#0a1a0b]" />
-          <Reveal direction="left" delay={0.5}>
-            <div className="absolute bottom-10 right-10 glass rounded-2xl py-4 px-5 flex flex-col items-center">
-              <strong className="font-display text-[1.7rem] text-[#1E5C2E] dark:text-[#D4EDD9] leading-none">98%</strong>
-              <span className="text-[0.66rem] text-[#7A9480] dark:text-[#A5B8AB] font-semibold text-center mt-1">Patient<br />Satisfaction</span>
-            </div>
-          </Reveal>
-       </div>
       </section>
 
       {/* HERO VIDEO PLACEHOLDER — Dr Esther's "conversation" intro */}
@@ -146,219 +151,152 @@ export default async function HomePage() {
         </div>
       </section>
 
-
       {/* TRUST BAR */}
-      <div className="trust-bar">
-        <div className="trust-item">🏅 Uganda Dental Association Certified</div>
-        <div className="trust-item">🦷 Painless Procedures</div>
-        <div className="trust-item">👶 Family &amp; Child Friendly</div>
-        <div className="trust-item">🎙️ Weekly Podcast</div>
-        <div className="trust-item hidden md:flex">🎬 Video Tips Weekly</div>
-        <div className="trust-item hidden lg:flex">📍 {CLINIC.address1}</div>
-      </div>
+      <section className="bg-[#1E5C2E] dark:bg-[#0d2a14] text-[#FFD740] py-3 overflow-hidden">
+        <Marquee gap={48} duration={28}>
+          <span className="inline-flex items-center gap-2 font-bold text-sm">✨ Trusted by 2,500+ families across Kampala</span>
+          <span className="inline-flex items-center gap-2 font-bold text-sm">🏆 5.0 ★ on Google Reviews</span>
+          <span className="inline-flex items-center gap-2 font-bold text-sm">📚 Featured in The Daily Monitor</span>
+          <span className="inline-flex items-center gap-2 font-bold text-sm">🦷 10+ years of compassionate dentistry</span>
+          <span className="inline-flex items-center gap-2 font-bold text-sm">💬 Read, listen, and watch — every week</span>
+        </Marquee>
+      </section>
 
       {/* ARTICLES */}
-      <section id="articles" className="relative bg-white dark:bg-[#0f2412] py-20 overflow-hidden">
-        <div className="px-[5vw] mb-8">
-          <Reveal direction="up">
-            <div className="s-tag">📝 The Blog</div>
-            <h2 className="s-title">Dental Tips from Dr. Esther</h2>
-            <p className="s-sub mb-0">Expert articles published weekly — friendly, practical, and always evidence-based. <span className="text-[#7A9480] text-xs">(Hover to pause)</span></p>
-          </Reveal>
-        </div>
-        {articles.length === 0 ? (
-          <div className="mx-[5vw] text-center py-12 px-8 text-[#7A9480] bg-[#F6F9F3] dark:bg-white/5 rounded-2xl border-2 border-dashed border-[#C8DFCC] text-sm">
-            No articles yet — Dr. Esther will publish one soon! 😊
+      <section id="articles" className="px-[5vw] py-16 lg:py-20 max-w-[1280px] mx-auto">
+        <Reveal direction="up">
+          <div className="flex items-end justify-between flex-wrap gap-4 mb-9">
+            <div>
+              <div className="s-tag">📝 Article</div>
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E5C2E] dark:text-[#D4EDD9] mt-3">Latest articles</h2>
+              <p className="text-[#3D5444] dark:text-[#A5B8AB] mt-2">In-depth reads on oral health, cosmetic dentistry, and family care.</p>
+            </div>
+            <Link href="/search?type=article" className="text-[#2E7D42] hover:text-[#1E5C2E] font-semibold text-sm">View all articles →</Link>
           </div>
+        </Reveal>
+        {articles.length === 0 ? (
+          <p className="text-[#7A9480] text-center py-12">No articles published yet.</p>
         ) : (
-          <Reveal direction="fade" delay={0.1}>
-            <Marquee speed={45} gap={28}>
-              {articles.map(a => (
-                <div key={a.id} className="marquee-card">
-                  <ArticleCard a={a} />
-                </div>
-              ))}
-            </Marquee>
-          </Reveal>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {articles.slice(0, 6).map((p) => (
+              <Reveal key={p.id}><ArticleCard post={p} /></Reveal>
+            ))}
+          </div>
         )}
       </section>
 
       {/* PODCASTS */}
-      <section id="podcasts" className="relative py-20 overflow-hidden" style={{ background: "linear-gradient(180deg, #F6F9F3 0%, #f3f0ff 100%)" }}>
-        <div className="px-[5vw] mb-8">
+      <section id="podcasts" className="px-[5vw] py-16 lg:py-20 bg-gradient-to-b from-[#F6F9F3] to-white dark:from-[#0a1a0b]/60 dark:to-[#0a1a0b]">
+        <div className="max-w-[1280px] mx-auto">
           <Reveal direction="up">
-            <div className="s-tag s-tag-pod">🎙️ Audio Podcast</div>
-            <h2 className="s-title">Dr. Esther&apos;s Dental Podcast</h2>
-            <p className="s-sub mb-0">Listen while you commute, cook, or relax — dental wisdom in your ears every week. <span className="text-[#7A9480] text-xs">(Hover to pause)</span></p>
+            <div className="flex items-end justify-between flex-wrap gap-4 mb-9">
+              <div>
+                <div className="s-tag s-tag-pod">🎙️ Audio Podcast</div>
+                <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E5C2E] dark:text-[#D4EDD9] mt-3">Conversations to listen to</h2>
+                <p className="text-[#3D5444] dark:text-[#A5B8AB] mt-2">Dr. Esther unpacks the questions she hears most often in the clinic.</p>
+              </div>
+              <Link href="/search?type=podcast" className="text-[#2E7D42] hover:text-[#1E5C2E] font-semibold text-sm">All episodes →</Link>
+            </div>
           </Reveal>
-        </div>
-        {podcasts.length === 0 ? (
-          <div className="mx-[5vw] text-center py-12 px-8 text-[#7A9480] bg-white rounded-2xl border-2 border-dashed border-[#C8DFCC] text-sm">
-            No episodes yet — Dr. Esther&apos;s first episode is coming soon! 🎙️
-          </div>
-        ) : (
-          <Reveal direction="fade" delay={0.1}>
-            <Marquee speed={40} gap={28} reverse>
-              {podcasts.map(p => (
-                <div key={p.id} className="marquee-card">
-                  <PodcastCard p={p} />
-                </div>
+          {podcasts.length === 0 ? (
+            <p className="text-[#7A9480] text-center py-12">No podcasts published yet.</p>
+          ) : (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {podcasts.slice(0, 6).map((p) => (
+                <Reveal key={p.id}><PodcastCard post={p} /></Reveal>
               ))}
-            </Marquee>
-          </Reveal>
-        )}
+            </div>
+          )}
+        </div>
       </section>
 
       {/* VIDEOS */}
-      <section id="videos" className="relative bg-white dark:bg-[#0f2412] py-20 overflow-hidden">
-        <div className="px-[5vw] mb-8">
-          <Reveal direction="up">
-            <div className="s-tag s-tag-vid">🎬 Video Shorts</div>
-            <h2 className="s-title">Quick Dental Tips — Video Edition</h2>
-            <p className="s-sub mb-0">Short, punchy videos you can watch and share in under 2 minutes. <span className="text-[#7A9480] text-xs">(Hover to pause)</span></p>
-          </Reveal>
-        </div>
-        {videos.length === 0 ? (
-          <div className="mx-[5vw] text-center py-12 px-8 text-[#7A9480] bg-[#F6F9F3] dark:bg-white/5 rounded-2xl border-2 border-dashed border-[#C8DFCC] text-sm">
-            No videos yet — Dr. Esther&apos;s first video short is coming soon! 🎬
+      <section id="videos" className="px-[5vw] py-16 lg:py-20 max-w-[1280px] mx-auto">
+        <Reveal direction="up">
+          <div className="flex items-end justify-between flex-wrap gap-4 mb-9">
+            <div>
+              <div className="s-tag s-tag-vid">🎬 Video Shorts</div>
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E5C2E] dark:text-[#D4EDD9] mt-3">Quick video tips</h2>
+              <p className="text-[#3D5444] dark:text-[#A5B8AB] mt-2">Two-minute videos that save you a trip to the clinic.</p>
+            </div>
+            <Link href="/search?type=video" className="text-[#2E7D42] hover:text-[#1E5C2E] font-semibold text-sm">More videos →</Link>
           </div>
+        </Reveal>
+        {videos.length === 0 ? (
+          <p className="text-[#7A9480] text-center py-12">No videos published yet.</p>
         ) : (
-          <Reveal direction="fade" delay={0.1}>
-            <Marquee speed={50} gap={28}>
-              {videos.map(v => (
-                <div key={v.id} className="marquee-card">
-                  <VideoCard v={v} />
-                </div>
-              ))}
-            </Marquee>
-          </Reveal>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {videos.slice(0, 6).map((p) => (
+              <Reveal key={p.id}><VideoCard post={p} /></Reveal>
+            ))}
+          </div>
         )}
       </section>
 
-      {/* ABOUT */}
-      <section id="about" className="relative px-[5vw] py-20 bg-[#FFFBE6] overflow-hidden">
-        <FloatingOrbs intensity="subtle" />
-        <div className="relative grid lg:grid-cols-[1fr,1.65fr] gap-10 lg:gap-20 items-center">
-          <Reveal direction="right">
-            <div className="relative hidden lg:block">
+      {/* ABOUT DR ESTHER */}
+      <section className="px-[5vw] py-16 lg:py-24 bg-gradient-to-br from-[#1E5C2E] to-[#2E7D42] text-white">
+        <div className="max-w-[1280px] mx-auto grid lg:grid-cols-[1fr,1.2fr] gap-10 lg:gap-14 items-center">
+          <Reveal direction="left">
+            <div className="relative aspect-[3/4] rounded-[28px] overflow-hidden shadow-2xl max-w-md">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={CLINIC.doctorAboutPhoto} alt={CLINIC.doctor}
-                   className="w-full max-w-[320px] h-[430px] object-cover object-top border-4 border-[#D4EDD9] shadow-[0_12px_48px_rgba(30,92,46,0.16)]"
-                   style={{ borderRadius: "30px 30px 90px 30px" }} />
-              <div className="absolute -bottom-3 right-2.5 bg-[#E6B800] rounded-full w-[86px] h-[86px] flex flex-col items-center justify-center font-display text-[1.36rem] font-bold text-[#1E5C2E] leading-tight shadow-[0_6px_22px_rgba(230,184,0,0.42)]">
-                10+<small className="text-[0.43rem] font-sans uppercase tracking-[0.1em]">Years</small>
-              </div>
-              <div className="flex flex-col gap-2 mt-6 max-w-[320px]">
-                {[
-                  "🎓 BDS — Bachelor of Dental Surgery",
-                  "🏅 Uganda Dental Association Member",
-                  "🌿 Holistic Dentistry Specialist",
-                  "💛 Paediatric Dentistry Expert",
-                  "🎙️ Podcast Host & Educator",
-                  "🎬 Video Creator & Health Educator",
-                ].map((c, i) => (
-                  <Reveal key={i} direction="right" delay={i * 0.06}>
-                    <div className="bg-white border-l-4 border-[#4CAF6B] rounded-r-xl px-4 py-2 text-[0.79rem] text-[#3D5444] font-bold shadow-sm">{c}</div>
-                  </Reveal>
-                ))}
-              </div>
+              <img src={CLINIC.doctorAboutPhoto} alt={CLINIC.doctor} className="w-full h-full object-cover" />
             </div>
           </Reveal>
-          <Reveal direction="left">
-            <div className="s-tag">👩‍⚕️ About Dr. Esther</div>
-            <h2 className="s-title">The Heart Behind Kays Dental</h2>
-            <div className="border-l-4 border-[#E6B800] bg-[#FFF3B0] rounded-r-2xl py-4 px-5 my-6">
-              <p className="font-display text-[1.08rem] italic text-[#1E5C2E] m-0">&ldquo;I want every Ugandan family to have access to expert dental knowledge they can trust — whether they visit us or not.&rdquo;</p>
-            </div>
-            <p className="text-[0.94rem] text-[#3D5444] leading-[1.88] mb-3">
-              Dr. Esther Lukwago is the founder and lead dentist at Kays Dental Clinic, Plot 52 Kanjokya Street, Kampala. With over 10 years of experience, she combines modern dentistry with a holistic, patient-centred approach that puts whole-body wellness at the centre of everything.
+          <Reveal direction="right">
+            <div className="s-tag bg-[#FFD740] text-[#1E5C2E] border-[#FFD740]">About the host</div>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 leading-tight">Meet {CLINIC.doctor}</h2>
+            <p className="text-white/85 mt-5 leading-[1.7] text-[1.04rem]">
+              Lead dentist at {CLINIC.name}, Dr. Esther has spent over a decade helping families in Kampala build healthy smiles.
+              Her approach blends modern dentistry with honest, jargon-free conversations — the kind of advice you'd hope a friend who happens to be a dentist would give you.
             </p>
-            <p className="text-[0.94rem] text-[#3D5444] leading-[1.88] mb-3">
-              Beyond the clinic, Dr. Esther is deeply committed to education. She publishes weekly articles, hosts a growing audio podcast, and creates short video tips that make expert dental advice simple and accessible for every family in Uganda.
+            <p className="text-white/85 mt-4 leading-[1.7] text-[1.04rem]">
+              On this blog, she shares what she wishes more patients knew — from the foods quietly damaging your teeth, to whether whitening is really worth it, to how to make a child's first dental visit a magical memory.
             </p>
-            <p className="text-[0.94rem] text-[#3D5444] leading-[1.88] mb-3">
-              When she&apos;s not at the clinic, she volunteers with community dental outreach programmes, taking free care and education to schools across Kampala.
-            </p>
-            <div className="flex gap-3 flex-wrap mt-6">
-              <MagneticButton href={waLink()} target="_blank" rel="noreferrer" className="btn btn-wa">💬 WhatsApp Dr. Esther</MagneticButton>
-              <MagneticButton href={`tel:${CLINIC.phoneIntl}`} className="btn btn-green">📞 {CLINIC.phone}</MagneticButton>
+            <div className="flex flex-wrap gap-3 mt-6">
+              <a href={waLink()} target="_blank" rel="noreferrer" className="bg-[#FFD740] hover:bg-[#E6B800] text-[#1E5C2E] font-bold px-6 py-3 rounded-full transition">
+                💬 Chat on WhatsApp
+              </a>
+              <Link href="/contact" className="border-2 border-white/60 hover:border-white text-white font-bold px-6 py-3 rounded-full transition">
+                Visit the clinic
+              </Link>
             </div>
           </Reveal>
         </div>
       </section>
 
       {/* REVIEWS */}
-      <section id="reviews" className="relative py-20 bg-[#EDF7EF] overflow-hidden">
-        <div className="px-[5vw] mb-8">
-          <Reveal direction="up">
-            <div className="s-tag">💬 Patient Reviews</div>
-            <h2 className="s-title">What Our Patients Say</h2>
-            <p className="s-sub">Real feedback from families and patients across Kampala who trust Dr. Esther every day. <span className="text-[#7A9480] text-xs">(Hover to pause)</span></p>
-          </Reveal>
-        </div>
-        <Reveal direction="fade" delay={0.1}>
-          <Marquee speed={35} gap={24} reverse>
-            {REVIEWS.map((r, i) => (
-              <div key={i} className="marquee-card-wide">
-                <ReviewCard r={r} />
-              </div>
-            ))}
-          </Marquee>
+      <section className="px-[5vw] py-16 lg:py-20 max-w-[1280px] mx-auto">
+        <Reveal direction="up">
+          <div className="text-center mb-10">
+            <div className="s-tag inline-block">⭐ Google Reviews</div>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E5C2E] dark:text-[#D4EDD9] mt-3">What our patients say</h2>
+          </div>
         </Reveal>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {REVIEWS.map((r, i) => (
+            <Reveal key={i}><ReviewCard review={r} /></Reveal>
+          ))}
+        </div>
       </section>
 
       {/* NEWSLETTER */}
       <NewsletterSection />
 
       {/* CONTACT */}
-      <section id="contact" className="text-center px-[5vw] py-20 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #1E5C2E 0%, #0f3d1a 100%)" }}>
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(255,215,64,0.07) 0%, transparent 70%)" }} />
-        <div className="relative z-10">
+      <section id="contact" className="px-[5vw] py-16 lg:py-24 bg-[#F6F9F3] dark:bg-[#0a1a0b]/60">
+        <div className="max-w-[920px] mx-auto">
           <Reveal direction="up">
-            <div className="s-tag s-tag-w">📅 Get in Touch</div>
-            <h2 className="font-display text-[clamp(1.85rem,3vw,2.65rem)] font-bold text-white leading-[1.15] mb-2 mt-2">Book an Appointment</h2>
-            <p className="text-[0.96rem] text-white/60 max-w-[460px] mx-auto leading-[1.82] mb-9">Reach Dr. Esther directly — we respond within the hour during clinic hours.</p>
-          </Reveal>
-
-          <div className="grid gap-5 max-w-[800px] mx-auto mb-10" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))" }}>
-            {[
-              { icon: "💬", title: "WhatsApp", sub: "Fastest way — reply in minutes", btn: "Chat on WhatsApp", href: waLink(), cls: "btn-wa", ext: true },
-              { icon: "📞", title: "Call Us", sub: "Speak directly with our team", btn: CLINIC.phone, href: `tel:${CLINIC.phoneIntl}`, cls: "btn-green", ext: false },
-              { icon: "📍", title: "Visit Us", sub: `${CLINIC.address1}\nUganda`, btn: "Get Directions", href: CLINIC.mapsUrl, cls: "btn-outline-w", ext: true },
-            ].map((c, i) => (
-              <Reveal key={i} direction="up" delay={i * 0.1}>
-                <div className="bg-white/[0.07] border-[1.5px] border-white/[0.13] rounded-[18px] p-7 text-center transition-all hover:bg-white/[0.12] hover:-translate-y-1 h-full">
-                  <div className="text-[1.65rem] mb-2">{c.icon}</div>
-                  <h4 className="text-[0.88rem] font-bold text-white mb-1">{c.title}</h4>
-                  <p className="text-[0.77rem] text-white/50 mb-4 whitespace-pre-line">{c.sub}</p>
-                  <a href={c.href} {...(c.ext ? { target: "_blank", rel: "noreferrer" } : {})} className={`btn ${c.cls} w-full`}>{c.btn}</a>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-
-          <Reveal direction="up" delay={0.2}>
-            <div className="max-w-[510px] mx-auto bg-white/[0.07] border-[1.5px] border-white/[0.13] rounded-[22px] p-8 text-left">
-              <h3 className="font-display text-[1.18rem] text-white mb-5 text-center">Send Dr. Esther a Message</h3>
-              <ContactForm />
+            <div className="text-center mb-9">
+              <div className="s-tag inline-block">📍 Visit Us</div>
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E5C2E] dark:text-[#D4EDD9] mt-3">Get in touch</h2>
+              <p className="text-[#3D5444] dark:text-[#A5B8AB] mt-2">Send a message, book an appointment, or just say hi.</p>
             </div>
+          </Reveal>
+          <Reveal direction="up" delay={0.1}>
+            <ContactForm />
           </Reveal>
         </div>
       </section>
-
-      {/* MAP */}
-      <div className="h-[300px] overflow-hidden border-t-[3px] border-[#D4EDD9] relative">
-        <iframe src={CLINIC.mapsEmbed} className="w-full h-full border-0" allowFullScreen loading="lazy" />
-        <a href={CLINIC.mapsUrl} target="_blank" rel="noreferrer"
-           className="absolute bottom-5 right-5 bg-white rounded-xl px-4 py-2.5 shadow-[0_12px_48px_rgba(30,92,46,0.16)] text-[0.78rem] font-bold text-[#1A2E1E] border-[1.5px] border-[#C8DFCC] hover:bg-[#EDF7EF] hover:border-[#4CAF6B] inline-flex items-center gap-2 transition">
-          🗺 Get Directions to Kays Dental
-        </a>
-      </div>
-
-      {/* WhatsApp floating */}
-      <a href={waLink()} target="_blank" rel="noreferrer" className="wa-float">
-        💬 Chat with Dr. Esther
-      </a>
     </>
   );
 }
