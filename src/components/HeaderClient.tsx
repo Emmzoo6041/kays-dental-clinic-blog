@@ -51,11 +51,11 @@ export function HeaderClient({
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-[100] h-[72px] px-4 sm:px-[5vw] flex items-center justify-between gap-2 transition-all duration-300
-          ${scrolled
+        className={`fixed top-0 left-0 right-0 z-[100] h-[72px] px-4 sm:px-[5vw] flex items-center justify-between gap-2 transition-all duration-300 ${
+          scrolled
             ? "bg-white/98 dark:bg-[#0a1a0b]/98 backdrop-blur-xl border-b border-[#D4EDD9] dark:border-white/10 shadow-[0_4px_20px_rgba(30,92,46,0.08)]"
             : "bg-white/90 dark:bg-[#0a1a0b]/90 backdrop-blur-md border-b border-[#D4EDD9]/40 dark:border-white/5"
-          }`}
+        }`}
       >
         <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group min-w-0 flex-1">
           <MicIcon size={48} className="flex-shrink-0 transition-transform group-hover:scale-105" />
@@ -68,21 +68,24 @@ export function HeaderClient({
           </div>
         </Link>
 
-        {/* Desktop nav */}
         <nav className="hidden lg:flex items-center gap-7 text-[0.92rem] font-medium text-[#3D5444] dark:text-[#C8DFCC]">
           {links.map((l) => (
-            <Link key={l.href} href={l.href}
-                  className="relative hover:text-[#2E7D42] transition-colors py-1
-                             after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-[#2E7D42]
-                             after:w-0 hover:after:w-full after:transition-all">
+            <Link
+              key={l.href}
+              href={l.href}
+              className="relative hover:text-[#2E7D42] transition-colors py-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-[#2E7D42] after:w-0 hover:after:w-full after:transition-all"
+            >
               {l.label}
             </Link>
           ))}
         </nav>
 
-        {/* Right-side controls */}
         <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
-          <Link href="/search" aria-label="Search" className="hidden sm:grid w-10 h-10 place-items-center rounded-full hover:bg-[#EDF7EF] dark:hover:bg-white/5 transition">
+          <Link
+            href="/search"
+            aria-label="Search"
+            className="hidden sm:grid w-10 h-10 place-items-center rounded-full hover:bg-[#EDF7EF] dark:hover:bg-white/5 transition"
+          >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-[#1E5C2E] dark:text-[#D4EDD9]">
               <circle cx="11" cy="11" r="8" />
               <path d="M21 21l-4.35-4.35" />
@@ -90,20 +93,26 @@ export function HeaderClient({
           </Link>
           <ThemeToggle />
 
-          {/* Desktop auth/admin row */}
           <div className="hidden lg:flex items-center gap-3 text-sm">
-            {isAdmin && <Link href="/admin" className="text-[#B91C1C] font-bold hover:text-[#8B1414]">Admin</Link>}
+            {isAdmin && (
+              <Link href="/admin" className="text-[#B91C1C] font-bold hover:text-[#8B1414]">
+                Admin
+              </Link>
+            )}
             {userEmail ? (
               signOutSlot
             ) : (
               <>
-                <Link href="/login" className="text-[#7A9480] dark:text-[#8FA89A] hover:text-[#2E7D42]">Log in</Link>
-                <Link href="/signup" className="text-[#7A9480] dark:text-[#8FA89A] hover:text-[#2E7D42]">Sign up</Link>
+                <Link href="/login" className="text-[#7A9480] dark:text-[#8FA89A] hover:text-[#2E7D42]">
+                  Log in
+                </Link>
+                <Link href="/signup" className="text-[#7A9480] dark:text-[#8FA89A] hover:text-[#2E7D42]">
+                  Sign up
+                </Link>
               </>
             )}
           </div>
 
-          {/* Mobile burger */}
           <button
             onClick={() => setMenuOpen((o) => !o)}
             aria-label="Menu"
@@ -118,7 +127,6 @@ export function HeaderClient({
         </div>
       </motion.header>
 
-      {/* Mobile drawer */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -174,8 +182,20 @@ export function HeaderClient({
                   </>
                 ) : (
                   <>
-                    <Link href="/login" onClick={() => setMenuOpen(false)} className="flex-1 text-center py-2 rounded-lg border border-[#2E7D42] text-[#2E7D42] font-semibold text-sm">Log in</Link>
-                    <Link href="/signup" onClick={() => setMenuOpen(false)} className="flex-1 text-center py-2 rounded-lg bg-[#2E7D42] text-white font-semibold text-sm">Sign up</Link>
+                    <Link
+                      href="/login"
+                      onClick={() => setMenuOpen(false)}
+                      className="flex-1 text-center py-2 rounded-lg border border-[#2E7D42] text-[#2E7D42] font-semibold text-sm"
+                    >
+                      Log in
+                    </Link>
+                    <Link
+                      href="/signup"
+                      onClick={() => setMenuOpen(false)}
+                      className="flex-1 text-center py-2 rounded-lg bg-[#2E7D42] text-white font-semibold text-sm"
+                    >
+                      Sign up
+                    </Link>
                   </>
                 )}
               </div>
