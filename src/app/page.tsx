@@ -24,6 +24,8 @@ export default async function Home() {
   const podcasts = (posts || []).filter((p) => p.type === "podcast");
   const videos = (posts || []).filter((p) => p.type === "video");
 
+  const wavBars = [12, 24, 36, 28, 18, 32, 24, 14, 28, 20, 36, 16];
+
   return (
     <>
       {/* HERO */}
@@ -105,7 +107,7 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* HERO VIDEO PLACEHOLDER — Dr Esther's "conversation" intro */}
+      {/* WELCOME — ANIMATED HERO BLOCK (replaces video for now) */}
       <section className="px-[5vw] py-12 lg:py-16 bg-gradient-to-b from-white to-[#F6F9F3] dark:from-[#0a1a0b] dark:to-[#0a1a0b]/60">
         <div className="max-w-[1100px] mx-auto">
           <Reveal direction="up">
@@ -119,20 +121,26 @@ export default async function Home() {
               </p>
             </div>
           </Reveal>
-       <Reveal direction="up" delay={0.1}>
+          <Reveal direction="up" delay={0.1}>
             <div className="relative aspect-video w-full rounded-2xl overflow-hidden border border-[#D4EDD9] dark:border-white/10 shadow-[0_20px_60px_-20px_rgba(30,92,46,0.45)]">
-              {/* Animated gradient background */}
               <div className="absolute inset-0 bg-gradient-to-br from-[#1E5C2E] via-[#2E7D42] to-[#4CAF6B]" />
               <div className="absolute -top-16 -left-16 w-72 h-72 rounded-full bg-[#E6B800]/30 blur-3xl animate-pulse" />
-              <div className="absolute -bottom-20 -right-16 w-80 h-80 rounded-full bg-[#4CAF6B]/40 blur-3xl animate-pulse" style={{ animationDelay: "1.5s", animationDuration: "4s" }} />
+              <div
+                className="absolute -bottom-20 -right-16 w-80 h-80 rounded-full bg-[#4CAF6B]/40 blur-3xl animate-pulse"
+                style={{ animationDelay: "1.5s", animationDuration: "4s" }}
+              />
 
-              {/* Center stage */}
               <div className="absolute inset-0 grid place-items-center px-6">
                 <div className="flex flex-col items-center text-center gap-5 max-w-md">
-                  {/* Mic with pulsing rings */}
                   <div className="relative w-28 h-28 sm:w-32 sm:h-32">
-                    <span className="absolute inset-0 rounded-full bg-white/15 animate-ping" style={{ animationDuration: "2.4s" }} />
-                    <span className="absolute inset-3 rounded-full bg-white/20 animate-ping" style={{ animationDuration: "2.4s", animationDelay: "0.6s" }} />
+                    <span
+                      className="absolute inset-0 rounded-full bg-white/15 animate-ping"
+                      style={{ animationDuration: "2.4s" }}
+                    />
+                    <span
+                      className="absolute inset-3 rounded-full bg-white/20 animate-ping"
+                      style={{ animationDuration: "2.4s", animationDelay: "0.6s" }}
+                    />
                     <div className="absolute inset-5 rounded-full bg-white shadow-2xl grid place-items-center">
                       <svg viewBox="0 0 64 64" className="w-14 h-14 sm:w-16 sm:h-16" xmlns="http://www.w3.org/2000/svg">
                         <rect x="22" y="10" width="20" height="30" rx="10" fill="#1E5C2E" />
@@ -145,9 +153,8 @@ export default async function Home() {
                     </div>
                   </div>
 
-                  {/* Soundwave bars */}
                   <div className="flex items-end gap-1.5 h-10">
-                    {[12, 24, 36, 28, 18, 32, 24, 14, 28, 20, 36, 16].map((h, i) => (
+                    {wavBars.map((h, i) => (
                       <span
                         key={i}
                         className="w-1.5 sm:w-2 rounded-full bg-white/80"
@@ -171,7 +178,6 @@ export default async function Home() {
                 </div>
               </div>
 
-              {/* Bottom caption */}
               <div className="absolute bottom-0 left-0 right-0 px-5 py-3 bg-gradient-to-t from-black/40 to-transparent flex items-center justify-between text-white text-xs">
                 <span className="inline-flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#FFD740] animate-pulse" />
@@ -280,10 +286,10 @@ export default async function Home() {
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 leading-tight">Meet {CLINIC.doctor}</h2>
             <p className="text-white/85 mt-5 leading-[1.7] text-[1.04rem]">
               Lead dentist at {CLINIC.name}, Dr. Esther has spent over a decade helping families in Kampala build healthy smiles.
-              Her approach blends modern dentistry with honest, jargon-free conversations — the kind of advice you'd hope a friend who happens to be a dentist would give you.
+              Her approach blends modern dentistry with honest, jargon-free conversations — the kind of advice you would hope a friend who happens to be a dentist would give you.
             </p>
             <p className="text-white/85 mt-4 leading-[1.7] text-[1.04rem]">
-              On this blog, she shares what she wishes more patients knew — from the foods quietly damaging your teeth, to whether whitening is really worth it, to how to make a child's first dental visit a magical memory.
+              On this blog, she shares what she wishes more patients knew — from the foods quietly damaging your teeth, to whether whitening is really worth it, to how to make a child&apos;s first dental visit a magical memory.
             </p>
             <div className="flex flex-wrap gap-3 mt-6">
               <a href={waLink()} target="_blank" rel="noreferrer" className="bg-[#FFD740] hover:bg-[#E6B800] text-[#1E5C2E] font-bold px-6 py-3 rounded-full transition">
