@@ -9,7 +9,6 @@ export async function POST(req: Request) {
   if (!body.title || (!body.content && !body.content_html)) {
     return NextResponse.json({ error: "Title and content required" }, { status: 400 });
   }
-
   const baseSlug = slugify(body.title, { lower: true, strict: true }).slice(0, 80) || "post";
   const supabase = createAdminSupabase();
   let slug = baseSlug, n = 1;
@@ -19,7 +18,6 @@ export async function POST(req: Request) {
     n += 1;
     slug = `${baseSlug}-${n}`;
   }
-
   const { data, error } = await supabase.from("posts").insert({
     slug,
     type: body.type || "article",
@@ -30,6 +28,8 @@ export async function POST(req: Request) {
     content_html: body.content_html || null,
     cover_url: body.cover_url || null,
     media_url: body.media_url || null,
+    audio_url: body.audio_url || null,
+    podcast_video_url: body.podcast_video_url || null,
     duration: body.duration || null,
     episode: body.episode || null,
     tags: body.tags || [],
@@ -41,7 +41,6 @@ export async function POST(req: Request) {
     og_image: body.og_image || null,
     author_email: user!.email!,
   }).select().single();
-
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
   return NextResponse.json(data);
 }
