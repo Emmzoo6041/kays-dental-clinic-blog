@@ -63,7 +63,7 @@ export async function POST(req: Request) {
   const supabase = createAdminSupabase();
   const buffer = await file.arrayBuffer();
   const { error: uploadError } = await supabase.storage
-    .from("post-images")
+    .from("public-images")
     .upload(path, buffer, {
       contentType: file.type || "application/octet-stream",
       upsert: false,
@@ -73,6 +73,6 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: uploadError.message }, { status: 500 });
   }
 
-  const { data } = supabase.storage.from("post-images").getPublicUrl(path);
+  const { data } = supabase.storage.from("public-images").getPublicUrl(path);
   return NextResponse.json({ url: data.publicUrl });
 }
