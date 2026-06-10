@@ -107,7 +107,7 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* WELCOME — ANIMATED HERO BLOCK (replaces video for now) */}
+      {/* WELCOME — ANIMATED HERO BLOCK */}
       <section className="px-[5vw] py-12 lg:py-16 bg-gradient-to-b from-white to-[#F6F9F3] dark:from-[#0a1a0b] dark:to-[#0a1a0b]/60">
         <div className="max-w-[1100px] mx-auto">
           <Reveal direction="up">
@@ -133,14 +133,8 @@ export default async function Home() {
               <div className="absolute inset-0 grid place-items-center px-6">
                 <div className="flex flex-col items-center text-center gap-5 max-w-md">
                   <div className="relative w-28 h-28 sm:w-32 sm:h-32">
-                    <span
-                      className="absolute inset-0 rounded-full bg-white/15 animate-ping"
-                      style={{ animationDuration: "2.4s" }}
-                    />
-                    <span
-                      className="absolute inset-3 rounded-full bg-white/20 animate-ping"
-                      style={{ animationDuration: "2.4s", animationDelay: "0.6s" }}
-                    />
+                    <span className="absolute inset-0 rounded-full bg-white/15 animate-ping" style={{ animationDuration: "2.4s" }} />
+                    <span className="absolute inset-3 rounded-full bg-white/20 animate-ping" style={{ animationDuration: "2.4s", animationDelay: "0.6s" }} />
                     <div className="absolute inset-5 rounded-full bg-white shadow-2xl grid place-items-center">
                       <svg viewBox="0 0 64 64" className="w-14 h-14 sm:w-16 sm:h-16" xmlns="http://www.w3.org/2000/svg">
                         <rect x="22" y="10" width="20" height="30" rx="10" fill="#1E5C2E" />
@@ -168,12 +162,8 @@ export default async function Home() {
                   </div>
 
                   <div>
-                    <p className="text-white font-display text-xl sm:text-2xl font-bold drop-shadow">
-                      A conversation, every week
-                    </p>
-                    <p className="text-white/85 text-sm sm:text-base mt-1">
-                      Dr. Esther shares honest dental advice for every Ugandan family.
-                    </p>
+                    <p className="text-white font-display text-xl sm:text-2xl font-bold drop-shadow">A conversation, every week</p>
+                    <p className="text-white/85 text-sm sm:text-base mt-1">Dr. Esther shares honest dental advice for every Ugandan family.</p>
                   </div>
                 </div>
               </div>
@@ -241,8 +231,8 @@ export default async function Home() {
             <p className="text-[#7A9480] text-center py-12">No podcasts published yet.</p>
           ) : (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {podcasts.slice(0, 6).map((p) => (
-                <Reveal key={p.id}><PodcastCard post={p} /></Reveal>
+              {podcasts.slice(0, 6).map((post) => (
+                <Reveal key={post.id}><PodcastCard p={post} /></Reveal>
               ))}
             </div>
           )}
@@ -265,8 +255,8 @@ export default async function Home() {
           <p className="text-[#7A9480] text-center py-12">No videos published yet.</p>
         ) : (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {videos.slice(0, 6).map((p) => (
-              <Reveal key={p.id}><VideoCard post={p} /></Reveal>
+            {videos.slice(0, 6).map((post) => (
+              <Reveal key={post.id}><VideoCard v={post} /></Reveal>
             ))}
           </div>
         )}
@@ -312,8 +302,8 @@ export default async function Home() {
           </div>
         </Reveal>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {REVIEWS.map((r, i) => (
-            <Reveal key={i}><ReviewCard review={r} /></Reveal>
+          {REVIEWS.map((review, i) => (
+            <Reveal key={i}><ReviewCard r={review} /></Reveal>
           ))}
         </div>
       </section>
