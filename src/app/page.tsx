@@ -218,7 +218,7 @@ export default async function Home() {
         ) : (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {articles.slice(0, 6).map((p) => (
-              <Reveal key={p.id}><ArticleCard post={p} /></Reveal>
+              <Reveal key={p.id}><ArticleCard a={p} /></Reveal>
             ))}
           </div>
         )}
