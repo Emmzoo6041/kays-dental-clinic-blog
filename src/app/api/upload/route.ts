@@ -36,13 +36,13 @@ export async function POST(req: Request) {
   const supabase = createAdminSupabase();
   const buf = Buffer.from(await file.arrayBuffer());
   const { error } = await supabase.storage
-    .from("post-images")
+    .from("public-images")
     .upload(filename, buf, { contentType: file.type, cacheControl: "31536000" });
 
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 
-  const { data: urlData } = supabase.storage.from("post-images").getPublicUrl(filename);
+  const { data: urlData } = supabase.storage.from("public-images").getPublicUrl(filename);
   return NextResponse.json({ url: urlData.publicUrl, filename });
 }
