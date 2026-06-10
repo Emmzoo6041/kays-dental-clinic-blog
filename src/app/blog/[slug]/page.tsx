@@ -13,6 +13,8 @@ import { ViewTracker } from "@/components/ViewTracker";
 import { RelatedPosts } from "@/components/RelatedPosts";
 import { ContinueReading } from "@/components/ContinueReading";
 import { TrendingWidget } from "@/components/TrendingWidget";
+import { AudioPlayer } from "@/components/AudioPlayer";
+import { PrevNextNav } from "@/components/PrevNextNav";
 
 export const revalidate = 60;
 
@@ -43,7 +45,7 @@ export default async function PostPage({ params }: { params: { slug: string } })
   const supabase = createServerSupabase();
   const { data: post } = await supabase
     .from("posts")
-    .select("id, slug, type, category, title, excerpt, content, content_html, cover_url, media_url, duration, created_at, updated_at, published, scheduled_for, views")
+    .select("id, slug, type, category, title, excerpt, content, content_html, cover_url, media_url, audio_url, podcast_video_url, duration, created_at, updated_at, published, scheduled_for, views")
     .eq("slug", params.slug)
     .single();
   if (!post) notFound();
@@ -60,6 +62,25 @@ export default async function PostPage({ params }: { params: { slug: string } })
     .eq("status", "approved")
     .order("created_at", { ascending: true });
 
+  // Previous / Next post (chronological, across all content types)
+  const { data: prevPost } = await supabase
+    .from("posts")
+    .select("slug, title, type")
+    .eq("published", true)
+    .lt("created_at", post.created_at)
+    .order("created_at", { ascending: false })
+    .limit(1)
+    .maybeSingle();
+
+  const { data: nextPost } = await supabase
+    .from("posts")
+    .select("slug, title, type")
+    .eq("published", true)
+    .gt("created_at", post.created_at)
+    .order("created_at", { ascending: true })
+    .limit(1)
+    .maybeSingle();
+
   const user = await getCurrentUser();
   const ytId = post.type === "video" ? extractYouTubeId(post.media_url) : null;
   const typeMeta = {
@@ -70,7 +91,6 @@ export default async function PostPage({ params }: { params: { slug: string } })
 
   const html = renderPostContent({ content: post.content, contentHtml: post.content_html });
 
-  // JSON-LD structured data for SEO
   const base = process.env.NEXT_PUBLIC_SITE_URL || "https://kays-dental-clinic-blog.vercel.app";
   const ldJson = {
     "@context": "https://schema.org",
@@ -88,6 +108,9 @@ export default async function PostPage({ params }: { params: { slug: string } })
     },
     "mainEntityOfPage": { "@type": "WebPage", "@id": `${base}/blog/${post.slug}` }
   };
+
+  const hasArticleListen = post.type === "article" && post.audio_url;
+  const hasPodcastWatch = post.type === "podcast" && post.podcast_video_url;
 
   return (
     <>
@@ -119,21 +142,29 @@ export default async function PostPage({ params }: { params: { slug: string } })
                 {typeof post.views === "number" && post.views > 0 && <span> · {post.views.toLocaleString()} views</span>}
               </p>
             </Reveal>
+
+            {/* Listen / Watch buttons */}
+            {(hasArticleListen || post.type === "podcast") && (
+              <Reveal direction="up" delay={0.25}>
+                <div className="mt-5 flex flex-wrap gap-2.5 items-center">
+                  {hasArticleListen && (
+                    <AudioPlayer src={post.audio_url} variant="listen" label="Listen to article" />
+                  )}
+                  {post.type === "podcast" && post.media_url && (
+                    <AudioPlayer src={post.media_url} variant="listen" label="Listen" />
+                  )}
+                  {hasPodcastWatch && (
+                    <AudioPlayer src={post.podcast_video_url} variant="watch" label="Watch" />
+                  )}
+                </div>
+              </Reveal>
+            )}
           </header>
 
           {post.cover_url && !ytId && (
-            <Reveal direction="up" delay={0.25}>
+            <Reveal direction="up" delay={0.3}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={post.cover_url} alt="" className="w-full max-w-3xl rounded-2xl aspect-[16/9] object-cover mb-8" />
-            </Reveal>
-          )}
-
-          {post.type === "podcast" && post.media_url && (
-            <Reveal direction="up" delay={0.3}>
-              <div className="bg-[#EDE9FE] dark:bg-[#6C3FC5]/15 border-2 border-[#6C3FC5]/30 rounded-2xl p-5 mb-8 max-w-3xl">
-                <p className="text-[#6C3FC5] dark:text-[#C4B5FD] font-bold mb-3">🎙️ Listen to this episode</p>
-                <audio controls src={post.media_url} className="w-full">Your browser does not support audio.</audio>
-              </div>
             </Reveal>
           )}
 
@@ -160,6 +191,11 @@ export default async function PostPage({ params }: { params: { slug: string } })
               <a href={waLink(`Hello Dr. Esther! I just read "${post.title}" and have a question.`)} target="_blank" rel="noreferrer" className="btn btn-wa">💬 Ask on WhatsApp</a>
             </div>
           </Reveal>
+
+          {/* Previous / Next post navigation */}
+          <div className="max-w-3xl">
+            <PrevNextNav prev={prevPost || null} next={nextPost || null} />
+          </div>
 
           {/* Related posts */}
           <RelatedPosts postId={post.id} category={post.category} type={post.type} />
