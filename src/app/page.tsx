@@ -192,7 +192,7 @@ export default async function Home() {
 
       {/* TRUST BAR */}
       <section className="bg-[#1E5C2E] dark:bg-[#0d2a14] text-[#FFD740] py-3 overflow-hidden">
-        <Marquee gap={48} duration={28}>
+        <Marquee gap={48} speed={28}>
           <span className="inline-flex items-center gap-2 font-bold text-sm">✨ Trusted by 2,500+ families across Kampala</span>
           <span className="inline-flex items-center gap-2 font-bold text-sm">🏆 5.0 ★ on Google Reviews</span>
           <span className="inline-flex items-center gap-2 font-bold text-sm">📚 Featured in The Daily Monitor</span>
