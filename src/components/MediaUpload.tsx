@@ -33,10 +33,7 @@ export function MediaUpload({
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
 
-  const acceptAttr =
-    accept === "audio"
-      ? "audio/*"
-      : "audio/*,video/mp4,video/webm,video/quicktime";
+  const acceptAttr = "audio/*,video/mp4,video/webm,video/quicktime";
 
   const uploadFile = useCallback(
     async (file: File) => {
