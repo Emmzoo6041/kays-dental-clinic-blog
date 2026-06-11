@@ -179,10 +179,14 @@ html.dark ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.3); }
 ::selection { background: #FFD740; color: #1E5C2E; }
 html.dark ::selection { background: #4CAF6B; color: #0a1a0b; }
 
-/* Hide scrollbar on horizontally scrollable tabs */
-.scrollbar-hide { scrollbar-width: none; }
-.scrollbar-hide::-webkit-scrollbar { display: none; }
-
+/* Hide scrollbar on horizontal sliders */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
 @keyframes soundwave {
   0%, 100% { transform: scaleY(0.45); opacity: 0.55; }
   50%      { transform: scaleY(1.4);  opacity: 1; }
