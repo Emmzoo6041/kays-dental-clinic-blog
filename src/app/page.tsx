@@ -9,6 +9,7 @@ import { FloatingOrbs } from "@/components/FloatingOrbs";
 import { MagneticButton } from "@/components/MagneticButton";
 import { MicIcon } from "@/components/MicIcon";
 import { NewsletterSection } from "@/components/NewsletterSection";
+import { Slider } from "@/components/Slider";
 
 export const dynamic = "force-dynamic";
 
@@ -96,7 +97,6 @@ export default async function Home() {
             </Reveal>
           </div>
 
-          {/* HERO RIGHT IMAGE */}
           <Reveal direction="up" delay={0.2}>
             <div className="relative h-[420px] lg:h-[540px] rounded-[28px] overflow-hidden shadow-2xl">
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -206,11 +206,11 @@ export default async function Home() {
         {articles.length === 0 ? (
           <p className="text-[#7A9480] text-center py-12">No articles published yet.</p>
         ) : (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {articles.slice(0, 6).map((p) => (
-              <Reveal key={p.id}><ArticleCard a={p} /></Reveal>
+          <Slider accent="#2E7D42">
+            {articles.map((p) => (
+              <ArticleCard key={p.id} a={p} />
             ))}
-          </div>
+          </Slider>
         )}
       </section>
 
@@ -230,11 +230,11 @@ export default async function Home() {
           {podcasts.length === 0 ? (
             <p className="text-[#7A9480] text-center py-12">No podcasts published yet.</p>
           ) : (
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {podcasts.slice(0, 6).map((post) => (
-                <Reveal key={post.id}><PodcastCard p={post} /></Reveal>
+            <Slider accent="#6C3FC5">
+              {podcasts.map((post) => (
+                <PodcastCard key={post.id} p={post} />
               ))}
-            </div>
+            </Slider>
           )}
         </div>
       </section>
@@ -254,11 +254,11 @@ export default async function Home() {
         {videos.length === 0 ? (
           <p className="text-[#7A9480] text-center py-12">No videos published yet.</p>
         ) : (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {videos.slice(0, 6).map((post) => (
-              <Reveal key={post.id}><VideoCard v={post} /></Reveal>
+          <Slider accent="#B91C1C">
+            {videos.map((post) => (
+              <VideoCard key={post.id} v={post} />
             ))}
-          </div>
+          </Slider>
         )}
       </section>
 
