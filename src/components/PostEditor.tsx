@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { RichTextEditor } from "./RichTextEditor";
 import { ImageUpload } from "./ImageUpload";
@@ -17,18 +16,18 @@ export type PostFormData = {
   category: string;
   title: string;
   excerpt: string;
-  content: string;        // markdown (legacy / fallback)
-  content_html: string;   // rich HTML from editor
+  content: string;
+  content_html: string;
   cover_url: string;
-  media_url: string;          // primary media (video URL for video posts, podcast audio URL for podcasts)
-  audio_url: string;          // article narration audio (optional)
-  podcast_video_url: string;  // optional video version of a podcast (for "Watch" button)
+  media_url: string;
+  audio_url: string;
+  podcast_video_url: string;
   duration: string;
   episode: string;
   tags: string[];
   featured: boolean;
   published: boolean;
-  scheduled_for: string;       // ISO local datetime string or ""
+  scheduled_for: string;
   meta_title: string;
   meta_description: string;
 };
@@ -44,7 +43,6 @@ const CATEGORIES = [
 ];
 
 export function PostEditor({ initial }: { initial?: Partial<PostFormData> }) {
-  const router = useRouter();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
 
@@ -89,11 +87,11 @@ export function PostEditor({ initial }: { initial?: Partial<PostFormData> }) {
       if (!res.ok) {
         throw new Error(data.error || "Save failed");
       }
-      router.push("/admin/posts");
-      router.refresh();
+      // HARD navigate so the form state is fully torn down
+      // (was: router.push + router.refresh — that kept stale state across "New Post" clicks)
+      window.location.assign("/admin/posts");
     } catch (e: any) {
       setError(e.message || "Save failed");
-    } finally {
       setBusy(false);
     }
   }
@@ -115,7 +113,6 @@ export function PostEditor({ initial }: { initial?: Partial<PostFormData> }) {
         </p>
       </header>
 
-      {/* TYPE */}
       <Section title="What are you publishing?">
         <div className="grid grid-cols-3 gap-2">
           {(["article", "podcast", "video"] as const).map((t) => (
@@ -135,7 +132,6 @@ export function PostEditor({ initial }: { initial?: Partial<PostFormData> }) {
         </div>
       </Section>
 
-      {/* TITLE + EXCERPT */}
       <Section title="Headline">
         <Field label="Title">
           <input
@@ -161,12 +157,10 @@ export function PostEditor({ initial }: { initial?: Partial<PostFormData> }) {
         </Field>
       </Section>
 
-      {/* COVER */}
       <Section title="Cover image">
         <ImageUpload value={form.cover_url} onChange={(u) => update("cover_url", u)} />
       </Section>
 
-      {/* MAIN CONTENT */}
       <Section title={isVideo ? "Video description" : "Full content"}>
         <RichTextEditor
           value={form.content_html || form.content}
@@ -181,7 +175,6 @@ export function PostEditor({ initial }: { initial?: Partial<PostFormData> }) {
         />
       </Section>
 
-      {/* MEDIA — per type */}
       {isVideo && (
         <Section title="Video URL">
           <MediaUpload
@@ -196,22 +189,22 @@ export function PostEditor({ initial }: { initial?: Partial<PostFormData> }) {
 
       {isPodcast && (
         <>
-          <Section title="Podcast audio (Listen)">
+          <Section title="Podcast media (Listen / Watch)">
             <MediaUpload
               value={form.media_url}
               onChange={(u) => update("media_url", u)}
               label=""
-              hint="Drop an .mp3 or .m4a file (up to 50MB), or paste a SoundCloud / external link."
-              accept="audio"
+              hint="Drop your .mp3, .m4a, or .mp4 file (up to 50MB). If it's audio, viewers see a 'Listen' button; if video, they see a 'Watch' button with picture. Or paste any URL."
+              accept="any"
             />
           </Section>
 
-          <Section title="Optional: Video version (Watch)">
+          <Section title="Optional: Separate video version (extra Watch button)">
             <MediaUpload
               value={form.podcast_video_url}
               onChange={(u) => update("podcast_video_url", u)}
               label=""
-              hint="If you also recorded a video of this episode, paste its YouTube URL here. A 'Watch' button will appear next to 'Listen'."
+              hint="If you also recorded a separate video of this episode (e.g. on YouTube), paste its URL here. It will add a second 'Watch' button beside Listen."
               accept="any"
             />
           </Section>
@@ -230,7 +223,6 @@ export function PostEditor({ initial }: { initial?: Partial<PostFormData> }) {
         </Section>
       )}
 
-      {/* CATEGORIZATION */}
       <Section title="Category and tags">
         <Field label="Category">
           <select
@@ -284,7 +276,6 @@ export function PostEditor({ initial }: { initial?: Partial<PostFormData> }) {
         )}
       </Section>
 
-      {/* PUBLISH OPTIONS */}
       <Section title="Publishing">
         <label className="flex items-center gap-2 cursor-pointer">
           <input
@@ -309,7 +300,6 @@ export function PostEditor({ initial }: { initial?: Partial<PostFormData> }) {
         </Field>
       </Section>
 
-      {/* SEO (collapsible feel) */}
       <details className="bg-[#F6F9F3] dark:bg-white/[0.03] rounded-lg p-4 border border-[#E5EDE7] dark:border-white/10">
         <summary className="cursor-pointer text-sm font-semibold text-[#3D5444] dark:text-[#C8DFCC]">
           ▸ SEO meta (optional)
@@ -340,7 +330,6 @@ export function PostEditor({ initial }: { initial?: Partial<PostFormData> }) {
         <p className="text-sm text-[#B91C1C] font-semibold">⚠ {error}</p>
       )}
 
-      {/* ACTIONS */}
       <div className="sticky bottom-0 -mx-5 px-5 py-4 bg-white/95 dark:bg-[#0a1a0b]/95 backdrop-blur border-t border-[#E5EDE7] dark:border-white/10 flex gap-3 justify-end">
         <button
           type="button"
@@ -362,8 +351,6 @@ export function PostEditor({ initial }: { initial?: Partial<PostFormData> }) {
     </div>
   );
 }
-
-/* --- Small layout helpers --- */
 
 function Section({ title, children }: { title: string; children?: React.ReactNode }) {
   return (
