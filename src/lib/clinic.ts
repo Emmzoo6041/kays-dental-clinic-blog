@@ -17,6 +17,11 @@ export const CLINIC = {
   doctorPhoto: "/photos/dr-esther-green.jpg",        // doctor card (small)
   doctorAboutPhoto: "/photos/dr-esther-white.jpg",   // MAIN portrait (about + hero card)
   heroPhoto: "/photos/reception-hero.jpg",           // hero right-side photo
+
+  // Homepage intro video. Drop the file at public/videos/intro.mp4
+  // (or paste a full Supabase Storage URL here). Until it exists, the poster photo shows.
+  introVideo: "/videos/intro.mp4",
+  introPoster: "/photos/reception-hero.jpg",
 };
 
 export const waLink = (msg = "Hello Dr. Esther! I would like to book an appointment at Kays Dental Clinic.") =>
