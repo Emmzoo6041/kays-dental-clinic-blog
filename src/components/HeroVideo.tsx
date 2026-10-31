@@ -43,8 +43,8 @@ export function HeroVideo() {
   }
 
   return (
-    // -mt cancels <main>'s pt-[72px] (the header already renders its own spacer) so the video sits flush.
-    <section className="relative -mt-[72px] w-full h-[calc(100svh-72px)] min-h-[520px] max-h-[880px] overflow-hidden bg-[#0d2a14]">
+    // -mt cancels <main>'s pt-[72px]; the header skips its spacer on "/" so the video runs up behind the transparent header.
+    <section className="relative -mt-[72px] w-full h-[100svh] min-h-[560px] max-h-[940px] overflow-hidden bg-[#0d2a14]">
       {/* Background media */}
       {videoOk ? (
         <video
