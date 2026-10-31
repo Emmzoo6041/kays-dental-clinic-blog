@@ -56,7 +56,7 @@ export function HeaderClient({
     return () => io.disconnect();
   }, [isHome]);
 
-  // Over the homepage video the header is transparent with white text, until you scroll.
+  // Over the homepage hero the header has no background until you scroll.
   const overHero = isHome && !scrolled && !menuOpen;
 
   const links = [
@@ -68,10 +68,8 @@ export function HeaderClient({
     { href: "/contact", label: "Contact", active: pathname === "/contact" },
   ];
 
-  const iconBtn = overHero
-    ? "text-white hover:bg-white/15"
-    : "text-[#1E5C2E] dark:text-[#D4EDD9] hover:bg-[#EDF7EF] dark:hover:bg-white/5";
-  const barColor = overHero ? "bg-white" : "bg-[#1E5C2E] dark:bg-[#D4EDD9]";
+  const iconBtn = "text-[#1E5C2E] dark:text-[#D4EDD9] hover:bg-[#EDF7EF] dark:hover:bg-white/5";
+  const barColor = "bg-[#1E5C2E] dark:bg-[#D4EDD9]";
 
   return (
     <>
@@ -81,7 +79,7 @@ export function HeaderClient({
         transition={{ duration: 0.4, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-[100] h-[72px] transition-all duration-300 ${
           overHero
-            ? "bg-gradient-to-b from-black/45 to-transparent"
+            ? "bg-transparent"
             : scrolled
               ? "bg-white/95 dark:bg-[#0a1a0b]/95 backdrop-blur-xl border-b border-[#D4EDD9] dark:border-white/10 shadow-[0_6px_24px_-12px_rgba(30,92,46,0.25)]"
               : "bg-white/95 dark:bg-[#0a1a0b]/95 backdrop-blur-md border-b border-[#D4EDD9]/60 dark:border-white/5"
@@ -90,16 +88,16 @@ export function HeaderClient({
         <div className="h-full max-w-[1280px] mx-auto px-4 sm:px-[5vw] xl:px-8 flex items-center justify-between gap-4">
           {/* Brand */}
           <Link href="/" className="flex items-center gap-2.5 group min-w-0">
-            <span className={`grid place-items-center w-11 h-11 rounded-2xl flex-shrink-0 transition ${overHero ? "bg-white/90" : "bg-[#EDF7EF] dark:bg-white/10"}`}>
+            <span className={`grid place-items-center w-11 h-11 rounded-2xl flex-shrink-0 transition bg-[#EDF7EF] dark:bg-white/10`}>
               <MicIcon size={34} className="transition-transform group-hover:scale-110" />
             </span>
             <span className="leading-tight min-w-0">
-              <strong className={`block font-display text-[1rem] sm:text-[1.12rem] font-bold tracking-[-0.01em] sm:truncate transition-colors ${overHero ? "text-white" : "text-[#1E5C2E] dark:text-[#D4EDD9]"}`}>
+              <strong className={`block font-display text-[1rem] sm:text-[1.12rem] font-bold tracking-[-0.01em] sm:truncate transition-colors text-[#1E5C2E] dark:text-[#D4EDD9]`}>
                 {/* Phones: title on two lines, no subtitle, so nothing gets cut off */}
                 <span className="sm:hidden">Conversations<br />with a Dentist</span>
                 <span className="hidden sm:inline">{clinicName}</span>
               </strong>
-              <span className={`hidden sm:block text-[0.7rem] font-semibold truncate transition-colors ${overHero ? "text-white/75" : "text-[#7A9480] dark:text-[#8FA89A]"}`}>
+              <span className={`hidden sm:block text-[0.7rem] font-semibold truncate transition-colors text-[#7A9480] dark:text-[#8FA89A]`}>
                 with Dr. Esther Lukwago
               </span>
             </span>
@@ -113,11 +111,9 @@ export function HeaderClient({
                 href={l.href}
                 aria-current={l.active ? "page" : undefined}
                 className={`relative px-3.5 py-2 rounded-full transition-colors ${
-                  overHero
-                    ? l.active ? "text-white bg-white/15" : "text-white/80 hover:text-white hover:bg-white/10"
-                    : l.active
-                      ? "text-[#1E5C2E] bg-[#EDF7EF] dark:text-[#D4EDD9] dark:bg-white/10"
-                      : "text-[#3D5444] dark:text-[#C8DFCC] hover:text-[#1E5C2E] hover:bg-[#F6F9F3] dark:hover:bg-white/5"
+                  l.active
+                    ? "text-[#1E5C2E] bg-[#EDF7EF] dark:text-[#D4EDD9] dark:bg-white/10"
+                    : "text-[#3D5444] dark:text-[#C8DFCC] hover:text-[#1E5C2E] hover:bg-[#F6F9F3] dark:hover:bg-white/5"
                 }`}
               >
                 {l.label}
@@ -133,22 +129,20 @@ export function HeaderClient({
                 <path d="M20.5 20.5 16.4 16.4" />
               </svg>
             </Link>
-            <div className={overHero ? "[&_button]:bg-white/15 [&_button]:border-white/30 [&_button:hover]:bg-white/25" : ""}>
-              <ThemeToggle />
-            </div>
+            <ThemeToggle />
 
-            <span className={`hidden lg:block w-px h-6 mx-2 ${overHero ? "bg-white/30" : "bg-[#D4EDD9] dark:bg-white/10"}`} />
+            <span className={`hidden lg:block w-px h-6 mx-2 bg-[#D4EDD9] dark:bg-white/10`} />
 
             <div className="hidden lg:flex items-center gap-3 text-sm font-semibold">
               {isAdmin && (
-                <Link href="/admin" className={overHero ? "text-[#FFD740] hover:text-white" : "text-[#B91C1C] hover:text-[#8B1414]"}>
+                <Link href="/admin" className="text-[#B91C1C] hover:text-[#8B1414]">
                   Admin
                 </Link>
               )}
               {userEmail ? (
                 signOutSlot
               ) : (
-                <Link href="/login" className={overHero ? "text-white/85 hover:text-white" : "text-[#3D5444] dark:text-[#C8DFCC] hover:text-[#1E5C2E]"}>
+                <Link href="/login" className="text-[#3D5444] dark:text-[#C8DFCC] hover:text-[#1E5C2E]">
                   Log in
                 </Link>
               )}
@@ -156,11 +150,7 @@ export function HeaderClient({
                 href={waLink()}
                 target="_blank"
                 rel="noreferrer"
-                className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-bold transition shadow-sm ${
-                  overHero
-                    ? "bg-white text-[#1E5C2E] hover:bg-[#FFD740]"
-                    : "bg-[#2E7D42] text-white hover:bg-[#1E5C2E]"
-                }`}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-bold transition shadow-sm bg-[#2E7D42] text-white hover:bg-[#1E5C2E]"
               >
                 Book a visit
               </a>

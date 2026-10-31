@@ -6,7 +6,7 @@ import { Marquee } from "@/components/Marquee";
 import { ReviewCard } from "@/components/Cards";
 import { Reveal } from "@/components/Reveal";
 import { NewsletterSection } from "@/components/NewsletterSection";
-import { HeroVideo } from "@/components/HeroVideo";
+import { Hero3D } from "@/components/Hero3D";
 import { ArticlesShowcase, PodcastsShowcase, VideosShowcase } from "@/components/HomeShowcases";
 
 export const dynamic = "force-dynamic";
@@ -25,8 +25,8 @@ export default async function Home() {
 
   return (
     <>
-      {/* HERO — intro video */}
-      <HeroVideo />
+      {/* HERO — 3D "conversation" scene */}
+      <Hero3D />
 
       {/* TRUST BAR */}
       <section className="bg-[#1E5C2E] dark:bg-[#0d2a14] text-[#FFD740] py-3 overflow-hidden">

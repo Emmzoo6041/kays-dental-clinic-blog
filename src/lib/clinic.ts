@@ -18,8 +18,9 @@ export const CLINIC = {
   doctorAboutPhoto: "/photos/dr-esther-white.jpg",   // MAIN portrait (about + hero card)
   heroPhoto: "/photos/reception-hero.jpg",           // hero right-side photo
 
-  // Homepage intro video. Drop the file at public/videos/intro.mp4
-  // (or paste a full Supabase Storage URL here). Until it exists, the poster photo shows.
+  // Dr. Esther's intro video, opened from "Watch the intro" on the homepage.
+  // Drop the file at public/videos/intro.mp4 (or paste a Supabase Storage URL here).
+  // The button only appears once the file exists.
   introVideo: "/videos/intro.mp4",
   introPoster: "/photos/reception-hero.jpg",
 };
