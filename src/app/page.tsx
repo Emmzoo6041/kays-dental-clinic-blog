@@ -25,7 +25,7 @@ export default async function Home() {
 
   return (
     <>
-      {/* HERO — 3D "conversation" scene */}
+      {/* HERO — coin rolling around a ring */}
       <Hero3D />
 
       {/* TRUST BAR */}
