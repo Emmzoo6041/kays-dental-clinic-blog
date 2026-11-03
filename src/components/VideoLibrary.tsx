@@ -2,12 +2,13 @@
 import { useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { VIEWMEDICA, type VMGroup, type VMTopic } from "@/lib/viewmedica";
+import { VIEWMEDICA, photoUrl, type VMGroup, type VMTopic } from "@/lib/viewmedica";
 import { TopicArt } from "./TopicArt";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
 export function TopicCard({ t, group, index }: { t: VMTopic; group: string; index: number }) {
+  const [broken, setBroken] = useState(false);
   return (
     <a
       href={t.url}
@@ -17,12 +18,26 @@ export function TopicCard({ t, group, index }: { t: VMTopic; group: string; inde
       aria-label={`${t.title} — watch the animated video on ViewMedica (opens in a new tab)`}
     >
       <div className="relative aspect-[4/3] rounded-[18px] overflow-hidden ring-1 ring-black/[0.04] dark:ring-white/10">
-        <TopicArt
-          art={t.art}
-          group={group}
-          index={index}
-          className="absolute inset-0 w-full h-full transition-transform duration-[900ms] ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.05]"
-        />
+        {t.photo && !broken ? (
+          /* eslint-disable-next-line @next/next/no-img-element */
+          <img
+            src={photoUrl(t.photo)}
+            srcSet={`${photoUrl(t.photo, 480)} 480w, ${photoUrl(t.photo, 800)} 800w`}
+            sizes="(min-width: 1024px) 280px, (min-width: 768px) 30vw, 46vw"
+            alt={t.title}
+            loading="lazy"
+            onError={() => setBroken(true)}
+            className="absolute inset-0 w-full h-full object-cover saturate-[.85] bg-[#E8E8E6] transition-transform duration-[900ms] ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.05]"
+          />
+        ) : (
+          <TopicArt
+            art={t.art}
+            group={group}
+            index={index}
+            className="absolute inset-0 w-full h-full transition-transform duration-[900ms] ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.05]"
+          />
+        )}
+        <span className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         <span className="absolute right-3 bottom-3 grid place-items-center w-9 h-9 rounded-full bg-white/90 text-[#141614] shadow-sm opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
           <svg width="11" height="11" viewBox="0 0 10 10" aria-hidden><path d="M2 1.2v7.6L8.6 5z" fill="currentColor" /></svg>
         </span>

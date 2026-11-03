@@ -7,12 +7,46 @@
 //   A_e9f49171 → Bad breath, Thumb sucking
 //   A_17c450c0 → Mouth sores, Bleeding gums
 
-export type VMTopic = { slug: string; title: string; blurb: string; url: string; art: string };
+export type VMTopic = { slug: string; title: string; blurb: string; url: string; art: string; photo?: string };
 export type VMGroup = { id: string; title: string; subtitle: string; topics: VMTopic[] };
 
 const vm = (code: string) => `https://my.viewmedica.com/share/10787/en/${code}`;
 
-export const VIEWMEDICA: VMGroup[] = [
+// Free photos from Unsplash (Unsplash License — free to use, no permission needed).
+// Each value is the Unsplash photo id; swap one to change a card's picture.
+const PHOTOS: Record<string, string> = {
+  "tooth-decay": "1777793389944-f7165259a05c",
+  "gingivitis": "1694345162188-2e5c06fe75e7",
+  "gum-disease": "1664529845848-00f5fa16df86",
+  "bad-breath": "1758600588830-1bbcc78d3500",
+  "baby-bottle-tooth-decay": "1626736985932-c0df2ae07a2e",
+  "sensitive-teeth": "1656623944690-9366fb1aba9b",
+  "tartar": "1766338390573-ec092d69cdcb",
+  "thumb-sucking": "1520682549746-f3a171f5a2ef",
+  "mouth-sores": "1584457361626-06effef61a7c",
+  "bleeding-gums": "1658847075814-bf9a341c91e5",
+  "brushing": "1646388478486-0996b6dcc2ac",
+  "flossing": "1559818469-fdf7a1ae929c",
+  "taking-care": "1611690061822-b707a67bfebb",
+  "fluoride": "1676897288522-e8a081e71430",
+  "dental-implant": "1787303856266-8c4f0b61ecf1",
+  "dental-filling": "1657470179447-0f5aa16daa91",
+  "dental-crown": "1771442873035-474765b40ac6",
+  "veneers": "1677026010083-78ec7f1b84ed",
+  "dental-sealants": "1758205307836-0829c799890b",
+  "scaling": "1606811971618-4486d14f3f99",
+  "dental-prostheses": "1530213709681-b7e537c923cc",
+  "root-canal": "1588776814546-1ffcf47267a5",
+  "wisdom-tooth-removal": "1777445374290-eedda5be8e5b",
+  "metal-braces": "1598256989809-394fa4f6cd26",
+  "invisible-braces": "1609840114035-3c981b782dfe",
+  "teeth-whitening": "1784460469850-80838868f4d2",
+  "dental-anxiety": "1777331903190-341a3dd0441b",
+};
+export const photoUrl = (id: string, w = 640) =>
+  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&h=${Math.round(w * 0.75)}&q=70`;
+
+const RAW: VMGroup[] = [
   {
     id: "conditions",
     title: "Disease conditions",
@@ -55,3 +89,8 @@ export const VIEWMEDICA: VMGroup[] = [
     ],
   },
 ];
+
+export const VIEWMEDICA: VMGroup[] = RAW.map((g) => ({
+  ...g,
+  topics: g.topics.map((t) => ({ ...t, photo: PHOTOS[t.slug] })),
+}));

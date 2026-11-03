@@ -21,6 +21,10 @@ export default function LearnPage() {
         </p>
       </div>
       <VideoLibraryFull />
+      <p className="mt-16 text-[0.75rem] text-[#9A9E9A]">
+        Videos by ViewMedica. Photos from{" "}
+        <a href="https://unsplash.com/?utm_source=kays_dental&utm_medium=referral" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">Unsplash</a>.
+      </p>
     </div>
   );
 }
