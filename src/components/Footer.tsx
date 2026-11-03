@@ -1,3 +1,4 @@
+import { MicIcon } from "./MicIcon";
 import Link from "next/link";
 import { CLINIC, waLink } from "@/lib/clinic";
 
@@ -7,7 +8,7 @@ export function Footer() {
       <div className="grid lg:grid-cols-[2fr,1fr,1fr] gap-12 mb-10">
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-3">
-            <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#1B1F1C] to-[#2B3D32] grid place-items-center font-display text-xl font-bold text-white">K</div>
+            <div className="w-11 h-11 rounded-[12px] bg-white text-[#141614] grid place-items-center flex-shrink-0"><MicIcon size={28} /></div>
             <h3 className="font-display text-lg text-white">Conversations with a Dentist</h3>
           </div>
           <p className="text-[0.82rem] leading-7 max-w-xs">
@@ -29,6 +30,7 @@ export function Footer() {
             <li><Link href="/#videos" className="text-[0.83rem] font-medium text-white/55 hover:text-white transition-colors">Video Shorts</Link></li>
             <li><Link href="/#about" className="text-[0.83rem] font-medium text-white/55 hover:text-white transition-colors">About Dr. Esther</Link></li>
             <li><Link href="/#reviews" className="text-[0.83rem] font-medium text-white/55 hover:text-white transition-colors">Patient Reviews</Link></li>
+            <li><Link href="/learn" className="text-[0.83rem] font-medium text-white/55 hover:text-white transition-colors">Video library</Link></li>
             <li><Link href="/faq" className="text-[0.83rem] font-medium text-white/55 hover:text-white transition-colors">FAQ</Link></li>
             <li><Link href="/search" className="text-[0.83rem] font-medium text-white/55 hover:text-white transition-colors">Search</Link></li>
             <li><Link href="/#contact" className="text-[0.83rem] font-medium text-white/55 hover:text-white transition-colors">Book Appointment</Link></li>

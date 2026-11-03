@@ -64,6 +64,7 @@ export function HeaderClient({
     { href: "/#articles", label: "Articles", active: activeSection === "articles" || pathname.startsWith("/blog") },
     { href: "/#podcasts", label: "Podcasts", active: activeSection === "podcasts" },
     { href: "/#videos", label: "Videos", active: activeSection === "videos" },
+    { href: "/learn", label: "Library", active: pathname === "/learn" },
     { href: "/faq", label: "FAQ", active: pathname === "/faq" },
     { href: "/contact", label: "Contact", active: pathname === "/contact" },
   ];
@@ -88,8 +89,8 @@ export function HeaderClient({
         <div className="h-full max-w-[1280px] mx-auto px-4 sm:px-[5vw] xl:px-8 flex items-center justify-between gap-4">
           {/* Brand */}
           <Link href="/" className="flex items-center gap-2.5 group min-w-0">
-            <span className={`grid place-items-center w-11 h-11 rounded-2xl flex-shrink-0 transition bg-[#EFEFEC] dark:bg-white/10`}>
-              <MicIcon size={34} className="transition-transform group-hover:scale-110" />
+            <span className="grid place-items-center w-10 h-10 rounded-[12px] flex-shrink-0 bg-[#141614] text-white dark:bg-[#F2F2EF] dark:text-[#141614] transition-transform duration-500 ease-[cubic-bezier(.16,1,.3,1)] group-hover:-rotate-6">
+              <MicIcon size={26} />
             </span>
             <span className="leading-tight min-w-0">
               <strong className={`block font-display text-[1rem] sm:text-[1.12rem] font-bold tracking-[-0.01em] sm:truncate transition-colors text-[#1B1F1C] dark:text-[#E7E8E5]`}>

@@ -13,6 +13,7 @@ export async function GET() {
   const staticUrls = [
     { url: "/", priority: 1.0 },
     { url: "/faq", priority: 0.7 },
+    { url: "/learn", priority: 0.7 },
     { url: "/search", priority: 0.5 },
   ];
 

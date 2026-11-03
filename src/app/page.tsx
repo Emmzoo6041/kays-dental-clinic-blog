@@ -3,11 +3,12 @@ import { createServerSupabase } from "@/lib/supabase-server";
 import { CLINIC, REVIEWS, waLink } from "@/lib/clinic";
 import { ContactForm } from "@/components/ContactForm";
 import { Marquee } from "@/components/Marquee";
-import { ReviewCard } from "@/components/Cards";
+import { ReviewDeck } from "@/components/ReviewDeck";
 import { Reveal } from "@/components/Reveal";
 import { NewsletterSection } from "@/components/NewsletterSection";
 import { HeroIntro } from "@/components/HeroIntro";
 import { ArticlesShowcase, PodcastsShowcase, VideosShowcase } from "@/components/HomeShowcases";
+import { VideoLibraryTabs } from "@/components/VideoLibrary";
 
 export const dynamic = "force-dynamic";
 
@@ -86,8 +87,22 @@ export default async function Home() {
         <VideosShowcase videos={videos} />
       </section>
 
+      {/* VIEWMEDICA LIBRARY */}
+      <section id="library" className="px-[5vw] py-20 lg:py-28 bg-[#F4F4F2] dark:bg-white/[0.02] scroll-mt-20">
+        <div className="max-w-[1200px] mx-auto">
+          <Reveal direction="up">
+            <div className="mb-9 max-w-2xl">
+              <div className="s-tag">Dental library</div>
+              <h2 className="display-italic text-[2.1rem] sm:text-[2.6rem] lg:text-[3.1rem] leading-[1.08] text-[#141614] dark:text-[#F2F2EF] mt-1">See how it works</h2>
+              <p className="text-[#555A56] dark:text-[#A6AAA6] mt-2">Short animated videos on common conditions and the treatments we use in the clinic.</p>
+            </div>
+          </Reveal>
+          <VideoLibraryTabs />
+        </div>
+      </section>
+
       {/* ABOUT DR ESTHER */}
-      <section id="about" className="scroll-mt-20 px-[5vw] py-20 lg:py-28 bg-[#F4F4F2] dark:bg-white/[0.02]">
+      <section id="about" className="scroll-mt-20 px-[5vw] py-20 lg:py-28">
         <div className="max-w-[1200px] mx-auto grid lg:grid-cols-[1fr,1.2fr] gap-12 lg:gap-20 items-center">
           <Reveal direction="fade">
             <div className="relative aspect-[4/5] rounded-[22px] overflow-hidden max-w-md mx-auto lg:mx-0 bg-[#E8E8E6] shadow-[0_40px_80px_-45px_rgba(20,22,20,0.45)]">
@@ -142,11 +157,7 @@ export default async function Home() {
             <h2 className="display-italic text-[2.1rem] sm:text-[2.6rem] lg:text-[3.1rem] leading-[1.08] text-[#141614] dark:text-[#F2F2EF] mt-1">What our patients say</h2>
           </div>
         </Reveal>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {REVIEWS.map((review, i) => (
-            <Reveal key={i}><ReviewCard r={review} /></Reveal>
-          ))}
-        </div>
+        <ReviewDeck reviews={REVIEWS} />
       </section>
 
       {/* NEWSLETTER */}
