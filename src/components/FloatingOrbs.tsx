@@ -14,7 +14,7 @@ export function FloatingOrbs({ intensity = "normal" }: { intensity?: "subtle" | 
         animate={{ x: [0, 60, -40, 0], y: [0, -50, 30, 0], scale: [1, 1.15, 0.95, 1] }}
         transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
         className="absolute -top-32 -left-32 w-[420px] h-[420px] rounded-full blur-3xl"
-        style={{ background: "radial-gradient(circle, rgba(76,175,107,0.6) 0%, transparent 70%)", opacity }}
+        style={{ background: "radial-gradient(circle, rgba(143,163,150,0.6) 0%, transparent 70%)", opacity }}
       />
       <motion.div
         animate={{ x: [0, -60, 50, 0], y: [0, 50, -30, 0], scale: [1, 0.9, 1.1, 1] }}
@@ -26,7 +26,7 @@ export function FloatingOrbs({ intensity = "normal" }: { intensity?: "subtle" | 
         animate={{ x: [0, 40, -30, 0], y: [0, 30, -20, 0] }}
         transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
         className="absolute top-1/3 right-1/4 w-[320px] h-[320px] rounded-full blur-3xl"
-        style={{ background: "radial-gradient(circle, rgba(76,175,107,0.35) 0%, transparent 70%)", opacity }}
+        style={{ background: "radial-gradient(circle, rgba(143,163,150,0.35) 0%, transparent 70%)", opacity }}
       />
     </div>
   );

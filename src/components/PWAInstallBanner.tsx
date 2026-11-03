@@ -49,16 +49,16 @@ export function PWAInstallBanner() {
           <div className="flex items-start gap-3">
             <div className="text-3xl">🦷</div>
             <div className="flex-1 min-w-0">
-              <p className="font-display font-bold text-[#1E5C2E] dark:text-[#D4EDD9]">Install this app</p>
-              <p className="text-xs text-[#3D5444] dark:text-[#C8DFCC] mt-0.5">
+              <p className="font-display font-bold text-[#1B1F1C] dark:text-[#E7E8E5]">Install this app</p>
+              <p className="text-xs text-[#555A56] dark:text-[#E2E3E0] mt-0.5">
                 Add Dr. Esther&apos;s blog to your home screen for one-tap access.
               </p>
               <div className="flex gap-2 mt-3">
                 <button onClick={install} className="btn btn-green !py-1.5 !px-3 text-xs">Install</button>
-                <button onClick={dismiss} className="px-3 py-1.5 text-xs font-bold text-[#7A9480] hover:text-[#3D5444]">Not now</button>
+                <button onClick={dismiss} className="px-3 py-1.5 text-xs font-bold text-[#8A8E8A] hover:text-[#555A56]">Not now</button>
               </div>
             </div>
-            <button onClick={dismiss} aria-label="Dismiss" className="text-[#7A9480] hover:text-[#3D5444] -mt-1">✕</button>
+            <button onClick={dismiss} aria-label="Dismiss" className="text-[#8A8E8A] hover:text-[#555A56] -mt-1">✕</button>
           </div>
         </motion.div>
       )}

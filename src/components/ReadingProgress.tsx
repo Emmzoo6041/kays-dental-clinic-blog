@@ -28,7 +28,7 @@ export function ReadingProgress({ targetId = "article-body" }: { targetId?: stri
   return (
     <motion.div
       style={{ scaleX: progress, transformOrigin: "0% 50%" }}
-      className="fixed top-0 left-0 right-0 h-[3px] z-[120] bg-gradient-to-r from-[#2E7D42] via-[#E6B800] to-[#2E7D42]"
+      className="fixed top-0 left-0 right-0 h-[3px] z-[120] bg-gradient-to-r from-[#2B3D32] via-[#B5A67C] to-[#2B3D32]"
       transition={{ type: "spring", stiffness: 140, damping: 30 }}
       aria-hidden
     />

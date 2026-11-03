@@ -18,11 +18,11 @@ export const CLINIC = {
   doctorAboutPhoto: "/photos/dr-esther-portrait.jpg", // "Meet Dr. Esther" portrait (homepage)
   heroPhoto: "/photos/reception-hero.jpg",           // hero right-side photo
 
-  // Dr. Esther's intro video, opened from "Watch the intro" on the homepage.
-  // Drop the file at public/videos/intro.mp4 (or paste a Supabase Storage URL here).
-  // The button only appears once the file exists.
+  // Dr. Esther's intro video (homepage hero). intro.mp4 = full video with sound,
+  // intro-loop.mp4 = short silent clip that plays in the hero card.
   introVideo: "/videos/intro.mp4",
-  introPoster: "/photos/reception-hero.jpg",
+  introLoop: "/videos/intro-loop.mp4",
+  introPoster: "/videos/intro-poster.jpg",
 };
 
 export const waLink = (msg = "Hello Dr. Esther! I would like to book an appointment at Kays Dental Clinic.") =>

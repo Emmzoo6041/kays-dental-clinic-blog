@@ -1,6 +1,6 @@
 // Branded microphone illustration — used in place of Dr Esther's avatar
 // on the header AND the big hero doctor card.
-export function MicIcon({ size = 44, accent = "#2E7D42", glow = "#E6B800", className = "" }: {
+export function MicIcon({ size = 44, accent = "#2B3D32", glow = "#B5A67C", className = "" }: {
   size?: number;
   accent?: string;
   glow?: string;
@@ -24,7 +24,7 @@ export function MicIcon({ size = 44, accent = "#2E7D42", glow = "#E6B800", class
         </radialGradient>
         <linearGradient id="micBody" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor={accent} />
-          <stop offset="100%" stopColor="#1E5C2E" />
+          <stop offset="100%" stopColor="#1B1F1C" />
         </linearGradient>
       </defs>
       <circle cx="32" cy="30" r="30" fill="url(#micHalo)" />

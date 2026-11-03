@@ -23,7 +23,7 @@ export function SignOutButton({ variant = "inline" }: { variant?: "inline" | "si
       <button
         onClick={signOut}
         disabled={busy}
-        className="w-full flex items-center gap-2 text-xs text-[#7A9480] hover:text-[#B91C1C] px-3 py-2 rounded-lg hover:bg-[#F0F4F0] dark:hover:bg-white/5 transition text-left disabled:opacity-50"
+        className="w-full flex items-center gap-2 text-xs text-[#8A8E8A] hover:text-[#B91C1C] px-3 py-2 rounded-lg hover:bg-[#F2F2F0] dark:hover:bg-white/5 transition text-left disabled:opacity-50"
       >
         <span>↩</span> {busy ? "Signing out…" : "Sign out"}
       </button>
@@ -35,7 +35,7 @@ export function SignOutButton({ variant = "inline" }: { variant?: "inline" | "si
     <button
       onClick={signOut}
       disabled={busy}
-      className="text-[#7A9480] dark:text-[#8FA89A] hover:text-[#2E7D42] hover:underline underline-offset-4 disabled:opacity-50"
+      className="text-[#8A8E8A] dark:text-[#999D99] hover:text-[#2B3D32] hover:underline underline-offset-4 disabled:opacity-50"
     >
       {busy ? "…" : "Sign out"}
     </button>

@@ -26,9 +26,9 @@ export function TagsInput({
   return (
     <div className="flex flex-wrap gap-1.5 input items-center min-h-[44px] !py-1.5">
       {value.map((t, i) => (
-        <span key={t} className="inline-flex items-center gap-1 bg-[#EDF7EF] text-[#1E5C2E] text-xs font-bold rounded-full px-3 py-1">
+        <span key={t} className="inline-flex items-center gap-1 bg-[#F2F2EF] text-[#1B1F1C] text-xs font-bold rounded-full px-3 py-1">
           {t}
-          <button type="button" onClick={() => remove(i)} className="text-[#1E5C2E]/70 hover:text-red-600 text-base leading-none">×</button>
+          <button type="button" onClick={() => remove(i)} className="text-[#1B1F1C]/70 hover:text-red-600 text-base leading-none">×</button>
         </span>
       ))}
       <input

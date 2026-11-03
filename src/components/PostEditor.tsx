@@ -103,10 +103,10 @@ export function PostEditor({ initial }: { initial?: Partial<PostFormData> }) {
   return (
     <div className="max-w-3xl space-y-7">
       <header>
-        <h1 className="font-display text-3xl font-bold text-[#1E5C2E] dark:text-[#D4EDD9]">
+        <h1 className="font-display text-3xl font-bold text-[#1B1F1C] dark:text-[#E7E8E5]">
           {form.id ? "Edit post" : "New post"}
         </h1>
-        <p className="text-sm text-[#7A9480] mt-1">
+        <p className="text-sm text-[#8A8E8A] mt-1">
           Articles can include a short excerpt for the cards, the full content, and an optional audio narration.
           Podcasts get an audio file (drag and drop) plus an optional video version.
           Videos only need a YouTube/Vimeo URL.
@@ -122,8 +122,8 @@ export function PostEditor({ initial }: { initial?: Partial<PostFormData> }) {
               onClick={() => update("type", t)}
               className={`px-3 py-3 rounded-lg text-sm font-bold capitalize border-2 transition
                 ${form.type === t
-                  ? "bg-[#1E5C2E] text-white border-[#1E5C2E]"
-                  : "bg-white dark:bg-white/5 text-[#3D5444] dark:text-[#C8DFCC] border-[#C8DFCC] dark:border-white/15 hover:border-[#4CAF6B]"
+                  ? "bg-[#1B1F1C] text-white border-[#1B1F1C]"
+                  : "bg-white dark:bg-white/5 text-[#555A56] dark:text-[#E2E3E0] border-[#E2E3E0] dark:border-white/15 hover:border-[#8FA396]"
                 }`}
             >
               {t === "article" ? "📝 Article" : t === "podcast" ? "🎙 Podcast" : "🎬 Video"}
@@ -151,7 +151,7 @@ export function PostEditor({ initial }: { initial?: Partial<PostFormData> }) {
             placeholder="One or two sentences. This is what readers see before clicking 'Read more'."
             className="input-full resize-y"
           />
-          <p className="text-xs text-[#7A9480] mt-1">
+          <p className="text-xs text-[#8A8E8A] mt-1">
             {form.excerpt.length} chars · aim for ~140–200 for best display
           </p>
         </Field>
@@ -282,9 +282,9 @@ export function PostEditor({ initial }: { initial?: Partial<PostFormData> }) {
             type="checkbox"
             checked={form.featured}
             onChange={(e) => update("featured", e.target.checked)}
-            className="w-4 h-4 accent-[#2E7D42]"
+            className="w-4 h-4 accent-[#2B3D32]"
           />
-          <span className="text-sm text-[#3D5444] dark:text-[#C8DFCC]">⭐ Featured (highlight on homepage)</span>
+          <span className="text-sm text-[#555A56] dark:text-[#E2E3E0]">⭐ Featured (highlight on homepage)</span>
         </label>
 
         <Field label="Schedule for (optional)">
@@ -294,14 +294,14 @@ export function PostEditor({ initial }: { initial?: Partial<PostFormData> }) {
             onChange={(e) => update("scheduled_for", e.target.value)}
             className="input-full"
           />
-          <p className="text-xs text-[#7A9480] mt-1">
+          <p className="text-xs text-[#8A8E8A] mt-1">
             Leave blank to publish immediately when you click Publish.
           </p>
         </Field>
       </Section>
 
-      <details className="bg-[#F6F9F3] dark:bg-white/[0.03] rounded-lg p-4 border border-[#E5EDE7] dark:border-white/10">
-        <summary className="cursor-pointer text-sm font-semibold text-[#3D5444] dark:text-[#C8DFCC]">
+      <details className="bg-[#F8F8F6] dark:bg-white/[0.03] rounded-lg p-4 border border-[#E8E8E6] dark:border-white/10">
+        <summary className="cursor-pointer text-sm font-semibold text-[#555A56] dark:text-[#E2E3E0]">
           ▸ SEO meta (optional)
         </summary>
         <div className="mt-4 space-y-3">
@@ -330,12 +330,12 @@ export function PostEditor({ initial }: { initial?: Partial<PostFormData> }) {
         <p className="text-sm text-[#B91C1C] font-semibold">⚠ {error}</p>
       )}
 
-      <div className="sticky bottom-0 -mx-5 px-5 py-4 bg-white/95 dark:bg-[#0a1a0b]/95 backdrop-blur border-t border-[#E5EDE7] dark:border-white/10 flex gap-3 justify-end">
+      <div className="sticky bottom-0 -mx-5 px-5 py-4 bg-white/95 dark:bg-[#0e100f]/95 backdrop-blur border-t border-[#E8E8E6] dark:border-white/10 flex gap-3 justify-end">
         <button
           type="button"
           disabled={busy}
           onClick={() => save(false)}
-          className="px-5 py-2.5 rounded-lg text-sm font-semibold border-2 border-[#C8DFCC] text-[#3D5444] hover:bg-[#F0F4F0] disabled:opacity-50"
+          className="px-5 py-2.5 rounded-lg text-sm font-semibold border-2 border-[#E2E3E0] text-[#555A56] hover:bg-[#F2F2F0] disabled:opacity-50"
         >
           Save as draft
         </button>
@@ -343,7 +343,7 @@ export function PostEditor({ initial }: { initial?: Partial<PostFormData> }) {
           type="button"
           disabled={busy || !form.title.trim()}
           onClick={() => save(true)}
-          className="px-5 py-2.5 rounded-lg text-sm font-semibold bg-[#1E5C2E] hover:bg-[#2E7D42] text-white disabled:opacity-50"
+          className="px-5 py-2.5 rounded-lg text-sm font-semibold bg-[#1B1F1C] hover:bg-[#2B3D32] text-white disabled:opacity-50"
         >
           {busy ? "Saving…" : form.id ? "Update" : "Publish"}
         </button>
@@ -355,7 +355,7 @@ export function PostEditor({ initial }: { initial?: Partial<PostFormData> }) {
 function Section({ title, children }: { title: string; children?: React.ReactNode }) {
   return (
     <section className="space-y-3">
-      <h2 className="font-display text-base font-bold text-[#1E5C2E] dark:text-[#D4EDD9]">{title}</h2>
+      <h2 className="font-display text-base font-bold text-[#1B1F1C] dark:text-[#E7E8E5]">{title}</h2>
       <div className="space-y-3">{children}</div>
     </section>
   );
@@ -364,7 +364,7 @@ function Section({ title, children }: { title: string; children?: React.ReactNod
 function Field({ label, children }: { label: string; children?: React.ReactNode }) {
   return (
     <div>
-      {label && <label className="block text-sm mb-1.5 text-[#7A9480]">{label}</label>}
+      {label && <label className="block text-sm mb-1.5 text-[#8A8E8A]">{label}</label>}
       {children}
     </div>
   );

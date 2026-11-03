@@ -55,9 +55,9 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) {
   }
 
   return (
-    <form onSubmit={submit} className="bg-white dark:bg-white/5 border border-[#D4EDD9] dark:border-white/10 rounded-2xl p-7 space-y-4">
+    <form onSubmit={submit} className="bg-white dark:bg-white/5 border border-[#E7E8E5] dark:border-white/10 rounded-2xl p-7 space-y-4">
       <div>
-        <label className="block text-sm mb-1.5 text-[#7A9480]">Email</label>
+        <label className="block text-sm mb-1.5 text-[#8A8E8A]">Email</label>
         <input
           type="email"
           required
@@ -68,7 +68,7 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) {
         />
       </div>
       <div>
-        <label className="block text-sm mb-1.5 text-[#7A9480]">Password</label>
+        <label className="block text-sm mb-1.5 text-[#8A8E8A]">Password</label>
         <div className="relative">
           <input
             type={showPassword ? "text" : "password"}
@@ -83,7 +83,7 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) {
             type="button"
             onClick={() => setShowPassword((s) => !s)}
             aria-label={showPassword ? "Hide password" : "Show password"}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-[#7A9480] hover:text-[#1E5C2E] text-lg leading-none p-1"
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-[#8A8E8A] hover:text-[#1B1F1C] text-lg leading-none p-1"
             tabIndex={-1}
           >
             {showPassword ? "🙈" : "👁"}
@@ -91,19 +91,19 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) {
         </div>
       </div>
       {error && <p className="text-red-600 text-sm">{error}</p>}
-      {info && <p className="text-[#2E7D42] text-sm">{info}</p>}
+      {info && <p className="text-[#2B3D32] text-sm">{info}</p>}
       <button
         type="submit"
         disabled={loading}
-        className="bg-[#2E7D42] hover:bg-[#1E5C2E] text-white rounded-full font-bold py-2.5 px-6 w-full disabled:opacity-50 transition"
+        className="bg-[#2B3D32] hover:bg-[#1B1F1C] text-white rounded-full font-bold py-2.5 px-6 w-full disabled:opacity-50 transition"
       >
         {loading ? "…" : mode === "login" ? "Log in" : "Sign up"}
       </button>
-      <p className="text-sm text-[#7A9480] text-center">
+      <p className="text-sm text-[#8A8E8A] text-center">
         {mode === "login" ? (
-          <>No account? <Link href="/signup" className="text-[#2E7D42] underline underline-offset-4">Sign up</Link></>
+          <>No account? <Link href="/signup" className="text-[#2B3D32] underline underline-offset-4">Sign up</Link></>
         ) : (
-          <>Already a member? <Link href="/login" className="text-[#2E7D42] underline underline-offset-4">Log in</Link></>
+          <>Already a member? <Link href="/login" className="text-[#2B3D32] underline underline-offset-4">Log in</Link></>
         )}
       </p>
     </form>

@@ -41,7 +41,7 @@ export function ImageUpload({
 
   return (
     <div>
-      <label className="block text-xs uppercase tracking-wider font-bold text-[#7A9480] mb-1">{label}</label>
+      <label className="block text-xs uppercase tracking-wider font-bold text-[#8A8E8A] mb-1">{label}</label>
       <div className="flex flex-col gap-2">
         <div className="flex gap-2">
           <input
@@ -71,11 +71,11 @@ export function ImageUpload({
             }}
           />
         </div>
-        {hint && <p className="text-[0.7rem] text-[#7A9480] mt-0.5">{hint}</p>}
+        {hint && <p className="text-[0.7rem] text-[#8A8E8A] mt-0.5">{hint}</p>}
         {error && <p className="text-red-600 text-sm">{error}</p>}
         {value && (
           <div onDragOver={(e) => e.preventDefault()} onDrop={onDrop}
-               className="relative border-2 border-dashed border-[#C8DFCC] dark:border-white/15 rounded-xl overflow-hidden">
+               className="relative border-2 border-dashed border-[#E2E3E0] dark:border-white/15 rounded-xl overflow-hidden">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={value} alt="preview" className="w-full max-h-48 object-cover" />
             <button type="button" onClick={() => onChange("")}
@@ -89,10 +89,10 @@ export function ImageUpload({
             onDragOver={(e) => e.preventDefault()}
             onDrop={onDrop}
             onClick={() => fileRef.current?.click()}
-            className="border-2 border-dashed border-[#C8DFCC] dark:border-white/15 rounded-xl px-6 py-8 text-center cursor-pointer hover:border-[#4CAF6B] hover:bg-[#EDF7EF]/40 transition"
+            className="border-2 border-dashed border-[#E2E3E0] dark:border-white/15 rounded-xl px-6 py-8 text-center cursor-pointer hover:border-[#8FA396] hover:bg-[#F2F2EF]/40 transition"
           >
-            <p className="text-sm text-[#7A9480]">📷 Click to upload or drag an image here</p>
-            <p className="text-[0.7rem] text-[#7A9480]/70 mt-1">JPG, PNG, WEBP up to 5MB</p>
+            <p className="text-sm text-[#8A8E8A]">📷 Click to upload or drag an image here</p>
+            <p className="text-[0.7rem] text-[#8A8E8A]/70 mt-1">JPG, PNG, WEBP up to 5MB</p>
           </div>
         )}
       </div>

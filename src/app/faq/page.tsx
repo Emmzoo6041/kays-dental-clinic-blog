@@ -75,16 +75,16 @@ export default function FAQPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ldJson) }} />
       <div className="text-center mb-10">
         <span className="s-tag">❓ Frequently asked questions</span>
-        <h1 className="font-display text-5xl font-bold text-[#1E5C2E] dark:text-[#D4EDD9] mt-3 mb-3">FAQ</h1>
-        <p className="text-[#3D5444] dark:text-[#A5B8AB]">
+        <h1 className="font-display text-5xl font-bold text-[#1B1F1C] dark:text-[#E7E8E5] mt-3 mb-3">FAQ</h1>
+        <p className="text-[#555A56] dark:text-[#A6AAA6]">
           The questions Dr. Esther hears most often, answered honestly.
         </p>
       </div>
       <FAQAccordion items={FAQ} />
 
-      <div className="mt-12 bg-[#EDF7EF] dark:bg-white/5 rounded-2xl border-2 border-[#4CAF6B]/40 p-7 text-center">
-        <p className="font-display text-lg text-[#1E5C2E] dark:text-[#D4EDD9] mb-3">Have a question not covered here?</p>
-        <p className="text-sm text-[#3D5444] dark:text-[#C8DFCC] mb-5">
+      <div className="mt-12 bg-[#F2F2EF] dark:bg-white/5 rounded-2xl border-2 border-[#8FA396]/40 p-7 text-center">
+        <p className="font-display text-lg text-[#1B1F1C] dark:text-[#E7E8E5] mb-3">Have a question not covered here?</p>
+        <p className="text-sm text-[#555A56] dark:text-[#E2E3E0] mb-5">
           Dr. Esther personally answers every message. The fastest way is WhatsApp.
         </p>
         <div className="flex flex-wrap justify-center gap-3">

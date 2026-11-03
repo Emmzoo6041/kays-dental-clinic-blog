@@ -6,7 +6,7 @@ import { Marquee } from "@/components/Marquee";
 import { ReviewCard } from "@/components/Cards";
 import { Reveal } from "@/components/Reveal";
 import { NewsletterSection } from "@/components/NewsletterSection";
-import { Hero3D } from "@/components/Hero3D";
+import { HeroIntro } from "@/components/HeroIntro";
 import { ArticlesShowcase, PodcastsShowcase, VideosShowcase } from "@/components/HomeShowcases";
 
 export const dynamic = "force-dynamic";
@@ -25,46 +25,46 @@ export default async function Home() {
 
   return (
     <>
-      {/* HERO — coin rolling around a ring */}
-      <Hero3D />
+      {/* HERO — headline + Dr. Esther's intro video */}
+      <HeroIntro />
 
       {/* TRUST BAR */}
-      <section className="bg-[#1E5C2E] dark:bg-[#0d2a14] text-[#FFD740] py-3 overflow-hidden">
-        <Marquee gap={48} speed={28}>
-          <span className="inline-flex items-center gap-2 font-bold text-sm">✨ Trusted by 2,500+ families across Kampala</span>
-          <span className="inline-flex items-center gap-2 font-bold text-sm">🏆 5.0 ★ on Google Reviews</span>
-          <span className="inline-flex items-center gap-2 font-bold text-sm">📚 Featured in The Daily Monitor</span>
-          <span className="inline-flex items-center gap-2 font-bold text-sm">🦷 10+ years of compassionate dentistry</span>
-          <span className="inline-flex items-center gap-2 font-bold text-sm">💬 Read, listen, and watch — every week</span>
+      <section className="bg-[#FAFAF9] dark:bg-[#0e100f] border-y border-[#ECECEA] dark:border-white/5 py-5 overflow-hidden">
+        <Marquee gap={56} speed={40}>
+          {["Trusted by 2,500+ families across Kampala", "5.0 ★ on Google Reviews", "Featured in The Daily Monitor", "10+ years of gentle dentistry", "Read, listen and watch — every week"].map((s) => (
+            <span key={s} className="inline-flex items-center gap-3 text-[0.86rem] font-medium text-[#6B706C] dark:text-[#A6AAA6] whitespace-nowrap">
+              <span className="w-1 h-1 rounded-full bg-[#B6BAB6]" />{s}
+            </span>
+          ))}
         </Marquee>
       </section>
 
       {/* ARTICLES */}
-      <section id="articles" className="px-[5vw] py-16 lg:py-20 max-w-[1280px] mx-auto">
+      <section id="articles" className="px-[5vw] py-20 lg:py-28 max-w-[1280px] mx-auto">
         <Reveal direction="up">
           <div className="flex items-end justify-between flex-wrap gap-4 mb-9">
             <div>
-              <div className="s-tag">📝 Article</div>
-              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E5C2E] dark:text-[#D4EDD9] mt-3">Latest articles</h2>
-              <p className="text-[#3D5444] dark:text-[#A5B8AB] mt-2">In-depth reads on oral health, cosmetic dentistry, and family care.</p>
+              <div className="s-tag">Articles</div>
+              <h2 className="display-italic text-[2.1rem] sm:text-[2.6rem] lg:text-[3.1rem] leading-[1.08] text-[#141614] dark:text-[#F2F2EF] mt-1">Latest articles</h2>
+              <p className="text-[#555A56] dark:text-[#A6AAA6] mt-2">In-depth reads on oral health, cosmetic dentistry, and family care.</p>
             </div>
-            <Link href="/search?type=article" className="text-[#2E7D42] hover:text-[#1E5C2E] font-semibold text-sm">View all articles →</Link>
+            <Link href="/search?type=article" className="text-[#141614] dark:text-[#E7E8E5] font-semibold text-sm border-b border-[#141614]/30 dark:border-white/30 hover:opacity-70 transition-opacity">View all articles →</Link>
           </div>
         </Reveal>
         <ArticlesShowcase articles={articles} />
       </section>
 
       {/* PODCASTS */}
-      <section id="podcasts" className="px-[5vw] py-16 lg:py-20 bg-gradient-to-b from-[#F6F9F3] to-white dark:from-[#0a1a0b]/60 dark:to-[#0a1a0b]">
+      <section id="podcasts" className="px-[5vw] py-20 lg:py-28 bg-[#F4F4F2] dark:bg-white/[0.02]">
         <div className="max-w-[1280px] mx-auto">
           <Reveal direction="up">
             <div className="flex items-end justify-between flex-wrap gap-4 mb-9">
               <div>
-                <div className="s-tag s-tag-pod">🎙️ Audio Podcast</div>
-                <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E5C2E] dark:text-[#D4EDD9] mt-3">Conversations to listen to</h2>
-                <p className="text-[#3D5444] dark:text-[#A5B8AB] mt-2">Dr. Esther unpacks the questions she hears most often in the clinic.</p>
+                <div className="s-tag s-tag-pod">Podcast</div>
+                <h2 className="display-italic text-[2.1rem] sm:text-[2.6rem] lg:text-[3.1rem] leading-[1.08] text-[#141614] dark:text-[#F2F2EF] mt-1">Conversations to listen to</h2>
+                <p className="text-[#555A56] dark:text-[#A6AAA6] mt-2">Dr. Esther unpacks the questions she hears most often in the clinic.</p>
               </div>
-              <Link href="/search?type=podcast" className="text-[#2E7D42] hover:text-[#1E5C2E] font-semibold text-sm">All episodes →</Link>
+              <Link href="/search?type=podcast" className="text-[#141614] dark:text-[#E7E8E5] font-semibold text-sm border-b border-[#141614]/30 dark:border-white/30 hover:opacity-70 transition-opacity">All episodes →</Link>
             </div>
           </Reveal>
           <PodcastsShowcase podcasts={podcasts} />
@@ -72,62 +72,61 @@ export default async function Home() {
       </section>
 
       {/* VIDEOS */}
-      <section id="videos" className="px-[5vw] py-16 lg:py-20 max-w-[1280px] mx-auto">
+      <section id="videos" className="px-[5vw] py-20 lg:py-28 max-w-[1280px] mx-auto">
         <Reveal direction="up">
           <div className="flex items-end justify-between flex-wrap gap-4 mb-9">
             <div>
-              <div className="s-tag s-tag-vid">🎬 Video Shorts</div>
-              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E5C2E] dark:text-[#D4EDD9] mt-3">Quick video tips</h2>
-              <p className="text-[#3D5444] dark:text-[#A5B8AB] mt-2">Two-minute videos that save you a trip to the clinic.</p>
+              <div className="s-tag s-tag-vid">Video shorts</div>
+              <h2 className="display-italic text-[2.1rem] sm:text-[2.6rem] lg:text-[3.1rem] leading-[1.08] text-[#141614] dark:text-[#F2F2EF] mt-1">Quick video tips</h2>
+              <p className="text-[#555A56] dark:text-[#A6AAA6] mt-2">Two-minute videos that save you a trip to the clinic.</p>
             </div>
-            <Link href="/search?type=video" className="text-[#2E7D42] hover:text-[#1E5C2E] font-semibold text-sm">More videos →</Link>
+            <Link href="/search?type=video" className="text-[#141614] dark:text-[#E7E8E5] font-semibold text-sm border-b border-[#141614]/30 dark:border-white/30 hover:opacity-70 transition-opacity">More videos →</Link>
           </div>
         </Reveal>
         <VideosShowcase videos={videos} />
       </section>
 
       {/* ABOUT DR ESTHER */}
-      <section className="px-[5vw] py-16 lg:py-24 bg-gradient-to-br from-[#1E5C2E] to-[#2E7D42] text-white">
-        <div className="max-w-[1280px] mx-auto grid lg:grid-cols-[1fr,1.2fr] gap-10 lg:gap-14 items-center">
-          <Reveal direction="left">
-            <div className="relative aspect-[2/3] rounded-[28px] overflow-hidden shadow-2xl max-w-md">
+      <section id="about" className="scroll-mt-20 px-[5vw] py-20 lg:py-28 bg-[#F4F4F2] dark:bg-white/[0.02]">
+        <div className="max-w-[1200px] mx-auto grid lg:grid-cols-[1fr,1.2fr] gap-12 lg:gap-20 items-center">
+          <Reveal direction="fade">
+            <div className="relative aspect-[4/5] rounded-[22px] overflow-hidden max-w-md mx-auto lg:mx-0 bg-[#E8E8E6] shadow-[0_40px_80px_-45px_rgba(20,22,20,0.45)]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={CLINIC.doctorAboutPhoto} alt={`${CLINIC.doctor}, paediatric dental surgeon and founder of ${CLINIC.name}`} loading="lazy" className="w-full h-full object-cover object-top" />
+              <img src={CLINIC.doctorAboutPhoto} alt={`${CLINIC.doctor}, paediatric dental surgeon and founder of ${CLINIC.name}`} loading="lazy" className="w-full h-full object-cover object-[50%_20%]" />
             </div>
           </Reveal>
-          <Reveal direction="right">
-            <div className="s-tag bg-[#FFD740] text-[#1E5C2E] border-[#FFD740]">About the host</div>
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 leading-tight">Meet {CLINIC.doctor}</h2>
-            <p className="text-[#FFD740] font-semibold text-[0.95rem] mt-2">
+          <Reveal direction="up">
+            <div className="s-tag">About the host</div>
+            <h2 className="display-italic text-[2.2rem] sm:text-[2.7rem] lg:text-[3.2rem] leading-[1.06] text-[#141614] dark:text-[#F2F2EF] mt-1">Meet {CLINIC.doctor}</h2>
+            <p className="text-[#6B706C] dark:text-[#A6AAA6] font-medium text-[0.95rem] mt-3">
               Paediatric dental surgeon · Founder &amp; lead dentist, Kay&rsquo;s Dental Clinic
             </p>
-            <p className="text-white/85 mt-5 leading-[1.7] text-[1.04rem]">
-              Dr. Esther Lukwago is a paediatric dental surgeon, founder and lead dentist at Kay&rsquo;s Dental Clinic in Kampala, Uganda.
-              With a deep passion for children&rsquo;s oral health, she is dedicated to making dental care a positive experience for young
-              patients and helping families build healthy habits that last a lifetime.
+            <div className="space-y-4 mt-7 text-[#3F4441] dark:text-[#C9CCC8] leading-[1.75] text-[1.02rem]">
+              <p>
+                Dr. Esther Lukwago is a paediatric dental surgeon, founder and lead dentist at Kay&rsquo;s Dental Clinic in Kampala, Uganda.
+                With a deep passion for children&rsquo;s oral health, she is dedicated to making dental care a positive experience for young
+                patients and helping families build healthy habits that last a lifetime.
+              </p>
+              <p>
+                Her growing interest in <em>holistic dentistry</em> reflects her belief that oral health is closely connected to overall
+                health and wellbeing. She is passionate about looking beyond the teeth to understand the wider factors that influence
+                oral health, with an emphasis on prevention, education and patient-centred care.
+              </p>
+              <p>
+                Beyond the dental chair, Dr. Esther believes that knowledge empowers people to take better care of their health.
+                Through <em>Conversations with a Dentist</em>, she brings her clinical experience, curiosity and passion for education
+                into everyday conversations, breaking down dental topics, answering common questions and making reliable oral health
+                information accessible to everyone.
+              </p>
+            </div>
+            <p className="mt-7 pl-5 border-l border-[#141614] dark:border-white/40 font-display italic text-[1.2rem] leading-[1.5] text-[#141614] dark:text-[#F2F2EF]">
+              Her goal is simple: to help people understand their oral health, make informed choices and feel more confident about their dental care.
             </p>
-            <p className="text-white/85 mt-4 leading-[1.7] text-[1.04rem]">
-              Her growing interest in <em>holistic dentistry</em> reflects her belief that oral health is closely connected to overall
-              health and wellbeing. She is passionate about looking beyond the teeth to understand the wider factors that influence
-              oral health, with an emphasis on prevention, education and patient-centred care.
-            </p>
-            <p className="text-white/85 mt-4 leading-[1.7] text-[1.04rem]">
-              Beyond the dental chair, Dr. Esther believes that knowledge empowers people to take better care of their health.
-              Through <em>Conversations with a Dentist</em>, she brings her clinical experience, curiosity and passion for education
-              into everyday conversations, breaking down dental topics, answering common questions and making reliable oral health
-              information accessible to everyone.
-            </p>
-            <p className="mt-5 pl-4 border-l-2 border-[#FFD740] text-white leading-[1.7] text-[1.04rem]">
-              Her goal is simple:{" "}
-              <em className="text-[#FFD740] font-semibold">
-                to help people understand their oral health, make informed choices and feel more confident about their dental care.
-              </em>
-            </p>
-            <div className="flex flex-wrap gap-3 mt-6">
-              <a href={waLink()} target="_blank" rel="noreferrer" className="bg-[#FFD740] hover:bg-[#E6B800] text-[#1E5C2E] font-bold px-6 py-3 rounded-full transition">
-                💬 Chat on WhatsApp
+            <div className="flex flex-wrap gap-3 mt-9">
+              <a href={waLink()} target="_blank" rel="noreferrer" className="inline-flex items-center h-12 px-6 rounded-[10px] bg-[#141614] hover:bg-[#2B3D32] text-white dark:bg-[#F2F2EF] dark:text-[#141614] dark:hover:bg-white font-semibold text-[0.92rem] transition-colors duration-300">
+                Chat on WhatsApp
               </a>
-              <Link href="/contact" className="border-2 border-white/60 hover:border-white text-white font-bold px-6 py-3 rounded-full transition">
+              <Link href="/contact" className="inline-flex items-center h-12 px-6 rounded-[10px] border border-[#D6D8D4] dark:border-white/15 hover:border-[#141614] dark:hover:border-white/40 text-[#141614] dark:text-[#F2F2EF] font-semibold text-[0.92rem] transition-colors duration-300">
                 Visit the clinic
               </Link>
             </div>
@@ -136,11 +135,11 @@ export default async function Home() {
       </section>
 
       {/* REVIEWS */}
-      <section className="px-[5vw] py-16 lg:py-20 max-w-[1280px] mx-auto">
+      <section id="reviews" className="px-[5vw] py-20 lg:py-28 max-w-[1280px] mx-auto">
         <Reveal direction="up">
           <div className="text-center mb-10">
-            <div className="s-tag inline-block">⭐ Google Reviews</div>
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E5C2E] dark:text-[#D4EDD9] mt-3">What our patients say</h2>
+            <div className="s-tag">Google reviews</div>
+            <h2 className="display-italic text-[2.1rem] sm:text-[2.6rem] lg:text-[3.1rem] leading-[1.08] text-[#141614] dark:text-[#F2F2EF] mt-1">What our patients say</h2>
           </div>
         </Reveal>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -154,13 +153,13 @@ export default async function Home() {
       <NewsletterSection />
 
       {/* CONTACT */}
-      <section id="contact" className="px-[5vw] py-16 lg:py-24 bg-[#F6F9F3] dark:bg-[#0a1a0b]/60">
+      <section id="contact" className="px-[5vw] py-20 lg:py-28 bg-[#F4F4F2] dark:bg-white/[0.02]">
         <div className="max-w-[920px] mx-auto">
           <Reveal direction="up">
             <div className="text-center mb-9">
-              <div className="s-tag inline-block">📍 Visit Us</div>
-              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E5C2E] dark:text-[#D4EDD9] mt-3">Get in touch</h2>
-              <p className="text-[#3D5444] dark:text-[#A5B8AB] mt-2">Send a message, book an appointment, or just say hi.</p>
+              <div className="s-tag">Visit us</div>
+              <h2 className="display-italic text-[2.1rem] sm:text-[2.6rem] lg:text-[3.1rem] leading-[1.08] text-[#141614] dark:text-[#F2F2EF] mt-1">Get in touch</h2>
+              <p className="text-[#555A56] dark:text-[#A6AAA6] mt-2">Send a message, book an appointment, or just say hi.</p>
             </div>
           </Reveal>
           <Reveal direction="up" delay={0.1}>

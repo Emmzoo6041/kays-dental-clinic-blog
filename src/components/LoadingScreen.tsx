@@ -17,7 +17,7 @@ export function LoadingScreen() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="fixed inset-0 z-[200] bg-[#EDF7EF] dark:bg-[#0a1a0b] grid place-items-center pointer-events-none"
+          className="fixed inset-0 z-[200] bg-[#F2F2EF] dark:bg-[#0e100f] grid place-items-center pointer-events-none"
         >
           <div className="flex flex-col items-center gap-5">
             <motion.div
@@ -32,13 +32,13 @@ export function LoadingScreen() {
               initial={{ width: 0 }}
               animate={{ width: "100%" }}
               transition={{ duration: 0.7, ease: "easeInOut" }}
-              className="h-[3px] bg-[#2E7D42] dark:bg-[#4CAF6B] rounded-full max-w-[160px]"
+              className="h-[3px] bg-[#2B3D32] dark:bg-[#8FA396] rounded-full max-w-[160px]"
             />
             <motion.p
               initial={{ opacity: 0, y: 6 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="font-display text-[#1E5C2E] dark:text-[#D4EDD9] text-sm tracking-wider"
+              className="font-display text-[#1B1F1C] dark:text-[#E7E8E5] text-sm tracking-wider"
             >
               Conversations with a Dentist
             </motion.p>

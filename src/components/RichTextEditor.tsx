@@ -25,7 +25,7 @@ export function RichTextEditor({
       }),
       Link.configure({
         openOnClick: false,
-        HTMLAttributes: { class: "text-[#2E7D42] underline" },
+        HTMLAttributes: { class: "text-[#2B3D32] underline" },
       }),
       Image.configure({
         HTMLAttributes: { class: "rounded-xl my-4 max-w-full" },
@@ -76,26 +76,26 @@ export function RichTextEditor({
   const btn = (active: boolean) =>
     `px-2.5 py-1.5 rounded-md text-sm font-bold transition ${
       active
-        ? "bg-[#2E7D42] text-white"
-        : "text-[#3D5444] dark:text-[#C8DFCC] hover:bg-[#EDF7EF] dark:hover:bg-white/10"
+        ? "bg-[#2B3D32] text-white"
+        : "text-[#555A56] dark:text-[#E2E3E0] hover:bg-[#F2F2EF] dark:hover:bg-white/10"
     }`;
 
   return (
-    <div className="border-2 border-[#C8DFCC] dark:border-white/15 rounded-xl bg-white dark:bg-white/5 overflow-hidden">
+    <div className="border-2 border-[#E2E3E0] dark:border-white/15 rounded-xl bg-white dark:bg-white/5 overflow-hidden">
       {/* Toolbar */}
-      <div className="flex flex-wrap gap-1 p-2 border-b border-[#C8DFCC] dark:border-white/10 bg-[#F6F9F3] dark:bg-white/5">
+      <div className="flex flex-wrap gap-1 p-2 border-b border-[#E2E3E0] dark:border-white/10 bg-[#F8F8F6] dark:bg-white/5">
         <button type="button" onClick={() => editor.chain().focus().toggleBold().run()}
                 className={btn(editor.isActive("bold"))} title="Bold (Ctrl+B)">B</button>
         <button type="button" onClick={() => editor.chain().focus().toggleItalic().run()}
                 className={btn(editor.isActive("italic"))} title="Italic (Ctrl+I)"><i>I</i></button>
         <button type="button" onClick={() => editor.chain().focus().toggleStrike().run()}
                 className={btn(editor.isActive("strike"))} title="Strikethrough"><s>S</s></button>
-        <span className="w-px bg-[#C8DFCC] dark:bg-white/15 mx-1" />
+        <span className="w-px bg-[#E2E3E0] dark:bg-white/15 mx-1" />
         <button type="button" onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
                 className={btn(editor.isActive("heading", { level: 2 }))} title="Heading 2">H2</button>
         <button type="button" onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
                 className={btn(editor.isActive("heading", { level: 3 }))} title="Heading 3">H3</button>
-        <span className="w-px bg-[#C8DFCC] dark:bg-white/15 mx-1" />
+        <span className="w-px bg-[#E2E3E0] dark:bg-white/15 mx-1" />
         <button type="button" onClick={() => editor.chain().focus().toggleBulletList().run()}
                 className={btn(editor.isActive("bulletList"))} title="Bullet list">• List</button>
         <button type="button" onClick={() => editor.chain().focus().toggleOrderedList().run()}
@@ -104,7 +104,7 @@ export function RichTextEditor({
                 className={btn(editor.isActive("blockquote"))} title="Quote">❝ Quote</button>
         <button type="button" onClick={() => editor.chain().focus().toggleCode().run()}
                 className={btn(editor.isActive("code"))} title="Inline code">{"</>"}</button>
-        <span className="w-px bg-[#C8DFCC] dark:bg-white/15 mx-1" />
+        <span className="w-px bg-[#E2E3E0] dark:bg-white/15 mx-1" />
         <button type="button"
                 onClick={() => {
                   const prev = editor.getAttributes("link").href ?? "";
@@ -122,7 +122,7 @@ export function RichTextEditor({
         </button>
         <input ref={fileRef} type="file" accept="image/*" className="hidden"
                onChange={(e) => { const f = e.target.files?.[0]; if (f) uploadImage(f); e.target.value = ""; }} />
-        <span className="w-px bg-[#C8DFCC] dark:bg-white/15 mx-1" />
+        <span className="w-px bg-[#E2E3E0] dark:bg-white/15 mx-1" />
         <button type="button" onClick={() => editor.chain().focus().undo().run()}
                 className={btn(false)} title="Undo (Ctrl+Z)">↶</button>
         <button type="button" onClick={() => editor.chain().focus().redo().run()}

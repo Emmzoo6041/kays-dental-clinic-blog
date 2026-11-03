@@ -109,7 +109,7 @@ export function MediaUpload({
 
   return (
     <div className="space-y-2">
-      {label && <label className="block text-sm font-semibold text-[#3D5444] dark:text-[#C8DFCC]">{label}</label>}
+      {label && <label className="block text-sm font-semibold text-[#555A56] dark:text-[#E2E3E0]">{label}</label>}
 
       <div
         onDrop={onDrop}
@@ -118,27 +118,27 @@ export function MediaUpload({
         onClick={() => !busy && fileRef.current?.click()}
         className={`relative border-2 border-dashed rounded-xl px-4 py-6 text-center cursor-pointer transition
           ${dragOver
-            ? "border-[#2E7D42] bg-[#EDF7EF] dark:bg-white/5"
-            : "border-[#C8DFCC] dark:border-white/15 bg-white dark:bg-white/[0.03] hover:border-[#4CAF6B]"
+            ? "border-[#2B3D32] bg-[#F2F2EF] dark:bg-white/5"
+            : "border-[#E2E3E0] dark:border-white/15 bg-white dark:bg-white/[0.03] hover:border-[#8FA396]"
           }
           ${busy ? "cursor-wait" : ""}`}
       >
         {busy ? (
           <div className="space-y-2">
-            <p className="text-sm text-[#2E7D42] font-medium">Uploading… {progress}%</p>
-            <div className="w-full h-1.5 rounded-full bg-[#D4EDD9] dark:bg-white/10 overflow-hidden">
+            <p className="text-sm text-[#2B3D32] font-medium">Uploading… {progress}%</p>
+            <div className="w-full h-1.5 rounded-full bg-[#E7E8E5] dark:bg-white/10 overflow-hidden">
               <div
-                className="h-full bg-[#2E7D42] transition-[width] duration-200"
+                className="h-full bg-[#2B3D32] transition-[width] duration-200"
                 style={{ width: `${progress}%` }}
               />
             </div>
           </div>
         ) : (
           <>
-            <p className="text-sm font-medium text-[#3D5444] dark:text-[#C8DFCC]">
+            <p className="text-sm font-medium text-[#555A56] dark:text-[#E2E3E0]">
               {dragOver ? "Drop it here" : "📥 Drop a file or click to upload"}
             </p>
-            <p className="text-xs text-[#7A9480] dark:text-[#8FA89A] mt-1">{hint}</p>
+            <p className="text-xs text-[#8A8E8A] dark:text-[#999D99] mt-1">{hint}</p>
           </>
         )}
         <input
@@ -155,13 +155,13 @@ export function MediaUpload({
       </div>
 
       <div className="flex gap-2 items-center">
-        <span className="text-xs text-[#7A9480] dark:text-[#8FA89A] whitespace-nowrap">or paste URL:</span>
+        <span className="text-xs text-[#8A8E8A] dark:text-[#999D99] whitespace-nowrap">or paste URL:</span>
         <input
           type="url"
           value={value}
           onChange={(e) => onChange(e.target.value)}
           placeholder="https://… (YouTube, SoundCloud, or any link)"
-          className="flex-1 px-3 py-2 border-2 border-[#C8DFCC] dark:border-white/15 rounded-lg bg-white dark:bg-white/5 text-sm focus:border-[#2E7D42] focus:outline-none"
+          className="flex-1 px-3 py-2 border-2 border-[#E2E3E0] dark:border-white/15 rounded-lg bg-white dark:bg-white/5 text-sm focus:border-[#2B3D32] focus:outline-none"
         />
       </div>
 
@@ -170,8 +170,8 @@ export function MediaUpload({
       )}
 
       {value && !busy && !error && (
-        <p className="text-xs text-[#7A9480] dark:text-[#8FA89A] truncate">
-          ✓ Current: <a href={value} target="_blank" rel="noreferrer" className="text-[#2E7D42] underline">{value}</a>
+        <p className="text-xs text-[#8A8E8A] dark:text-[#999D99] truncate">
+          ✓ Current: <a href={value} target="_blank" rel="noreferrer" className="text-[#2B3D32] underline">{value}</a>
         </p>
       )}
     </div>

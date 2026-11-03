@@ -68,8 +68,8 @@ export function HeaderClient({
     { href: "/contact", label: "Contact", active: pathname === "/contact" },
   ];
 
-  const iconBtn = "text-[#1E5C2E] dark:text-[#D4EDD9] hover:bg-[#EDF7EF] dark:hover:bg-white/5";
-  const barColor = "bg-[#1E5C2E] dark:bg-[#D4EDD9]";
+  const iconBtn = "text-[#1B1F1C] dark:text-[#E7E8E5] hover:bg-[#F2F2EF] dark:hover:bg-white/5";
+  const barColor = "bg-[#1B1F1C] dark:bg-[#E7E8E5]";
 
   return (
     <>
@@ -77,43 +77,43 @@ export function HeaderClient({
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-[100] h-[72px] transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-[100] h-[72px] transition-[background-color,border-color] duration-500 ${
           overHero
             ? "bg-transparent"
             : scrolled
-              ? "bg-white/95 dark:bg-[#0a1a0b]/95 backdrop-blur-xl border-b border-[#D4EDD9] dark:border-white/10 shadow-[0_6px_24px_-12px_rgba(30,92,46,0.25)]"
-              : "bg-white/95 dark:bg-[#0a1a0b]/95 backdrop-blur-md border-b border-[#D4EDD9]/60 dark:border-white/5"
+              ? "bg-[#FAFAF9]/85 dark:bg-[#0e100f]/85 backdrop-blur-xl border-b border-[#ECECEA] dark:border-white/5"
+              : "bg-[#FAFAF9]/90 dark:bg-[#0e100f]/90 backdrop-blur-md border-b border-[#ECECEA] dark:border-white/5"
         }`}
       >
         <div className="h-full max-w-[1280px] mx-auto px-4 sm:px-[5vw] xl:px-8 flex items-center justify-between gap-4">
           {/* Brand */}
           <Link href="/" className="flex items-center gap-2.5 group min-w-0">
-            <span className={`grid place-items-center w-11 h-11 rounded-2xl flex-shrink-0 transition bg-[#EDF7EF] dark:bg-white/10`}>
+            <span className={`grid place-items-center w-11 h-11 rounded-2xl flex-shrink-0 transition bg-[#EFEFEC] dark:bg-white/10`}>
               <MicIcon size={34} className="transition-transform group-hover:scale-110" />
             </span>
             <span className="leading-tight min-w-0">
-              <strong className={`block font-display text-[1rem] sm:text-[1.12rem] font-bold tracking-[-0.01em] sm:truncate transition-colors text-[#1E5C2E] dark:text-[#D4EDD9]`}>
+              <strong className={`block font-display text-[1rem] sm:text-[1.12rem] font-bold tracking-[-0.01em] sm:truncate transition-colors text-[#1B1F1C] dark:text-[#E7E8E5]`}>
                 {/* Phones: title on two lines, no subtitle, so nothing gets cut off */}
                 <span className="sm:hidden">Conversations<br />with a Dentist</span>
                 <span className="hidden sm:inline">{clinicName}</span>
               </strong>
-              <span className={`hidden sm:block text-[0.7rem] font-semibold truncate transition-colors text-[#7A9480] dark:text-[#8FA89A]`}>
+              <span className={`hidden sm:block text-[0.7rem] font-semibold truncate transition-colors text-[#8A8E8A] dark:text-[#999D99]`}>
                 with Dr. Esther Lukwago
               </span>
             </span>
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-1 text-[0.9rem] font-semibold">
+          <nav className="hidden lg:flex items-center gap-1 text-[0.9rem] font-medium">
             {links.map((l) => (
               <Link
                 key={l.href}
                 href={l.href}
                 aria-current={l.active ? "page" : undefined}
-                className={`relative px-3.5 py-2 rounded-full transition-colors ${
+                className={`relative px-3.5 py-2 transition-colors duration-300 ${
                   l.active
-                    ? "text-[#1E5C2E] bg-[#EDF7EF] dark:text-[#D4EDD9] dark:bg-white/10"
-                    : "text-[#3D5444] dark:text-[#C8DFCC] hover:text-[#1E5C2E] hover:bg-[#F6F9F3] dark:hover:bg-white/5"
+                    ? "text-[#141614] dark:text-white"
+                    : "text-[#6B706C] dark:text-[#A6AAA6] hover:text-[#141614] dark:hover:text-white"
                 }`}
               >
                 {l.label}
@@ -131,7 +131,7 @@ export function HeaderClient({
             </Link>
             <ThemeToggle />
 
-            <span className={`hidden lg:block w-px h-6 mx-2 bg-[#D4EDD9] dark:bg-white/10`} />
+            <span className={`hidden lg:block w-2`} />
 
             <div className="hidden lg:flex items-center gap-3 text-sm font-semibold">
               {isAdmin && (
@@ -142,7 +142,7 @@ export function HeaderClient({
               {userEmail ? (
                 signOutSlot
               ) : (
-                <Link href="/login" className="text-[#3D5444] dark:text-[#C8DFCC] hover:text-[#1E5C2E]">
+                <Link href="/login" className="inline-flex items-center h-10 px-4 rounded-[10px] border border-[#D6D8D4] dark:border-white/15 text-[#141614] dark:text-[#F2F2EF] hover:border-[#141614] dark:hover:border-white/40 transition-colors duration-300">
                   Log in
                 </Link>
               )}
@@ -150,7 +150,7 @@ export function HeaderClient({
                 href={waLink()}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-bold transition shadow-sm bg-[#2E7D42] text-white hover:bg-[#1E5C2E]"
+                className="inline-flex items-center h-10 px-5 rounded-[10px] font-semibold transition-colors duration-300 bg-[#141614] text-white hover:bg-[#2B3D32] dark:bg-[#F2F2EF] dark:text-[#141614] dark:hover:bg-white"
               >
                 Book a visit
               </a>
@@ -187,7 +187,7 @@ export function HeaderClient({
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="absolute right-0 top-0 h-full w-[80%] max-w-[330px] bg-white dark:bg-[#0a1a0b] shadow-2xl pt-[88px] px-5 pb-6 overflow-y-auto flex flex-col"
+              className="absolute right-0 top-0 h-full w-[80%] max-w-[330px] bg-white dark:bg-[#0e100f] shadow-2xl pt-[88px] px-5 pb-6 overflow-y-auto flex flex-col"
               onClick={(e) => e.stopPropagation()}
             >
               <nav className="flex flex-col gap-1">
@@ -198,8 +198,8 @@ export function HeaderClient({
                     onClick={() => setMenuOpen(false)}
                     className={`px-4 py-3 rounded-xl text-base font-semibold transition-colors ${
                       l.active
-                        ? "bg-[#EDF7EF] text-[#1E5C2E] dark:bg-white/10 dark:text-[#D4EDD9]"
-                        : "text-[#1E5C2E] dark:text-[#D4EDD9] hover:bg-[#F6F9F3] dark:hover:bg-white/5"
+                        ? "bg-[#F2F2EF] text-[#1B1F1C] dark:bg-white/10 dark:text-[#E7E8E5]"
+                        : "text-[#1B1F1C] dark:text-[#E7E8E5] hover:bg-[#F8F8F6] dark:hover:bg-white/5"
                     }`}
                   >
                     {l.label}
@@ -221,14 +221,14 @@ export function HeaderClient({
                   href={waLink()}
                   target="_blank"
                   rel="noreferrer"
-                  className="block text-center py-3 rounded-full bg-[#2E7D42] hover:bg-[#1E5C2E] text-white font-bold transition"
+                  className="block text-center py-3 rounded-[10px] bg-[#141614] hover:bg-[#2B3D32] text-white dark:bg-[#F2F2EF] dark:text-[#141614] font-semibold transition-colors"
                 >
-                  💬 Book a visit on WhatsApp
+                  Book a visit on WhatsApp
                 </a>
-                <div className="mt-4 pt-4 border-t border-[#E5EDE7] dark:border-white/10 flex items-center gap-3 text-sm">
+                <div className="mt-4 pt-4 border-t border-[#E8E8E6] dark:border-white/10 flex items-center gap-3 text-sm">
                   {userEmail ? (
                     <>
-                      <span className="text-[#7A9480] truncate flex-1">{userEmail}</span>
+                      <span className="text-[#8A8E8A] truncate flex-1">{userEmail}</span>
                       {signOutSlot}
                     </>
                   ) : (
@@ -236,14 +236,14 @@ export function HeaderClient({
                       <Link
                         href="/login"
                         onClick={() => setMenuOpen(false)}
-                        className="flex-1 text-center py-2.5 rounded-full border-2 border-[#2E7D42] text-[#2E7D42] dark:text-[#4CAF6B] font-semibold"
+                        className="flex-1 text-center py-2.5 rounded-full border-2 border-[#2B3D32] text-[#2B3D32] dark:text-[#8FA396] font-semibold"
                       >
                         Log in
                       </Link>
                       <Link
                         href="/signup"
                         onClick={() => setMenuOpen(false)}
-                        className="flex-1 text-center py-2.5 rounded-full bg-[#EDF7EF] dark:bg-white/10 text-[#1E5C2E] dark:text-[#D4EDD9] font-semibold"
+                        className="flex-1 text-center py-2.5 rounded-full bg-[#F2F2EF] dark:bg-white/10 text-[#1B1F1C] dark:text-[#E7E8E5] font-semibold"
                       >
                         Sign up
                       </Link>
