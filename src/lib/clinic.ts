@@ -15,7 +15,7 @@ export const CLINIC = {
   // Real Kays Dental photos (local files under /public/photos)
   logoUrl: "/photos/dr-esther-avatar.jpg",          // tiny avatar for nav
   doctorPhoto: "/photos/dr-esther-green.jpg",        // doctor card (small)
-  doctorAboutPhoto: "/photos/dr-esther-white.jpg",   // MAIN portrait (about + hero card)
+  doctorAboutPhoto: "/photos/dr-esther-portrait.jpg", // "Meet Dr. Esther" portrait (homepage)
   heroPhoto: "/photos/reception-hero.jpg",           // hero right-side photo
 
   // Dr. Esther's intro video, opened from "Watch the intro" on the homepage.

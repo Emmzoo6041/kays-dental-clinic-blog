@@ -90,20 +90,38 @@ export default async function Home() {
       <section className="px-[5vw] py-16 lg:py-24 bg-gradient-to-br from-[#1E5C2E] to-[#2E7D42] text-white">
         <div className="max-w-[1280px] mx-auto grid lg:grid-cols-[1fr,1.2fr] gap-10 lg:gap-14 items-center">
           <Reveal direction="left">
-            <div className="relative aspect-[3/4] rounded-[28px] overflow-hidden shadow-2xl max-w-md">
+            <div className="relative aspect-[2/3] rounded-[28px] overflow-hidden shadow-2xl max-w-md">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={CLINIC.doctorAboutPhoto} alt={CLINIC.doctor} className="w-full h-full object-cover" />
+              <img src={CLINIC.doctorAboutPhoto} alt={`${CLINIC.doctor}, paediatric dental surgeon and founder of ${CLINIC.name}`} loading="lazy" className="w-full h-full object-cover object-top" />
             </div>
           </Reveal>
           <Reveal direction="right">
             <div className="s-tag bg-[#FFD740] text-[#1E5C2E] border-[#FFD740]">About the host</div>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 leading-tight">Meet {CLINIC.doctor}</h2>
+            <p className="text-[#FFD740] font-semibold text-[0.95rem] mt-2">
+              Paediatric dental surgeon · Founder &amp; lead dentist, Kay&rsquo;s Dental Clinic
+            </p>
             <p className="text-white/85 mt-5 leading-[1.7] text-[1.04rem]">
-              Lead dentist at {CLINIC.name}, Dr. Esther has spent over a decade helping families in Kampala build healthy smiles.
-              Her approach blends modern dentistry with honest, jargon-free conversations — the kind of advice you would hope a friend who happens to be a dentist would give you.
+              Dr. Esther Lukwago is a paediatric dental surgeon, founder and lead dentist at Kay&rsquo;s Dental Clinic in Kampala, Uganda.
+              With a deep passion for children&rsquo;s oral health, she is dedicated to making dental care a positive experience for young
+              patients and helping families build healthy habits that last a lifetime.
             </p>
             <p className="text-white/85 mt-4 leading-[1.7] text-[1.04rem]">
-              On this blog, she shares what she wishes more patients knew — from the foods quietly damaging your teeth, to whether whitening is really worth it, to how to make a child&apos;s first dental visit a magical memory.
+              Her growing interest in <em>holistic dentistry</em> reflects her belief that oral health is closely connected to overall
+              health and wellbeing. She is passionate about looking beyond the teeth to understand the wider factors that influence
+              oral health, with an emphasis on prevention, education and patient-centred care.
+            </p>
+            <p className="text-white/85 mt-4 leading-[1.7] text-[1.04rem]">
+              Beyond the dental chair, Dr. Esther believes that knowledge empowers people to take better care of their health.
+              Through <em>Conversations with a Dentist</em>, she brings her clinical experience, curiosity and passion for education
+              into everyday conversations, breaking down dental topics, answering common questions and making reliable oral health
+              information accessible to everyone.
+            </p>
+            <p className="mt-5 pl-4 border-l-2 border-[#FFD740] text-white leading-[1.7] text-[1.04rem]">
+              Her goal is simple:{" "}
+              <em className="text-[#FFD740] font-semibold">
+                to help people understand their oral health, make informed choices and feel more confident about their dental care.
+              </em>
             </p>
             <div className="flex flex-wrap gap-3 mt-6">
               <a href={waLink()} target="_blank" rel="noreferrer" className="bg-[#FFD740] hover:bg-[#E6B800] text-[#1E5C2E] font-bold px-6 py-3 rounded-full transition">
