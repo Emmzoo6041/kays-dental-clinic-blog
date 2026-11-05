@@ -5,7 +5,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ThemeToggle } from "./ThemeToggle";
 import { MicIcon } from "./MicIcon";
-import { waLink } from "@/lib/clinic";
+import { CLINIC, waLink } from "@/lib/clinic";
 
 const SECTION_IDS = ["articles", "podcasts", "videos"] as const;
 
@@ -218,6 +218,16 @@ export function HeaderClient({
               </nav>
 
               <div className="mt-auto pt-6">
+                <div className="grid grid-cols-2 gap-2 mb-3">
+                  <a href={`tel:${CLINIC.phoneIntl}`} className="rounded-xl border border-[#E2E3E0] dark:border-white/10 px-3 py-2.5">
+                    <span className="block text-[0.62rem] uppercase tracking-[0.12em] text-[#8A8E8A]">Call</span>
+                    <span className="block text-[0.78rem] font-semibold text-[#141614] dark:text-[#F2F2EF] tabular-nums whitespace-nowrap">{CLINIC.phone}</span>
+                  </a>
+                  <a href={waLink()} target="_blank" rel="noreferrer" className="rounded-xl border border-[#E2E3E0] dark:border-white/10 px-3 py-2.5">
+                    <span className="block text-[0.62rem] uppercase tracking-[0.12em] text-[#8A8E8A]">WhatsApp</span>
+                    <span className="block text-[0.78rem] font-semibold text-[#141614] dark:text-[#F2F2EF] tabular-nums whitespace-nowrap">{CLINIC.whatsappDisplay}</span>
+                  </a>
+                </div>
                 <a
                   href={waLink()}
                   target="_blank"

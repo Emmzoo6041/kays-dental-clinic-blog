@@ -1,7 +1,8 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { CLINIC } from "@/lib/clinic";
+import { CLINIC, waLink } from "@/lib/clinic";
+import { PhoneIcon, ChatIcon } from "./ContactIcons";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -93,6 +94,19 @@ export function HeroIntro() {
               </span>
               Watch the intro
             </button>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.4, ease }}
+            className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-7 text-[0.88rem] text-[#555A56] dark:text-[#B6BAB6]"
+          >
+            <a href={`tel:${CLINIC.phoneIntl}`} className="inline-flex items-center gap-2 hover:text-[#141614] dark:hover:text-white transition-colors">
+              <PhoneIcon size={15} /> <span className="text-[#8A8E8A]">Call</span> <span className="font-semibold text-[#141614] dark:text-[#F2F2EF] tabular-nums">{CLINIC.phone}</span>
+            </a>
+            <a href={waLink()} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 hover:text-[#141614] dark:hover:text-white transition-colors">
+              <ChatIcon size={16} /> <span className="text-[#8A8E8A]">WhatsApp</span> <span className="font-semibold text-[#141614] dark:text-[#F2F2EF] tabular-nums">{CLINIC.whatsappDisplay}</span>
+            </a>
           </motion.div>
         </div>
 

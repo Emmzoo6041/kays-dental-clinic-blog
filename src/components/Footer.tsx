@@ -16,8 +16,8 @@ export function Footer() {
           </p>
           <address className="not-italic text-[0.79rem] text-white/35 leading-loose">
             {CLINIC.addressFull}<br />
-            <a href={`tel:${CLINIC.phoneIntl}`} className="text-white/45 hover:text-white transition-colors">{CLINIC.phone}</a><br />
-            <a href={waLink()} target="_blank" rel="noreferrer" className="text-white/45 hover:text-white transition-colors">WhatsApp Dr. Esther</a><br />
+            Call <a href={`tel:${CLINIC.phoneIntl}`} className="text-white/70 hover:text-white transition-colors tabular-nums">{CLINIC.phone}</a><br />
+            WhatsApp <a href={waLink()} target="_blank" rel="noreferrer" className="text-white/70 hover:text-white transition-colors tabular-nums">{CLINIC.whatsappDisplay}</a><br />
             <a href={`mailto:${CLINIC.email}`} className="text-white/45 hover:text-white transition-colors">{CLINIC.email}</a>
           </address>
         </div>
@@ -33,7 +33,7 @@ export function Footer() {
             <li><Link href="/learn" className="text-[0.83rem] font-medium text-white/55 hover:text-white transition-colors">Video library</Link></li>
             <li><Link href="/faq" className="text-[0.83rem] font-medium text-white/55 hover:text-white transition-colors">FAQ</Link></li>
             <li><Link href="/search" className="text-[0.83rem] font-medium text-white/55 hover:text-white transition-colors">Search</Link></li>
-            <li><Link href="/#contact" className="text-[0.83rem] font-medium text-white/55 hover:text-white transition-colors">Book Appointment</Link></li>
+            <li><Link href="/#contact" className="text-[0.83rem] font-medium text-white/55 hover:text-white transition-colors">Suggest a topic</Link></li>
           </ul>
         </div>
 

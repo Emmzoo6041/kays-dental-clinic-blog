@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { createServerSupabase } from "@/lib/supabase-server";
 import { CLINIC, REVIEWS, waLink } from "@/lib/clinic";
-import { ContactForm } from "@/components/ContactForm";
+import { TopicSuggestForm } from "@/components/TopicSuggestForm";
 import { Marquee } from "@/components/Marquee";
 import { ReviewDeck } from "@/components/ReviewDeck";
 import { Reveal } from "@/components/Reveal";
@@ -163,18 +163,20 @@ export default async function Home() {
       {/* NEWSLETTER */}
       <NewsletterSection />
 
-      {/* CONTACT */}
-      <section id="contact" className="px-[5vw] py-20 lg:py-28 bg-[#F4F4F2] dark:bg-white/[0.02]">
-        <div className="max-w-[920px] mx-auto">
+      {/* GET IN TOUCH — suggest a topic */}
+      <section id="contact" className="px-[5vw] py-20 lg:py-28 bg-[#F4F4F2] dark:bg-white/[0.02] scroll-mt-20">
+        <div className="max-w-[860px] mx-auto">
           <Reveal direction="up">
-            <div className="text-center mb-9">
-              <div className="s-tag">Visit us</div>
-              <h2 className="display-italic text-[2.1rem] sm:text-[2.6rem] lg:text-[3.1rem] leading-[1.08] text-[#141614] dark:text-[#F2F2EF] mt-1">Get in touch</h2>
-              <p className="text-[#555A56] dark:text-[#A6AAA6] mt-2">Send a message, book an appointment, or just say hi.</p>
+            <div className="text-center mb-10">
+              <div className="s-tag">Get in touch</div>
+              <h2 className="display-italic text-[2.1rem] sm:text-[2.6rem] lg:text-[3.1rem] leading-[1.08] text-[#141614] dark:text-[#F2F2EF] mt-1">What should we talk about next?</h2>
+              <p className="text-[#555A56] dark:text-[#A6AAA6] mt-3 max-w-xl mx-auto">
+                Tell Dr. Esther which dental topic you&rsquo;d like covered in an upcoming article, podcast or video.
+              </p>
             </div>
           </Reveal>
           <Reveal direction="up" delay={0.1}>
-            <ContactForm />
+            <TopicSuggestForm />
           </Reveal>
         </div>
       </section>

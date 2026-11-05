@@ -5,9 +5,11 @@ export const CLINIC = {
   doctor: "Dr. Esther Lukwago",
   address1: "Plot 52, Kanjokya Street, Kampala",
   addressFull: "Plot 52, Kanjokya Street, Kampala, Uganda",
-  phone: "0772 465 051",
-  phoneIntl: "+256772465051",
-  whatsapp: "256772465051",
+  // Calls: clinic line. WhatsApp: separate mobile number.
+  phone: "+256 200 741 500",
+  phoneIntl: "+256200741500",
+  whatsapp: "256772639308",          // wa.me format (no + or spaces)
+  whatsappDisplay: "0772 639 308",
   email: "info@kaysdentalclinic.com",
   mapsUrl: "https://maps.google.com/?q=Plot+52+Kanjokya+Street+Kampala+Uganda",
   mapsEmbed: "https://maps.google.com/maps?q=Kanjokya+Street,+Kampala,+Uganda&z=15&output=embed",

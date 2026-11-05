@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { SmoothScroll } from "@/components/SmoothScroll";
+import { ContactDock } from "@/components/ContactDock";
 import { PageTransition } from "@/components/PageTransition";
 import { PWAInstallBanner } from "@/components/PWAInstallBanner";
 
@@ -46,6 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <PageTransition>{children}</PageTransition>
           </main>
           <Footer />
+          <ContactDock />
         </ThemeProvider>
       </body>
     </html>
