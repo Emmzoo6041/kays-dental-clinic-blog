@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import { CLINIC, waLink } from "@/lib/clinic";
-import { PhoneIcon, ChatIcon } from "./ContactIcons";
 
 const IDEAS = [
   "Children's teeth",
@@ -113,16 +112,6 @@ export function TopicSuggestForm() {
         <button type="button" onClick={sendEmail} className="btn btn-wa flex-1 min-w-[160px] h-12">Send by email</button>
       </div>
       {note && <p className="text-[#555A56] dark:text-[#A6AAA6] text-sm mt-3 text-center">{note}</p>}
-
-      <div className="mt-7 pt-5 border-t border-[#ECECEA] dark:border-white/10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[0.86rem] text-[#555A56] dark:text-[#B6BAB6]">
-        <span className="text-[#8A8E8A]">Rather talk?</span>
-        <a href={`tel:${CLINIC.phoneIntl}`} className="inline-flex items-center gap-2 font-semibold text-[#141614] dark:text-[#F2F2EF] hover:opacity-70 transition-opacity">
-          <PhoneIcon size={15} /> {CLINIC.phone}
-        </a>
-        <a href={waLink()} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 font-semibold text-[#141614] dark:text-[#F2F2EF] hover:opacity-70 transition-opacity">
-          <ChatIcon size={16} /> WhatsApp {CLINIC.whatsappDisplay}
-        </a>
-      </div>
     </div>
   );
 }
