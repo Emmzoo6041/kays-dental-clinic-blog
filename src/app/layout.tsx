@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { LoadingScreen } from "@/components/LoadingScreen";
 import { ScrollProgress } from "@/components/ScrollProgress";
-import { CursorGlow } from "@/components/CursorGlow";
+import { SmoothScroll } from "@/components/SmoothScroll";
+import { ContactDock } from "@/components/ContactDock";
 import { PageTransition } from "@/components/PageTransition";
 import { PWAInstallBanner } from "@/components/PWAInstallBanner";
 
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   robots: { index: true, follow: true },
   manifest: "/manifest.json",
-  themeColor: "#2E7D42",
+  themeColor: "#FAFAF9",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -39,15 +39,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <body className="antialiased">
         <ThemeProvider>
-          <LoadingScreen />
           <ScrollProgress />
-          <CursorGlow />
+          <SmoothScroll />
           <PWAInstallBanner />
           <Header />
           <main className="pt-[72px]">
             <PageTransition>{children}</PageTransition>
           </main>
           <Footer />
+          <ContactDock />
         </ThemeProvider>
       </body>
     </html>

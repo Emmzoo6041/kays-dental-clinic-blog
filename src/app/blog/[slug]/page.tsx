@@ -84,10 +84,10 @@ export default async function PostPage({ params }: { params: { slug: string } })
   const user = await getCurrentUser();
   const ytId = post.type === "video" ? extractYouTubeId(post.media_url) : null;
   const typeMeta = {
-    article: { tag: "s-tag", emoji: "📝", label: "Article", color: "text-[#1E5C2E]", back: "/#articles", backLabel: "All articles" },
-    podcast: { tag: "s-tag s-tag-pod", emoji: "🎙️", label: "Podcast", color: "text-[#6C3FC5]", back: "/#podcasts", backLabel: "All podcasts" },
+    article: { tag: "s-tag", emoji: "📝", label: "Article", color: "text-[#1B1F1C]", back: "/#articles", backLabel: "All articles" },
+    podcast: { tag: "s-tag s-tag-pod", emoji: "🎙️", label: "Podcast", color: "text-[#3F4441]", back: "/#podcasts", backLabel: "All podcasts" },
     video:   { tag: "s-tag s-tag-vid", emoji: "🎬", label: "Video",   color: "text-[#B91C1C]", back: "/#videos", backLabel: "All videos" }
-  }[post.type as "article" | "podcast" | "video"] || { tag: "s-tag", emoji: "📝", label: "Post", color: "text-[#1E5C2E]", back: "/#articles", backLabel: "All posts" };
+  }[post.type as "article" | "podcast" | "video"] || { tag: "s-tag", emoji: "📝", label: "Post", color: "text-[#1B1F1C]", back: "/#articles", backLabel: "All posts" };
 
   const html = renderPostContent({ content: post.content, contentHtml: post.content_html });
 
@@ -121,7 +121,7 @@ export default async function PostPage({ params }: { params: { slug: string } })
       <div className="max-w-[1280px] mx-auto px-5 py-12 grid xl:grid-cols-[1fr,minmax(220px,260px)] gap-12">
         <article id="article-body">
           <Reveal direction="up">
-            <Link href={typeMeta.back} className="text-sm text-[#7A9480] hover:text-[#2E7D42]">← {typeMeta.backLabel}</Link>
+            <Link href={typeMeta.back} className="text-sm text-[#8A8E8A] hover:text-[#2B3D32]">← {typeMeta.backLabel}</Link>
           </Reveal>
 
           <header className="mt-6 mb-8 max-w-3xl">
@@ -129,15 +129,15 @@ export default async function PostPage({ params }: { params: { slug: string } })
               <span className={typeMeta.tag}>{typeMeta.emoji} {typeMeta.label}{post.duration ? ` · ${post.duration}` : ""}</span>
             </Reveal>
             <Reveal direction="up" delay={0.1}>
-              <h1 className={`font-display text-4xl md:text-5xl font-bold mt-4 leading-tight ${typeMeta.color} dark:!text-[#D4EDD9]`}>{post.title}</h1>
+              <h1 className={`font-display text-4xl md:text-5xl font-bold mt-4 leading-tight ${typeMeta.color} dark:!text-[#E7E8E5]`}>{post.title}</h1>
             </Reveal>
             {post.excerpt && (
               <Reveal direction="up" delay={0.15}>
-                <p className="mt-5 text-lg text-[#3D5444] dark:text-[#A5B8AB] italic font-display">{post.excerpt}</p>
+                <p className="mt-5 text-lg text-[#555A56] dark:text-[#A6AAA6] italic font-display">{post.excerpt}</p>
               </Reveal>
             )}
             <Reveal direction="up" delay={0.2}>
-              <p className="text-sm text-[#7A9480] mt-4">
+              <p className="text-sm text-[#8A8E8A] mt-4">
                 {format(new Date(post.created_at), "MMMM d, yyyy")} · {CLINIC.doctor}
                 {typeof post.views === "number" && post.views > 0 && <span> · {post.views.toLocaleString()} views</span>}
               </p>
@@ -186,8 +186,8 @@ export default async function PostPage({ params }: { params: { slug: string } })
           <div className="prose-blog max-w-3xl" dangerouslySetInnerHTML={{ __html: html }} />
 
           <Reveal direction="up">
-            <div className="mt-10 p-6 bg-[#EDF7EF] dark:bg-white/5 rounded-2xl border-2 border-[#4CAF6B]/40 text-center max-w-3xl">
-              <p className="font-display text-lg text-[#1E5C2E] dark:text-[#D4EDD9] mb-3">Have a question for Dr. Esther?</p>
+            <div className="mt-10 p-6 bg-[#F2F2EF] dark:bg-white/5 rounded-2xl border-2 border-[#8FA396]/40 text-center max-w-3xl">
+              <p className="font-display text-lg text-[#1B1F1C] dark:text-[#E7E8E5] mb-3">Have a question for Dr. Esther?</p>
               <a href={waLink(`Hello Dr. Esther! I just read "${post.title}" and have a question.`)} target="_blank" rel="noreferrer" className="btn btn-wa">💬 Ask on WhatsApp</a>
             </div>
           </Reveal>
@@ -203,7 +203,7 @@ export default async function PostPage({ params }: { params: { slug: string } })
           {/* Continue reading */}
           <ContinueReading currentSlug={post.slug} currentCreatedAt={post.created_at} />
 
-          <hr className="my-14 border-[#D4EDD9] dark:border-white/10 max-w-3xl" />
+          <hr className="my-14 border-[#E7E8E5] dark:border-white/10 max-w-3xl" />
 
           <div className="max-w-3xl">
             <CommentsSection

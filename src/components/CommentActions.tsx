@@ -28,13 +28,13 @@ export function CommentActions({ id, status }: { id: string; status: string }) {
     <div className="flex gap-2 flex-wrap">
       {status !== "approved" && (
         <button onClick={() => set("approved")} disabled={busy}
-                className="px-3 py-1.5 rounded-full bg-[#4CAF6B] text-white text-xs font-bold hover:bg-[#2E7D42] disabled:opacity-50">
+                className="px-3 py-1.5 rounded-full bg-[#8FA396] text-white text-xs font-bold hover:bg-[#2B3D32] disabled:opacity-50">
           ✓ Approve
         </button>
       )}
       {status !== "rejected" && (
         <button onClick={() => set("rejected")} disabled={busy}
-                className="px-3 py-1.5 rounded-full bg-[#7A9480] text-white text-xs font-bold hover:bg-[#3D5444] disabled:opacity-50">
+                className="px-3 py-1.5 rounded-full bg-[#8A8E8A] text-white text-xs font-bold hover:bg-[#555A56] disabled:opacity-50">
           ✗ Reject
         </button>
       )}

@@ -111,7 +111,7 @@ export function AudioPlayer({ src, variant = "listen", label }: Props) {
 
   const colors = variant === "watch"
     ? { btn: "bg-[#B91C1C] hover:bg-[#8B1414] text-white", accent: "#B91C1C", soft: "bg-[#FEE2E2] dark:bg-white/5" }
-    : { btn: "bg-[#2E7D42] hover:bg-[#1E5C2E] text-white", accent: "#2E7D42", soft: "bg-[#EDF7EF] dark:bg-white/5" };
+    : { btn: "bg-[#2B3D32] hover:bg-[#1B1F1C] text-white", accent: "#2B3D32", soft: "bg-[#F2F2EF] dark:bg-white/5" };
 
   // YouTube / Vimeo: open in modal-like inline embed when expanded; otherwise pill button
   if (isExternalEmbed) {
@@ -140,7 +140,7 @@ export function AudioPlayer({ src, variant = "listen", label }: Props) {
         <button
           type="button"
           onClick={() => setOpen(false)}
-          className="mt-2 text-xs text-[#7A9480] hover:text-[#B91C1C]"
+          className="mt-2 text-xs text-[#8A8E8A] hover:text-[#B91C1C]"
         >
           × Close player
         </button>
@@ -189,7 +189,7 @@ export function AudioPlayer({ src, variant = "listen", label }: Props) {
         <button
           type="button"
           onClick={() => setOpen(false)}
-          className="text-xs text-[#7A9480] hover:text-[#B91C1C]"
+          className="text-xs text-[#8A8E8A] hover:text-[#B91C1C]"
         >
           × Close player
         </button>
@@ -200,7 +200,7 @@ export function AudioPlayer({ src, variant = "listen", label }: Props) {
 
   // Local audio: branded pill player
   return (
-    <div className={`inline-flex items-center gap-3 px-3 py-2 rounded-full border border-[#D4EDD9] dark:border-white/10 ${colors.soft} max-w-full`}>
+    <div className={`inline-flex items-center gap-3 px-3 py-2 rounded-full border border-[#E7E8E5] dark:border-white/10 ${colors.soft} max-w-full`}>
       <audio
         ref={mediaRef as React.RefObject<HTMLAudioElement>}
         src={src}
@@ -222,7 +222,7 @@ export function AudioPlayer({ src, variant = "listen", label }: Props) {
         )}
       </button>
 
-      <span className="text-[0.7rem] font-mono text-[#3D5444] dark:text-[#C8DFCC] tabular-nums whitespace-nowrap">
+      <span className="text-[0.7rem] font-mono text-[#555A56] dark:text-[#E2E3E0] tabular-nums whitespace-nowrap">
         {fmtTime(current)} / {duration > 0 ? fmtTime(duration) : "—:—"}
       </span>
 
@@ -233,14 +233,14 @@ export function AudioPlayer({ src, variant = "listen", label }: Props) {
         value={pct}
         onChange={seek}
         className="w-32 sm:w-44 h-1.5 rounded-full appearance-none cursor-pointer"
-        style={{ background: `linear-gradient(to right, ${colors.accent} 0%, ${colors.accent} ${pct}%, #D4EDD9 ${pct}%, #D4EDD9 100%)` }}
+        style={{ background: `linear-gradient(to right, ${colors.accent} 0%, ${colors.accent} ${pct}%, #E7E8E5 ${pct}%, #E7E8E5 100%)` }}
         aria-label="Seek"
       />
 
       <button
         type="button"
         onClick={cycleSpeed}
-        className="text-[0.7rem] font-bold text-[#3D5444] dark:text-[#C8DFCC] hover:text-[#1E5C2E] px-1.5 py-0.5 rounded tabular-nums"
+        className="text-[0.7rem] font-bold text-[#555A56] dark:text-[#E2E3E0] hover:text-[#1B1F1C] px-1.5 py-0.5 rounded tabular-nums"
         title="Playback speed"
       >
         {speed}×
@@ -250,7 +250,7 @@ export function AudioPlayer({ src, variant = "listen", label }: Props) {
         type="button"
         onClick={() => { (mediaRef.current as HTMLAudioElement | null)?.pause(); setPlaying(false); setOpen(false); }}
         aria-label="Close player"
-        className="text-[#7A9480] hover:text-[#B91C1C] text-lg leading-none p-1"
+        className="text-[#8A8E8A] hover:text-[#B91C1C] text-lg leading-none p-1"
       >
         ×
       </button>

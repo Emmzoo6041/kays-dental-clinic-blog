@@ -47,16 +47,16 @@ export function TableOfContents({ targetId = "article-body" }: { targetId?: stri
       transition={{ duration: 0.5, delay: 0.3 }}
       className="hidden xl:block max-w-[220px]"
     >
-      <p className="text-[0.65rem] uppercase tracking-[0.18em] text-[#7A9480] dark:text-[#8FA89A] font-bold mb-3">On this page</p>
-      <ul className="space-y-2 border-l-2 border-[#D4EDD9] dark:border-white/15 pl-4">
+      <p className="text-[0.65rem] uppercase tracking-[0.18em] text-[#8A8E8A] dark:text-[#999D99] font-bold mb-3">On this page</p>
+      <ul className="space-y-2 border-l-2 border-[#E7E8E5] dark:border-white/15 pl-4">
         {headings.map((h) => (
           <li key={h.id} className={h.level === 3 ? "pl-3" : ""}>
             <a
               href={`#${h.id}`}
               className={`block text-[0.82rem] leading-snug transition-colors ${
                 active === h.id
-                  ? "text-[#2E7D42] dark:text-[#4CAF6B] font-semibold"
-                  : "text-[#7A9480] dark:text-[#8FA89A] hover:text-[#1E5C2E] dark:hover:text-[#D4EDD9]"
+                  ? "text-[#2B3D32] dark:text-[#8FA396] font-semibold"
+                  : "text-[#8A8E8A] dark:text-[#999D99] hover:text-[#1B1F1C] dark:hover:text-[#E7E8E5]"
               }`}
             >
               {h.text}

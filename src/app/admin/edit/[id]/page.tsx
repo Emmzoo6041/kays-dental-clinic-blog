@@ -42,7 +42,7 @@ export default async function EditPostPage({ params }: { params: { id: string } 
 
   return (
     <div>
-      <h2 className="font-display text-2xl font-semibold mb-6 text-[#1E5C2E] dark:text-[#D4EDD9]">Edit post</h2>
+      <h2 className="font-display text-2xl font-semibold mb-6 text-[#1B1F1C] dark:text-[#E7E8E5]">Edit post</h2>
       <PostEditor initial={initial} />
     </div>
   );

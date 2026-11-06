@@ -28,23 +28,7 @@ export function NewsletterSection() {
   }
 
   return (
-    <section className="relative px-[5vw] py-20 overflow-hidden bg-[#FFFBE6] dark:bg-[#1a1810]">
-      {/* Floating decorative shapes */}
-      <motion.div
-        animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-10 left-[10%] text-5xl opacity-30"
-      >✉️</motion.div>
-      <motion.div
-        animate={{ y: [0, 18, 0], rotate: [0, -8, 0] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="absolute top-20 right-[12%] text-4xl opacity-30"
-      >🦷</motion.div>
-      <motion.div
-        animate={{ y: [0, -15, 0] }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-        className="absolute bottom-16 left-[20%] text-3xl opacity-30"
-      >💛</motion.div>
+    <section className="relative px-[5vw] py-20 overflow-hidden bg-[#FAFAF9] dark:bg-[#0e100f] border-t border-[#ECECEA] dark:border-white/5">
 
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -53,11 +37,11 @@ export function NewsletterSection() {
         transition={{ duration: 0.6 }}
         className="relative max-w-2xl mx-auto text-center"
       >
-        <span className="s-tag">✉ Newsletter</span>
-        <h2 className="font-display text-4xl md:text-5xl font-bold text-[#1E5C2E] dark:text-[#D4EDD9] mt-3 mb-4">
+        <span className="s-tag">Newsletter</span>
+        <h2 className="display-italic text-[2.2rem] md:text-[3rem] leading-[1.08] text-[#141614] dark:text-[#F2F2EF] mt-1 mb-4">
           Get the latest in your inbox
         </h2>
-        <p className="text-[#3D5444] dark:text-[#A5B8AB] mb-8 leading-relaxed">
+        <p className="text-[#555A56] dark:text-[#A6AAA6] mb-8 leading-relaxed">
           One short email a week from Dr. Esther — new articles, podcast episodes, and the occasional dental tip you can actually use. No spam, unsubscribe anytime.
         </p>
         <form onSubmit={submit} className="flex flex-col sm:flex-row gap-2 max-w-md mx-auto">
@@ -67,7 +51,7 @@ export function NewsletterSection() {
             placeholder="you@email.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="flex-1 px-5 py-3 rounded-full bg-white dark:bg-white/10 text-[#1A2E1E] dark:text-[#D4EDD9] placeholder:text-[#7A9480] outline-none border-2 border-[#D4EDD9] dark:border-white/15 focus:border-[#2E7D42]"
+            className="flex-1 px-5 py-3 rounded-[10px] bg-white dark:bg-white/10 text-[#1B1F1C] dark:text-[#E7E8E5] placeholder:text-[#8A8E8A] outline-none border border-[#DDDFDB] dark:border-white/15 focus:border-[#2B3D32]"
           />
           <button
             type="submit"
@@ -81,12 +65,12 @@ export function NewsletterSection() {
           <motion.p
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
-            className={`text-sm mt-4 font-semibold ${status === "error" ? "text-red-600" : "text-[#2E7D42]"}`}
+            className={`text-sm mt-4 font-semibold ${status === "error" ? "text-red-600" : "text-[#2B3D32]"}`}
           >
             {message}
           </motion.p>
         )}
-        <p className="text-xs text-[#7A9480] mt-4">Used by 500+ Ugandan families. We&apos;ll never share your email.</p>
+        <p className="text-xs text-[#8A8E8A] mt-4">Used by 500+ Ugandan families. We&apos;ll never share your email.</p>
       </motion.div>
     </section>
   );

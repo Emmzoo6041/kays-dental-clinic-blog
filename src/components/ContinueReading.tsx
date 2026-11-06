@@ -19,8 +19,8 @@ export async function ContinueReading({ currentSlug, currentCreatedAt }: { curre
 
   return (
     <Link href={`/blog/${prev.slug}`}
-          className="mt-12 block max-w-3xl group relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#1E5C2E] to-[#0f3d1a] text-white p-7 hover:shadow-2xl transition">
-      <div className="absolute -top-12 -right-12 w-40 h-40 rounded-full bg-[#E6B800]/15 blur-2xl" />
+          className="mt-12 block max-w-3xl group relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#1B1F1C] to-[#1b1f1c] text-white p-7 hover:shadow-2xl transition">
+      <div className="absolute -top-12 -right-12 w-40 h-40 rounded-full bg-[#B5A67C]/15 blur-2xl" />
       <div className="relative flex items-center gap-5 flex-wrap sm:flex-nowrap">
         <div className="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 bg-white/10">
           {prev.cover_url ? (
@@ -31,8 +31,8 @@ export async function ContinueReading({ currentSlug, currentCreatedAt }: { curre
           )}
         </div>
         <div className="flex-1 min-w-0">
-          <p className="text-xs uppercase tracking-[0.2em] text-[#FFD740] font-bold mb-1">Continue reading →</p>
-          <h3 className="font-display text-xl font-bold line-clamp-1 group-hover:text-[#FFD740] transition">
+          <p className="text-xs uppercase tracking-[0.2em] text-[#CDBF9A] font-bold mb-1">Continue reading →</p>
+          <h3 className="font-display text-xl font-bold line-clamp-1 group-hover:text-[#CDBF9A] transition">
             {prev.title}
           </h3>
           {prev.excerpt && <p className="text-sm text-white/65 line-clamp-1 mt-1">{prev.excerpt}</p>}

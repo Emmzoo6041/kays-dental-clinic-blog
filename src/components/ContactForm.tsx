@@ -27,10 +27,10 @@ export function ContactForm() {
       <input className="cf-in" type="tel" placeholder="Your WhatsApp number" value={phone} onChange={e => setPhone(e.target.value)} />
       <textarea className="cf-in cf-ta" placeholder="How can Dr. Esther help you today?" value={message} onChange={e => setMessage(e.target.value)} />
       <div className="flex gap-2 flex-wrap">
-        <button onClick={sendWA} className="btn btn-wa flex-1 min-w-[140px]">💬 Send via WhatsApp</button>
-        <button onClick={sendEmail} className="btn btn-green flex-1 min-w-[140px]">📧 Send via Email</button>
+        <button onClick={sendWA} className="btn btn-wa flex-1 min-w-[140px]">Send via WhatsApp</button>
+        <button onClick={sendEmail} className="btn btn-green flex-1 min-w-[140px]">Send via email</button>
       </div>
-      {msg && <p className="text-[#FFD740] text-sm font-bold mt-1 text-center">{msg}</p>}
+      {msg && <p className="text-[#555A56] dark:text-[#A6AAA6] text-sm font-medium mt-1 text-center">{msg}</p>}
     </div>
   );
 }

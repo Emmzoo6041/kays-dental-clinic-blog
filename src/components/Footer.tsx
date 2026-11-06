@@ -1,42 +1,44 @@
+import { MicIcon } from "./MicIcon";
 import Link from "next/link";
 import { CLINIC, waLink } from "@/lib/clinic";
 
 export function Footer() {
   return (
-    <footer className="bg-[#0a1a0b] text-white/55 px-[5vw] pt-14 pb-6">
+    <footer className="bg-[#0e100f] text-white/55 px-[5vw] pt-14 pb-6">
       <div className="grid lg:grid-cols-[2fr,1fr,1fr] gap-12 mb-10">
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-3">
-            <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#1E5C2E] to-[#2E7D42] grid place-items-center font-display text-xl font-bold text-white">K</div>
-            <h3 className="font-display text-lg text-[#FFD740]">Conversations with a Dentist</h3>
+            <div className="w-11 h-11 rounded-[12px] bg-white text-[#141614] grid place-items-center flex-shrink-0"><MicIcon size={28} /></div>
+            <h3 className="font-display text-lg text-white">Conversations with a Dentist</h3>
           </div>
           <p className="text-[0.82rem] leading-7 max-w-xs">
             Your trusted dental home in Kampala. Expert articles, podcasts, video tips, and world-class dental care — all from Dr. Esther, all in one place.
           </p>
           <address className="not-italic text-[0.79rem] text-white/35 leading-loose">
-            📍 {CLINIC.addressFull}<br />
-            📞 <a href={`tel:${CLINIC.phoneIntl}`} className="text-white/45 hover:text-[#FFD740]">{CLINIC.phone}</a><br />
-            💬 <a href={waLink()} target="_blank" rel="noreferrer" className="text-white/45 hover:text-[#FFD740]">WhatsApp Dr. Esther</a><br />
-            ✉ <a href={`mailto:${CLINIC.email}`} className="text-white/45 hover:text-[#FFD740]">{CLINIC.email}</a>
+            {CLINIC.addressFull}<br />
+            Call <a href={`tel:${CLINIC.phoneIntl}`} className="text-white/70 hover:text-white transition-colors tabular-nums">{CLINIC.phone}</a><br />
+            WhatsApp <a href={waLink()} target="_blank" rel="noreferrer" className="text-white/70 hover:text-white transition-colors tabular-nums">{CLINIC.whatsappDisplay}</a><br />
+            <a href={`mailto:${CLINIC.email}`} className="text-white/45 hover:text-white transition-colors">{CLINIC.email}</a>
           </address>
         </div>
 
         <div>
-          <h4 className="text-[0.67rem] uppercase tracking-[0.18em] text-[#E6B800] font-bold mb-4">Content</h4>
+          <h4 className="text-[0.67rem] uppercase tracking-[0.18em] text-white/40 font-semibold mb-4">Content</h4>
           <ul className="flex flex-col gap-2 list-none">
-            <li><Link href="/#articles" className="text-[0.83rem] font-semibold text-white/45 hover:text-[#FFD740]">📝 Articles</Link></li>
-            <li><Link href="/#podcasts" className="text-[0.83rem] font-semibold text-white/45 hover:text-[#FFD740]">🎙️ Podcasts</Link></li>
-            <li><Link href="/#videos" className="text-[0.83rem] font-semibold text-white/45 hover:text-[#FFD740]">🎬 Video Shorts</Link></li>
-            <li><Link href="/#about" className="text-[0.83rem] font-semibold text-white/45 hover:text-[#FFD740]">About Dr. Esther</Link></li>
-            <li><Link href="/#reviews" className="text-[0.83rem] font-semibold text-white/45 hover:text-[#FFD740]">Patient Reviews</Link></li>
-            <li><Link href="/faq" className="text-[0.83rem] font-semibold text-white/45 hover:text-[#FFD740]">FAQ</Link></li>
-            <li><Link href="/search" className="text-[0.83rem] font-semibold text-white/45 hover:text-[#FFD740]">🔍 Search</Link></li>
-            <li><Link href="/#contact" className="text-[0.83rem] font-semibold text-white/45 hover:text-[#FFD740]">Book Appointment</Link></li>
+            <li><Link href="/#articles" className="text-[0.83rem] font-medium text-white/55 hover:text-white transition-colors">Articles</Link></li>
+            <li><Link href="/#podcasts" className="text-[0.83rem] font-medium text-white/55 hover:text-white transition-colors">Podcasts</Link></li>
+            <li><Link href="/#videos" className="text-[0.83rem] font-medium text-white/55 hover:text-white transition-colors">Video Shorts</Link></li>
+            <li><Link href="/#about" className="text-[0.83rem] font-medium text-white/55 hover:text-white transition-colors">About Dr. Esther</Link></li>
+            <li><Link href="/#reviews" className="text-[0.83rem] font-medium text-white/55 hover:text-white transition-colors">Patient Reviews</Link></li>
+            <li><Link href="/learn" className="text-[0.83rem] font-medium text-white/55 hover:text-white transition-colors">Video library</Link></li>
+            <li><Link href="/faq" className="text-[0.83rem] font-medium text-white/55 hover:text-white transition-colors">FAQ</Link></li>
+            <li><Link href="/search" className="text-[0.83rem] font-medium text-white/55 hover:text-white transition-colors">Search</Link></li>
+            <li><Link href="/#contact" className="text-[0.83rem] font-medium text-white/55 hover:text-white transition-colors">Suggest a topic</Link></li>
           </ul>
         </div>
 
         <div>
-          <h4 className="text-[0.67rem] uppercase tracking-[0.18em] text-[#E6B800] font-bold mb-4">Treatments</h4>
+          <h4 className="text-[0.67rem] uppercase tracking-[0.18em] text-white/40 font-semibold mb-4">Treatments</h4>
           <ul className="flex flex-col gap-2 list-none">
             {[
               "Check-ups & Cleaning",
@@ -46,7 +48,7 @@ export function Footer() {
               "Children's Dentistry",
               "Holistic Dentistry"
             ].map(t => (
-              <li key={t}><Link href="/#contact" className="text-[0.83rem] font-semibold text-white/45 hover:text-[#FFD740]">{t}</Link></li>
+              <li key={t}><Link href="/#contact" className="text-[0.83rem] font-medium text-white/55 hover:text-white transition-colors">{t}</Link></li>
             ))}
           </ul>
         </div>

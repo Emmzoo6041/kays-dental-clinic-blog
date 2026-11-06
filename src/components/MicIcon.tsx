@@ -1,39 +1,52 @@
-// Branded microphone illustration — used in place of Dr Esther's avatar
-// on the header AND the big hero doctor card.
-export function MicIcon({ size = 44, accent = "#2E7D42", glow = "#E6B800", className = "" }: {
+import { useId } from "react";
+
+// Modern broadcast-style microphone (the brand mark). Line art in currentColor,
+// so it can sit on a dark tile (white mic) or a light background (ink mic).
+export function MicIcon({ size = 44, className = "" }: {
   size?: number;
+  /** @deprecated kept for backwards compatibility */
   accent?: string;
+  /** @deprecated kept for backwards compatibility */
   glow?: string;
   className?: string;
 }) {
+  const id = useId().replace(/:/g, "");
   return (
     <svg
-      viewBox="0 0 64 64"
+      viewBox="0 0 32 32"
       width={size}
       height={size}
       aria-label="Conversations with a Dentist"
       role="img"
       className={className}
       xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.7}
+      strokeLinecap="round"
+      strokeLinejoin="round"
     >
       <defs>
-        <radialGradient id="micHalo" cx="50%" cy="45%" r="50%">
-          <stop offset="0%" stopColor={glow} stopOpacity="0.35" />
-          <stop offset="70%" stopColor={glow} stopOpacity="0.05" />
-          <stop offset="100%" stopColor={glow} stopOpacity="0" />
-        </radialGradient>
-        <linearGradient id="micBody" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor={accent} />
-          <stop offset="100%" stopColor="#1E5C2E" />
-        </linearGradient>
+        <clipPath id={`grille-${id}`}>
+          <path d="M11.5 12.2V8.5a4.5 4.5 0 0 1 9 0v3.7z" />
+        </clipPath>
+        <pattern id={`mesh-${id}`} width="2.2" height="2.2" patternUnits="userSpaceOnUse">
+          <circle cx="1.1" cy="1.1" r="0.55" fill="currentColor" stroke="none" />
+        </pattern>
       </defs>
-      <circle cx="32" cy="30" r="30" fill="url(#micHalo)" />
-      <rect x="22" y="10" width="20" height="30" rx="10" fill="url(#micBody)" />
-      <rect x="25.5" y="13.5" width="3" height="23" rx="1.5" fill="#FFFFFF" opacity="0.22" />
-      <path d="M16 30 a16 16 0 0 0 32 0" fill="none" stroke={accent} strokeWidth="3" strokeLinecap="round" />
-      <rect x="30.5" y="46" width="3" height="8" rx="1.5" fill={accent} />
-      <rect x="22" y="53" width="20" height="3.5" rx="1.75" fill={accent} />
-      <circle cx="32" cy="22" r="2.4" fill={glow} />
+      {/* grille mesh */}
+      <rect x="11" y="3.5" width="10" height="9" fill={`url(#mesh-${id})`} stroke="none" clipPath={`url(#grille-${id})`} opacity="0.9" />
+      {/* capsule body */}
+      <rect x="11.5" y="4" width="9" height="15" rx="4.5" />
+      {/* band */}
+      <path d="M11.5 12.6h9" />
+      {/* yoke with pivot knobs */}
+      <path d="M7.5 12.5v1.8a8.5 8.5 0 0 0 17 0v-1.8" />
+      <circle cx="7.5" cy="11.3" r="1.2" />
+      <circle cx="24.5" cy="11.3" r="1.2" />
+      {/* stand */}
+      <path d="M16 22.8v4.2" />
+      <path d="M11 28.2h10" strokeWidth={2.2} />
     </svg>
   );
 }

@@ -29,7 +29,7 @@ export function CursorGlow() {
         height: 360,
         transform: "translate(-50%, -50%)",
         background:
-          "radial-gradient(circle, rgba(76,175,107,0.18) 0%, rgba(230,184,0,0.08) 35%, transparent 70%)",
+          "radial-gradient(circle, rgba(143,163,150,0.18) 0%, rgba(181,166,124,0.08) 35%, transparent 70%)",
         filter: "blur(20px)",
       }}
     />

@@ -34,16 +34,16 @@ export default async function CommentsModeration({
   return (
     <div>
       <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
-        <h2 className="font-display text-2xl font-semibold text-[#1E5C2E] dark:text-[#D4EDD9]">Comments</h2>
+        <h2 className="font-display text-2xl font-semibold text-[#1B1F1C] dark:text-[#E7E8E5]">Comments</h2>
         <div className="flex gap-2 flex-wrap">
           {[
-            { key: "pending",  label: "Pending",  cls: "bg-[#E6B800] text-[#1E5C2E]" },
-            { key: "approved", label: "Approved", cls: "bg-[#4CAF6B] text-white" },
-            { key: "rejected", label: "Rejected", cls: "bg-[#7A9480] text-white" },
-            { key: "all",      label: "All",      cls: "bg-[#3D5444] text-white" },
+            { key: "pending",  label: "Pending",  cls: "bg-[#B5A67C] text-[#1B1F1C]" },
+            { key: "approved", label: "Approved", cls: "bg-[#8FA396] text-white" },
+            { key: "rejected", label: "Rejected", cls: "bg-[#8A8E8A] text-white" },
+            { key: "all",      label: "All",      cls: "bg-[#555A56] text-white" },
           ].map(f => (
             <Link key={f.key} href={`/admin/comments?filter=${f.key}`}
-                  className={`px-3 py-1.5 rounded-full text-xs font-bold ${filter === f.key ? f.cls : "bg-white dark:bg-white/5 text-[#7A9480] border border-[#C8DFCC] dark:border-white/15"}`}>
+                  className={`px-3 py-1.5 rounded-full text-xs font-bold ${filter === f.key ? f.cls : "bg-white dark:bg-white/5 text-[#8A8E8A] border border-[#E2E3E0] dark:border-white/15"}`}>
               {f.label} {f.key !== "all" && `(${countMap[f.key] || 0})`}
             </Link>
           ))}
@@ -51,24 +51,24 @@ export default async function CommentsModeration({
       </div>
 
       {!comments || comments.length === 0 ? (
-        <div className="bg-white dark:bg-white/5 rounded-2xl border-2 border-dashed border-[#C8DFCC] dark:border-white/10 p-12 text-center text-[#7A9480]">
+        <div className="bg-white dark:bg-white/5 rounded-2xl border-2 border-dashed border-[#E2E3E0] dark:border-white/10 p-12 text-center text-[#8A8E8A]">
           {filter === "pending" ? "No pending comments. You're all caught up! 🎉" : `No ${filter} comments.`}
         </div>
       ) : (
         <ul className="space-y-4">
           {comments.map((c: any) => (
-            <li key={c.id} className="bg-white dark:bg-white/5 rounded-2xl border-2 border-[#C8DFCC] dark:border-white/10 p-5">
+            <li key={c.id} className="bg-white dark:bg-white/5 rounded-2xl border-2 border-[#E2E3E0] dark:border-white/10 p-5">
               <div className="flex items-start justify-between gap-4 mb-3 flex-wrap">
                 <div>
-                  <p className="font-bold text-[#1E5C2E] dark:text-[#D4EDD9]">{c.author_name}</p>
-                  <p className="text-xs text-[#7A9480] mt-0.5">
+                  <p className="font-bold text-[#1B1F1C] dark:text-[#E7E8E5]">{c.author_name}</p>
+                  <p className="text-xs text-[#8A8E8A] mt-0.5">
                     {format(new Date(c.created_at), "MMM d, yyyy 'at' h:mm a")} ·{" "}
-                    on <Link href={`/blog/${c.posts.slug}`} className="text-[#2E7D42] hover:underline">{c.posts.title}</Link>
+                    on <Link href={`/blog/${c.posts.slug}`} className="text-[#2B3D32] hover:underline">{c.posts.title}</Link>
                   </p>
                 </div>
                 <StatusBadge status={c.status} />
               </div>
-              <p className="text-[#3D5444] dark:text-[#C8DFCC] whitespace-pre-wrap mb-4">{c.body}</p>
+              <p className="text-[#555A56] dark:text-[#E2E3E0] whitespace-pre-wrap mb-4">{c.body}</p>
               <CommentActions id={c.id} status={c.status} />
             </li>
           ))}
@@ -80,9 +80,9 @@ export default async function CommentsModeration({
 
 function StatusBadge({ status }: { status: string }) {
   const map: Record<string, string> = {
-    pending:  "bg-[#FFF3B0] text-[#B8860B] border-[#E6B800]",
-    approved: "bg-[#D4EDD9] text-[#1E5C2E] border-[#4CAF6B]",
-    rejected: "bg-[#7A9480]/20 text-[#3D5444] border-[#7A9480]",
+    pending:  "bg-[#F3F0E8] text-[#7D6F4E] border-[#B5A67C]",
+    approved: "bg-[#E7E8E5] text-[#1B1F1C] border-[#8FA396]",
+    rejected: "bg-[#8A8E8A]/20 text-[#555A56] border-[#8A8E8A]",
   };
   return (
     <span className={`px-3 py-1 rounded-full text-[0.65rem] font-bold uppercase tracking-wider border ${map[status] || map.pending}`}>

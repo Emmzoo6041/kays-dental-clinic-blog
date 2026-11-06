@@ -8,7 +8,7 @@ import React, { useRef, useState, useEffect, useCallback } from "react";
  * - Four buttons: First, Prev, Next, Last.
  * - Mobile-friendly: large tap targets, swipe works natively.
  */
-export function Slider({ children, accent = "#2E7D42" }: { children: React.ReactNode; accent?: string }) {
+export function Slider({ children, accent = "#2B3D32" }: { children: React.ReactNode; accent?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const [atStart, setAtStart] = useState(true);
   const [atEnd, setAtEnd] = useState(false);
@@ -121,8 +121,8 @@ function SliderBtn({
       title={title}
       className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-bold transition border-2
         ${disabled
-          ? "opacity-40 cursor-not-allowed border-[#D4EDD9] dark:border-white/10 text-[#7A9480]"
-          : "border-[#D4EDD9] dark:border-white/15 text-[#3D5444] dark:text-[#C8DFCC] hover:text-white hover:border-transparent"
+          ? "opacity-40 cursor-not-allowed border-[#E7E8E5] dark:border-white/10 text-[#8A8E8A]"
+          : "border-[#E7E8E5] dark:border-white/15 text-[#555A56] dark:text-[#E2E3E0] hover:text-white hover:border-transparent"
         }`}
       style={!disabled ? { ["--hover" as string]: accent } : undefined}
       onMouseEnter={(e) => {

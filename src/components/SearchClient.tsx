@@ -52,22 +52,22 @@ export function SearchClient() {
           placeholder="e.g. flossing, kids, whitening, sugar..."
           className="input !text-lg !py-4 !pl-12 !pr-12"
         />
-        <span className="absolute left-4 top-1/2 -translate-y-1/2 text-2xl text-[#7A9480]">🔍</span>
+        <span className="absolute left-4 top-1/2 -translate-y-1/2 text-2xl text-[#8A8E8A]">🔍</span>
         {q && (
           <button
             onClick={() => setQ("")}
             aria-label="Clear search"
-            className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 grid place-items-center rounded-full hover:bg-[#EDF7EF] dark:hover:bg-white/10 text-[#7A9480]"
+            className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 grid place-items-center rounded-full hover:bg-[#F2F2EF] dark:hover:bg-white/10 text-[#8A8E8A]"
           >
             ✕
           </button>
         )}
       </div>
 
-      {loading && <p className="text-[#7A9480] text-sm">Searching…</p>}
+      {loading && <p className="text-[#8A8E8A] text-sm">Searching…</p>}
 
       {searched && !loading && results.length === 0 && (
-        <div className="text-center py-12 px-8 text-[#7A9480] bg-[#F6F9F3] dark:bg-white/5 rounded-2xl border-2 border-dashed border-[#C8DFCC] dark:border-white/10">
+        <div className="text-center py-12 px-8 text-[#8A8E8A] bg-[#F8F8F6] dark:bg-white/5 rounded-2xl border-2 border-dashed border-[#E2E3E0] dark:border-white/10">
           No posts matched <strong>&ldquo;{q}&rdquo;</strong>. Try different keywords.
         </div>
       )}
@@ -89,9 +89,9 @@ export function SearchClient() {
               >
                 <Link
                   href={`/blog/${r.slug}`}
-                  className="flex gap-4 p-4 bg-white dark:bg-white/5 border-2 border-[#C8DFCC] dark:border-white/10 rounded-2xl hover:border-[#4CAF6B] hover:-translate-y-0.5 transition"
+                  className="flex gap-4 p-4 bg-white dark:bg-white/5 border-2 border-[#E2E3E0] dark:border-white/10 rounded-2xl hover:border-[#8FA396] hover:-translate-y-0.5 transition"
                 >
-                  <div className="w-20 h-20 rounded-xl overflow-hidden bg-[#EDF7EF] flex-shrink-0 grid place-items-center">
+                  <div className="w-20 h-20 rounded-xl overflow-hidden bg-[#F2F2EF] flex-shrink-0 grid place-items-center">
                     {r.cover_url ? (
                       /* eslint-disable-next-line @next/next/no-img-element */
                       <img src={r.cover_url} alt="" className="w-full h-full object-cover" />
@@ -100,14 +100,14 @@ export function SearchClient() {
                     )}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 text-xs text-[#7A9480] uppercase tracking-wider font-bold mb-1">
+                    <div className="flex items-center gap-2 text-xs text-[#8A8E8A] uppercase tracking-wider font-bold mb-1">
                       <span>{typeEmoji(r.type)} {r.type}</span>
                       {r.duration && <><span>·</span><span>{r.duration}</span></>}
                     </div>
-                    <h3 className="font-display text-lg font-semibold text-[#1E5C2E] dark:text-[#D4EDD9] line-clamp-1">
+                    <h3 className="font-display text-lg font-semibold text-[#1B1F1C] dark:text-[#E7E8E5] line-clamp-1">
                       {r.title}
                     </h3>
-                    {r.excerpt && <p className="text-sm text-[#3D5444] dark:text-[#C8DFCC] line-clamp-2 mt-1">{r.excerpt}</p>}
+                    {r.excerpt && <p className="text-sm text-[#555A56] dark:text-[#E2E3E0] line-clamp-2 mt-1">{r.excerpt}</p>}
                   </div>
                 </Link>
               </motion.li>
