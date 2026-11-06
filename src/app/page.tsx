@@ -7,7 +7,8 @@ import { ReviewDeck } from "@/components/ReviewDeck";
 import { Reveal } from "@/components/Reveal";
 import { NewsletterSection } from "@/components/NewsletterSection";
 import { HeroIntro } from "@/components/HeroIntro";
-import { ArticlesShowcase, PodcastsShowcase, VideosShowcase } from "@/components/HomeShowcases";
+import { ArticlesShowcase, PodcastsShowcase } from "@/components/HomeShowcases";
+import { TipsReel } from "@/components/TipsReel";
 import { VideoLibraryTabs } from "@/components/VideoLibrary";
 
 export const dynamic = "force-dynamic";
@@ -22,7 +23,6 @@ export default async function Home() {
 
   const articles = (posts || []).filter((p) => p.type === "article");
   const podcasts = (posts || []).filter((p) => p.type === "podcast");
-  const videos = (posts || []).filter((p) => p.type === "video");
 
   return (
     <>
@@ -79,12 +79,11 @@ export default async function Home() {
             <div>
               <div className="s-tag s-tag-vid">Video shorts</div>
               <h2 className="display-italic text-[2.1rem] sm:text-[2.6rem] lg:text-[3.1rem] leading-[1.08] text-[#141614] dark:text-[#F2F2EF] mt-1">Quick video tips</h2>
-              <p className="text-[#555A56] dark:text-[#A6AAA6] mt-2">Two-minute videos that save you a trip to the clinic.</p>
+              <p className="text-[#555A56] dark:text-[#A6AAA6] mt-2">One-minute answers from Dr. Esther to the questions she hears most.</p>
             </div>
-            <Link href="/search?type=video" className="text-[#141614] dark:text-[#E7E8E5] font-semibold text-sm border-b border-[#141614]/30 dark:border-white/30 hover:opacity-70 transition-opacity">More videos →</Link>
           </div>
         </Reveal>
-        <VideosShowcase videos={videos} />
+        <TipsReel />
       </section>
 
       {/* VIEWMEDICA LIBRARY */}
