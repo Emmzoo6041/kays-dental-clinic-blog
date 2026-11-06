@@ -109,7 +109,6 @@ export default async function PostPage({ params }: { params: { slug: string } })
     "mainEntityOfPage": { "@type": "WebPage", "@id": `${base}/blog/${post.slug}` }
   };
 
-  const hasArticleListen = post.type === "article" && post.audio_url;
   const hasPodcastWatch = post.type === "podcast" && post.podcast_video_url;
 
   return (
@@ -126,14 +125,14 @@ export default async function PostPage({ params }: { params: { slug: string } })
 
           <header className="mt-6 mb-8 max-w-3xl">
             <Reveal direction="up" delay={0.05}>
-              <span className={typeMeta.tag}>{typeMeta.emoji} {typeMeta.label}{post.duration ? ` · ${post.duration}` : ""}</span>
+              <span className={typeMeta.tag}>{post.type === "article" && post.category ? `${typeMeta.label} · ${post.category}` : typeMeta.label}{post.duration ? ` · ${post.duration}` : ""}</span>
             </Reveal>
             <Reveal direction="up" delay={0.1}>
-              <h1 className={`font-display text-4xl md:text-5xl font-bold mt-4 leading-tight ${typeMeta.color} dark:!text-[#E7E8E5]`}>{post.title}</h1>
+              <h1 className="display-italic text-[2.3rem] md:text-[3.2rem] leading-[1.06] mt-3 text-[#141614] dark:text-[#F2F2EF]">{post.title}</h1>
             </Reveal>
             {post.excerpt && (
               <Reveal direction="up" delay={0.15}>
-                <p className="mt-5 text-lg text-[#555A56] dark:text-[#A6AAA6] italic font-display">{post.excerpt}</p>
+                <p className="mt-5 text-[1.15rem] leading-[1.6] text-[#555A56] dark:text-[#A6AAA6]">{post.excerpt}</p>
               </Reveal>
             )}
             <Reveal direction="up" delay={0.2}>
@@ -144,12 +143,9 @@ export default async function PostPage({ params }: { params: { slug: string } })
             </Reveal>
 
             {/* Listen / Watch buttons */}
-            {(hasArticleListen || post.type === "podcast") && (
+            {post.type === "podcast" && (
               <Reveal direction="up" delay={0.25}>
                 <div className="mt-5 flex flex-wrap gap-2.5 items-center">
-                  {hasArticleListen && (
-                    <AudioPlayer src={post.audio_url} variant="listen" label="Listen to article" />
-                  )}
                   {post.type === "podcast" && post.media_url && (
                     <AudioPlayer src={post.media_url} variant="listen" label="Listen" />
                   )}
@@ -164,7 +160,7 @@ export default async function PostPage({ params }: { params: { slug: string } })
           {post.cover_url && !ytId && (
             <Reveal direction="up" delay={0.3}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={post.cover_url} alt="" className="w-full max-w-3xl rounded-2xl aspect-[16/9] object-cover mb-8" />
+              <img src={post.cover_url} alt={post.title} className="w-full max-w-3xl rounded-[20px] aspect-[16/9] object-cover mb-10 bg-[#E8E8E6]" />
             </Reveal>
           )}
 
@@ -186,9 +182,9 @@ export default async function PostPage({ params }: { params: { slug: string } })
           <div className="prose-blog max-w-3xl" dangerouslySetInnerHTML={{ __html: html }} />
 
           <Reveal direction="up">
-            <div className="mt-10 p-6 bg-[#F2F2EF] dark:bg-white/5 rounded-2xl border-2 border-[#8FA396]/40 text-center max-w-3xl">
+            <div className="mt-12 p-7 bg-[#F4F4F2] dark:bg-white/5 rounded-[20px] border border-[#E7E8E5] dark:border-white/10 text-center max-w-3xl">
               <p className="font-display text-lg text-[#1B1F1C] dark:text-[#E7E8E5] mb-3">Have a question for Dr. Esther?</p>
-              <a href={waLink(`Hello Dr. Esther! I just read "${post.title}" and have a question.`)} target="_blank" rel="noreferrer" className="btn btn-wa">💬 Ask on WhatsApp</a>
+              <a href={waLink(`Hello Dr. Esther! I just read "${post.title}" and have a question.`)} target="_blank" rel="noreferrer" className="btn btn-green">Ask on WhatsApp</a>
             </div>
           </Reveal>
 

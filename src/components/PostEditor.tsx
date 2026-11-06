@@ -211,18 +211,6 @@ export function PostEditor({ initial }: { initial?: Partial<PostFormData> }) {
         </>
       )}
 
-      {isArticle && (
-        <Section title="Optional: Audio narration (for the Listen button)">
-          <MediaUpload
-            value={form.audio_url}
-            onChange={(u) => update("audio_url", u)}
-            label=""
-            hint="If you record yourself reading this article, drop the .mp3 here. A 'Listen' button will appear on the article."
-            accept="audio"
-          />
-        </Section>
-      )}
-
       <Section title="Category and tags">
         <Field label="Category">
           <select
