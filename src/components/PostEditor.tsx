@@ -194,7 +194,7 @@ export function PostEditor({ initial }: { initial?: Partial<PostFormData> }) {
               value={form.media_url}
               onChange={(u) => update("media_url", u)}
               label=""
-              hint="Drop your .mp3, .m4a, or .mp4 file (up to 50MB). If it's audio, viewers see a 'Listen' button; if video, they see a 'Watch' button with picture. Or paste any URL."
+              hint="Full video episodes: upload to YouTube and paste the YouTube link here (best for long episodes). Short audio: drop an .mp3 or .m4a (up to 50MB)."
               accept="any"
             />
           </Section>

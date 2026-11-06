@@ -124,9 +124,9 @@ export function ArticlesShowcase({ articles }: { articles: Post[] }) {
 function PodcastArt({ p, className = "" }: { p: Post; className?: string }) {
   return (
     <div className={`relative overflow-hidden bg-[#ECECEA] dark:bg-white/5 ${className}`}>
-      {p.cover_url ? (
+      {p.cover_url || youtubeThumb(p.media_url) ? (
         /* eslint-disable-next-line @next/next/no-img-element */
-        <img src={p.cover_url} alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+        <img src={(p.cover_url || youtubeThumb(p.media_url))!} alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
       ) : (
         <div className="absolute inset-0 grid place-items-center text-[2.2em]">🎙️</div>
       )}
