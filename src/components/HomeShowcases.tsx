@@ -32,7 +32,7 @@ function Empty({ label }: { label: string }) {
 /* ARTICLES                                                            */
 /* ------------------------------------------------------------------ */
 
-export function ArticlesShowcase({ articles }: { articles: Post[] }) {
+export function ArticlesShowcase({ articles, hrefBase = "/blog/" }: { articles: Post[]; hrefBase?: string }) {
   if (articles.length === 0) return <Empty label="articles" />;
   const [lead, ...rest] = articles;
   const more = rest.slice(0, 4);
@@ -40,7 +40,7 @@ export function ArticlesShowcase({ articles }: { articles: Post[] }) {
   return (
     <div className={`grid grid-cols-1 gap-8 lg:gap-12 ${more.length ? "lg:grid-cols-[1.35fr,1fr]" : ""}`}>
       {/* Lead story */}
-      <Link href={`/blog/${lead.slug}`} className="group block">
+      <Link href={`${hrefBase}${lead.slug}`} className="group block">
         <div className="relative aspect-[16/10] rounded-[20px] overflow-hidden bg-[#F2F2EF] dark:bg-white/5">
           {lead.cover_url ? (
             /* eslint-disable-next-line @next/next/no-img-element */
@@ -81,7 +81,7 @@ export function ArticlesShowcase({ articles }: { articles: Post[] }) {
           <ol>
             {more.map((a, i) => (
               <li key={a.id} className="border-b border-[#E7E8E5] dark:border-white/10">
-                <Link href={`/blog/${a.slug}`} className="group flex gap-4 py-5">
+                <Link href={`${hrefBase}${a.slug}`} className="group flex gap-4 py-5">
                   <span className="font-display text-2xl font-bold text-[#E2E3E0] dark:text-white/20 leading-none w-7 flex-shrink-0 pt-1">
                     {String(i + 2).padStart(2, "0")}
                   </span>
